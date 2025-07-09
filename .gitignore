@@ -1,0 +1,43 @@
+# Slate build artifacts
+build/
+source/includes/_*.md.orig
+
+# Bundler config
+.bundle/
+vendor/
+
+# Ruby environment
+.ruby-version
+.ruby-gemset
+
+# Node dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+.sass-cache/
+
+# Environment variables
+.env
+.env.*
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Compiled outputs
+*.gem
+*.rbc
