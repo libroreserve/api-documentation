@@ -10,13 +10,13 @@ The Kittn API uses the following error codes:
 Error Code | Meaning
 ---------- | -------
 400 | Bad Request -- Your request is invalid.
-401 | Unauthorized -- Your API key is wrong.
-403 | Forbidden -- The kitten requested is hidden for administrators only.
-404 | Not Found -- The specified kitten could not be found.
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method.
+401 | Unauthorized -- The token is missing or invalid.
+402 | Unauthorized -- Your subscription plan does not allow API access, please contact success@libroreserve.com to subscribe the Premium Plan
+403 | Forbidden -- The token has expired or is invalid.
+404 | Not Found -- The specified resource could not be found.
+405 | Method Not Allowed -- The token does not allow access to this endpoint.
 406 | Not Acceptable -- You requested a format that isn't json.
-410 | Gone -- The kitten requested has been removed from our servers.
-418 | I'm a teapot.
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
+409 | Conflict -- The request could not be completed due to a conflict with the current state of the resource.
+429 | Too Many Requests -- You're requesting too many resources! Slow down!
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.

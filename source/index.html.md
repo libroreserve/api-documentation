@@ -44,6 +44,5 @@ The Libro API follows REST principles and provides JSON:API-compliant responses.
 
 | Resource | Description |
 |----------|------------|
-| [Restaurants](//#restaurants) | Restaurant profiles, availability, and settings |
-| [Bookings](//#bookings) | Reservation creation and management |
-| [Customers](//#customers) | Customer profile management |
+| [Restaurants](#restaurants) | Restaurant profiles, availability, and settings |
+| [Bookings](#bookings) | Reservation creation and management |
