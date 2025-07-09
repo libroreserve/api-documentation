@@ -1,0 +1,2183 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Libro API"
+        >
+    <title>Libro API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-9c19b03a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-024da600.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-fd159581.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#getting-started" class="toc-h2 toc-link" data-title="Getting Started">Getting Started</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#oauth-implementation-guide" class="toc-h2 toc-link" data-title="OAuth Implementation Guide">OAuth Implementation Guide</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#restaurants-api" class="toc-h1 toc-link" data-title="Restaurants API">Restaurants API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-restaurants" class="toc-h2 toc-link" data-title="Get Restaurants">Get Restaurants</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#bookings-api" class="toc-h1 toc-link" data-title="Bookings API">Bookings API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#booking-object" class="toc-h2 toc-link" data-title="Booking Object">Booking Object</a>
+                  </li>
+                  <li>
+                    <a href="#authentication-2" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#list-bookings" class="toc-h2 toc-link" data-title="List Bookings">List Bookings</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-booking" class="toc-h2 toc-link" data-title="Create a Booking">Create a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-booking" class="toc-h2 toc-link" data-title="Update a Booking">Update a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#reschedule-a-booking" class="toc-h2 toc-link" data-title="Reschedule a Booking">Reschedule a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-booking" class="toc-h2 toc-link" data-title="Retrieve a Booking">Retrieve a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#cancel-a-booking" class="toc-h2 toc-link" data-title="Cancel a Booking">Cancel a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-booking-2" class="toc-h2 toc-link" data-title="Create a Booking">Create a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-booking" class="toc-h2 toc-link" data-title="Get a Specific Booking">Get a Specific Booking</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-booking-2" class="toc-h2 toc-link" data-title="Update a Booking">Update a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#reschedule-a-booking-2" class="toc-h2 toc-link" data-title="Reschedule a Booking">Reschedule a Booking</a>
+                  </li>
+                  <li>
+                    <a href="#cancel-a-booking-2" class="toc-h2 toc-link" data-title="Cancel a Booking">Cancel a Booking</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li>To get an API access, please contact:</li>
+            <li><a href="mailto:admin@libroreserve.com">admin@libroreserve.com</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the <strong>Libro API</strong> — your comprehensive toolkit for integrating restaurant reservation management into your applications. This documentation provides detailed guidance on accessing our API endpoints for booking management, restaurant information, and customer data.</p>
+<h2 id='getting-started'>Getting Started</h2>
+<p>The Libro API uses RESTful principles with JSON:API-compliant responses. All data is exchanged in JSON format, and authentication is handled through OAuth 2.0 bearer tokens.</p>
+<h3 id='authentication-amp-access'>🔐 Authentication &amp; Access</h3>
+<p>To begin your integration:</p>
+
+<ol>
+<li><strong>Request API Access</strong>: Contact us at <a href="mailto:admin@libroreserve.com">admin@libroreserve.com</a> to be added to our partner program</li>
+<li><strong>Obtain OAuth Credentials</strong>: You&#39;ll receive client ID and secret for authentication</li>
+<li><strong>Set Up Your Environment</strong>: Choose between production or staging based on your development phase</li>
+</ol>
+
+<p>If you require a staging environment for development and testing, please specify this in your access request.</p>
+<h3 id='environment-urls'>🌐 Environment URLs</h3>
+<table><thead>
+<tr>
+<th>Environment</th>
+<th>Base URL</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Production</td>
+<td><code>https://api.libroreserve.com</code></td>
+<td>Live system integration</td>
+</tr>
+<tr>
+<td>Staging</td>
+<td><code>https://api.staging.libro.app</code></td>
+<td>Testing and development</td>
+</tr>
+</tbody></table>
+<h3 id='technical-requirements'>⚠️ Technical Requirements</h3>
+<ul>
+<li><strong>API Versioning</strong>: Always include the Accept header in your requests to specify the API version: <code>application/vnd.libro-restricted-v2+json</code></li>
+<li><strong>Response Format</strong>: All responses follow the JSON:API specification for consistent data formatting</li>
+<li><strong>HTTPS Required</strong>: All communication must use secure HTTPS connections</li>
+<li><strong>Redirect Security</strong>: <strong>only for production</strong> Callback URLs must use HTTPS; HTTP-based callbacks (e.g., <code>http://mywebsite/callback/libro</code>) are not supported</li>
+</ul>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>Example of OAuth authentication flow:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'oauth2'</span>
+
+<span class="c1"># Step 1: Get authorization URL</span>
+<span class="n">client</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+  <span class="s1">'CLIENT_ID'</span><span class="p">,</span>
+  <span class="s1">'CLIENT_SECRET'</span><span class="p">,</span>
+  <span class="ss">site: </span><span class="s1">'https://accounts.libroreserve.com'</span><span class="p">,</span>
+  <span class="ss">authorize_url: </span><span class="s1">'/oauth/authorize'</span><span class="p">,</span>
+  <span class="ss">token_url: </span><span class="s1">'/oauth/token'</span>
+<span class="p">)</span>
+
+<span class="n">authorize_url</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">auth_code</span><span class="p">.</span><span class="nf">authorize_url</span><span class="p">(</span>
+  <span class="ss">redirect_uri: </span><span class="s1">'https://app.example.io/oauth/callback'</span><span class="p">,</span>
+  <span class="ss">scope: </span><span class="s1">'bookings people'</span>
+<span class="p">)</span>
+
+<span class="c1"># Step 2: Redirect user to authorize_url</span>
+<span class="c1"># ... user authorizes app and is redirected back ...</span>
+
+<span class="c1"># Step 3: Exchange code for access token</span>
+<span class="n">code</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:code</span><span class="p">]</span> <span class="c1"># From callback</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">auth_code</span><span class="p">.</span><span class="nf">get_token</span><span class="p">(</span>
+  <span class="n">code</span><span class="p">,</span>
+  <span class="ss">redirect_uri: </span><span class="s1">'https://app.example.io/oauth/callback'</span>
+<span class="p">)</span>
+
+<span class="c1"># Step 4: Use access token for API requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">token</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s1">'/v2/restricted/bookings'</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Step 4: Use access token for API requests
+</span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Bearer </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s">'</span><span class="p">,</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/vnd.libro-restricted-v2+json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s">'https://api.libroreserve.com/v2/restricted/bookings'</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Step 4: Use access token for API requests</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.libroreserve.com/v2/restricted/bookings</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">accessToken</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Accept</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/vnd.libro-restricted-v2+json</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Using the access token for API requests</span>
+curl <span class="s2">"https://api.libroreserve.com/v2/restricted/bookings"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.libro-restricted-v2+json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+</code></pre></div><h2 id='oauth-implementation-guide'>OAuth Implementation Guide</h2>
+<p>Libro API uses OAuth 2.0 for secure authentication. Follow these steps to integrate with our API.</p>
+<h3 id='step-1-request-api-credentials'>Step 1: Request API Credentials</h3>
+<p>Before implementing the OAuth flow, you need to obtain your client credentials:</p>
+
+<ol>
+<li>Contact us at <a href="mailto:admin@libroreserve.com">admin@libroreserve.com</a> to request integration access</li>
+<li>Provide your redirect URIs and the API permission scopes you need</li>
+<li>We will provide you with a <code>CLIENT_ID</code> for your application</li>
+</ol>
+
+<p>If you need a sandbox account for development purposes, please mention this in your request.</p>
+<h4 id='available-scopes'>Available Scopes</h4>
+<table><thead>
+<tr>
+<th>Category</th>
+<th>Scope</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Bookings</strong></td>
+<td><code>bookings:get</code></td>
+<td>Permission to view booking information</td>
+</tr>
+<tr>
+<td></td>
+<td><code>bookings:create</code></td>
+<td>Permission to create new bookings</td>
+</tr>
+<tr>
+<td></td>
+<td><code>bookings:update</code></td>
+<td>Permission to modify existing bookings</td>
+</tr>
+<tr>
+<td></td>
+<td><code>bookings:cancel</code></td>
+<td>Permission to cancel bookings</td>
+</tr>
+<tr>
+<td><strong>Restaurants</strong></td>
+<td><code>restaurants</code></td>
+<td>Access restaurant information</td>
+</tr>
+<tr>
+<td><strong>People</strong></td>
+<td><code>people:create</code></td>
+<td>Permission to create customer profiles</td>
+</tr>
+<tr>
+<td></td>
+<td><code>people:update</code></td>
+<td>Permission to update customer information</td>
+</tr>
+<tr>
+<td><strong>Reviews</strong></td>
+<td><code>reviews</code></td>
+<td>Access to review data</td>
+</tr>
+</tbody></table>
+<h3 id='step-2-implement-the-authorization-request'>Step 2: Implement the Authorization Request</h3>
+<p>Create a &quot;Connect&quot; or &quot;Link Account&quot; button in your application that directs users to the Libro authorization URL:</p>
+<div class="highlight"><pre class="highlight html tab-html"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://accounts.libroreserve.com/oauth/authorize?client_id=CLIENT_ID&amp;redirect_uri=REDIRECT_URI&amp;response_type=code&amp;scope=REQUESTED_SCOPES"</span><span class="nt">&gt;</span>
+  Connect to Libro
+<span class="nt">&lt;/a&gt;</span>
+</code></pre></div>
+<aside class="notice">
+For the staging environment, use <code>accounts.staging.libro.app</code> instead of <code>accounts.libroreserve.com</code>
+</aside>
+<h4 id='parameters'>Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_id</td>
+<td>Yes</td>
+<td>Your application&#39;s CLIENT_ID</td>
+</tr>
+<tr>
+<td>redirect_uri</td>
+<td>Yes</td>
+<td>URL-encoded callback URL that was pre-registered with Libro</td>
+</tr>
+<tr>
+<td>response_type</td>
+<td>Yes</td>
+<td>Must be set to <code>code</code></td>
+</tr>
+<tr>
+<td>scope</td>
+<td>Yes</td>
+<td>Space-separated list of permission scopes (e.g., <code>bookings people</code>)</td>
+</tr>
+<tr>
+<td>state</td>
+<td>Recommended</td>
+<td>Arbitrary string to maintain state between request and callback</td>
+</tr>
+</tbody></table>
+<h3 id='step-3-handle-the-authorization-callback'>Step 3: Handle the Authorization Callback</h3>
+<p>After the user authorizes your application, they will be redirected to your <code>redirect_uri</code> with an authorization code:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>https://app.example.io/oauth/callback?code=AUTHORIZATION_CODE
+</code></pre></div>
+<p>If you provided a <code>state</code> parameter in your request, it will be returned unmodified in the callback.</p>
+<h3 id='step-4-exchange-code-for-access-token'>Step 4: Exchange Code for Access Token</h3>
+<p>Make a server-to-server POST request to exchange the authorization code for an access token:</p>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">POST https://accounts.libroreserve.com/oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code&amp;
+client_id=CLIENT_ID&amp;
+client_secret=CLIENT_SECRET&amp;
+code=AUTHORIZATION_CODE&amp;
+redirect_uri=ENCODED_REDIRECT_URI
+</span></code></pre></div><h4 id='response'>Response</h4>
+<p>A successful request will return JSON containing the access token:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCESS_TOKEN"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REFRESH_TOKEN"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bookings people"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="notice">
+The <code>expires_in</code> value is expressed in seconds (3600 = 1 hour).
+</aside>
+<h3 id='step-5-make-authenticated-api-requests'>Step 5: Make Authenticated API Requests</h3>
+<p>Include the access token in the Authorization header for all API requests:</p>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">GET https://api.libroreserve.com/v2/restricted/bookings
+Authorization: Bearer ACCESS_TOKEN
+Accept: application/vnd.libro-restricted-v2+json
+Content-Type: application/json
+</span></code></pre></div><h3 id='step-6-refreshing-expired-tokens'>Step 6: Refreshing Expired Tokens</h3>
+<p>When the access token expires, use the refresh token to obtain a new one without user interaction:</p>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">POST https://accounts.libroreserve.com/oauth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=refresh_token&amp;
+client_id=CLIENT_ID&amp;
+client_secret=CLIENT_SECRET&amp;
+refresh_token=REFRESH_TOKEN
+</span></code></pre></div><h4 id='response-2'>Response</h4><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW_ACCESS_TOKEN"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW_REFRESH_TOKEN"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bookings people"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="warning">
+Store refresh tokens securely. If a refresh token becomes invalid, the user will need to go through the authorization process again.
+</aside>
+<h3 id='error-handling'>Error Handling</h3>
+<p>Implement proper error handling for OAuth flows. Common errors include:</p>
+
+<ul>
+<li>Invalid authorization code</li>
+<li>Expired refresh token</li>
+<li>Invalid redirect URI</li>
+<li>Insufficient scope</li>
+</ul>
+
+<p>Ensure your application can gracefully handle these errors and prompt users to reauthorize when necessary.</p>
+<h1 id='restaurants-api'>Restaurants API</h1><h2 id='get-restaurants'>Get Restaurants</h2>
+<blockquote>
+<p>Example request to retrieve restaurants:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurants"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.libro-restricted-v2+json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
+<span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://api.libroreserve.com/restricted/restaurants"</span><span class="p">)</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">scheme</span> <span class="o">==</span> <span class="s1">'https'</span><span class="p">)</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/vnd.libro-restricted-v2+json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer ACCESS_TOKEN"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="n">restaurants</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.libroreserve.com/restricted/restaurants"</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
+    <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/vnd.libro-restricted-v2+json"</span><span class="p">,</span>
+    <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer ACCESS_TOKEN"</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="n">restaurants</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.libroreserve.com/restricted/restaurants</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Accept</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/vnd.libro-restricted-v2+json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">accessToken</span><span class="p">}</span><span class="s2">`</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restaurant"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Restaurant"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZZ000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.5001</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-73.5665</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"America/Montreal"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-01-01T12:00:00.0-04:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"online-booking-lead-months"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cancelation-delay"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"service-scopes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Diner"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15:00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Souper"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15:00"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03:00"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Retrieve a list of restaurants accessible to the authenticated user.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.libroreserve.com/restricted/restaurants</code></p>
+<h3 id='headers'>Headers</h3>
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content-Type</td>
+<td>Yes</td>
+<td>Must be set to <code>application/json</code></td>
+</tr>
+<tr>
+<td>Accept</td>
+<td>Yes</td>
+<td>Must be set to <code>application/vnd.libro-restricted-v2+json</code></td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Yes</td>
+<td>OAuth bearer token: <code>Bearer ACCESS_TOKEN</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-attributes'>Response Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>The restaurant&#39;s name</td>
+</tr>
+<tr>
+<td>active</td>
+<td>boolean</td>
+<td>Whether the restaurant is currently active in the system</td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>Unique restaurant code</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>number</td>
+<td>Geographic latitude coordinate</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>number</td>
+<td>Geographic longitude coordinate</td>
+</tr>
+<tr>
+<td>tz</td>
+<td>string</td>
+<td>Time zone of the restaurant&#39;s location</td>
+</tr>
+<tr>
+<td>created-at</td>
+<td>string</td>
+<td>ISO 8601 timestamp of when the restaurant was added to the system</td>
+</tr>
+<tr>
+<td>online-booking-lead-months</td>
+<td>integer</td>
+<td>Number of months in advance customers can make reservations</td>
+</tr>
+<tr>
+<td>cancelation-delay</td>
+<td>integer or null</td>
+<td>Minimum time (in seconds) before the reservation when cancellation is allowed; null means cancellations are not permitted</td>
+</tr>
+<tr>
+<td>service-scopes</td>
+<td>array</td>
+<td>List of service periods with their start and end times</td>
+</tr>
+</tbody></table>
+<h3 id='service-scopes'>Service Scopes</h3>
+<p>Each service scope represents a distinct service period offered by the restaurant (e.g., lunch, dinner).</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the service period</td>
+</tr>
+<tr>
+<td>startTime</td>
+<td>string</td>
+<td>Start time in 24-hour format (HH:MM)</td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>string</td>
+<td>End time in 24-hour format (HH:MM)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Service scopes are important for determining available reservation time slots.
+</aside>
+<h1 id='bookings-api'>Bookings API</h1>
+<p>The Bookings section of our API offers comprehensive endpoints for managing restaurant reservations.</p>
+<h2 id='booking-object'>Booking Object</h2>
+<blockquote>
+<p>Example of a booking object:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arrived"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-04-30T10:45:00.000-04:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"table-number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"private-note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Team Building reservation"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expected-leave-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-06T21:00:00.000-04:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dashboard"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"read-token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17cb72002"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"edit-token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17cb72018"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"booking-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reservation"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-04-30T10:51:01.730-04:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"arrived-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-06T18:55:00.000-04:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmed-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-01T10:00:01.730-04:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"seated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-06T19:00:00.000-04:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"completed-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-06T21:10:00.000-04:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"canceled-at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cancelation-allowed-until"</span><span class="p">:</span><span class="w"> </span><span class="mi">1753740000</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='booking-attributes'>Booking Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>size</td>
+<td>number</td>
+<td>Number of guests in the booking</td>
+</tr>
+<tr>
+<td>time</td>
+<td>string</td>
+<td>Scheduled arrival time in ISO 8601 format</td>
+</tr>
+<tr>
+<td>table-number</td>
+<td>string</td>
+<td>Assigned table number</td>
+</tr>
+<tr>
+<td>private-note</td>
+<td>string</td>
+<td>Internal note for restaurant staff (read-only)</td>
+</tr>
+<tr>
+<td>locale</td>
+<td>string</td>
+<td>Guest&#39;s preferred language (BCP 47 code, e.g., &quot;en&quot;, &quot;fr-CA&quot;)</td>
+</tr>
+<tr>
+<td>note</td>
+<td>string</td>
+<td>Public note visible to the guest</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Current status of the booking (e.g., &quot;arrived&quot;) (read-only)</td>
+</tr>
+<tr>
+<td>booking-type</td>
+<td>string</td>
+<td>Type of booking (e.g., &quot;walkin&quot;, &quot;reservation&quot;) (read-only)</td>
+</tr>
+<tr>
+<td>source</td>
+<td>string</td>
+<td>Booking source (e.g., &quot;dashboard&quot;, &quot;widget&quot;) (read-only)</td>
+</tr>
+<tr>
+<td>created-at</td>
+<td>string</td>
+<td>When the booking was created (ISO 8601) (read-only)</td>
+</tr>
+<tr>
+<td>arrived-at</td>
+<td>string</td>
+<td>When the guest arrived (ISO 8601) (read-only)</td>
+</tr>
+<tr>
+<td>expected-leave-at</td>
+<td>string</td>
+<td>Expected time of departure (ISO 8601) (read-only)</td>
+</tr>
+<tr>
+<td>confirmed-at</td>
+<td>string or null</td>
+<td>When the booking was confirmed (read-only)</td>
+</tr>
+<tr>
+<td>seated-at</td>
+<td>string or null</td>
+<td>When the guest was seated (read-only)</td>
+</tr>
+<tr>
+<td>completed-at</td>
+<td>string or null</td>
+<td>When the booking was completed (read-only)</td>
+</tr>
+<tr>
+<td>canceled-at</td>
+<td>string or null</td>
+<td>When the booking was canceled (read-only)</td>
+</tr>
+<tr>
+<td>cancelation-allowed-until</td>
+<td>timestamp or null</td>
+<td>The exact timestamp until which the reservation can be canceled; null if cancellation is not allowed</td>
+</tr>
+</tbody></table>
+<h2 id='authentication-2'>Authentication</h2>
+<p>All Bookings endpoints require authentication. To access these endpoints, you must include a valid authorization header with your OAuth token.</p>
+<h2 id='list-bookings'>List Bookings</h2>
+<blockquote>
+<p>Example request to list bookings:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">GET https://api.libroreserve.com/restricted/restaurant/bookings?date=2025-05-30
+Content-Type: application/json
+Accept: application/vnd.libro-restricted-v2+json
+Authorization: Bearer ACCESS_TOKEN
+</span></code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/bookings?date=2025-05-30"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.libro-restricted-v2+json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'uri'</span>
+<span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://api.libroreserve.com/restricted/restaurant/bookings?date=2025-05-30"</span><span class="p">)</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+<span class="n">http</span><span class="p">.</span><span class="nf">use_ssl</span> <span class="o">=</span> <span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">scheme</span> <span class="o">==</span> <span class="s1">'https'</span><span class="p">)</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/vnd.libro-restricted-v2+json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer ACCESS_TOKEN"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="n">bookings</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.libroreserve.com/restricted/restaurant/bookings"</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">"date"</span><span class="p">:</span> <span class="s">"2025-05-30"</span><span class="p">}</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
+    <span class="s">"Accept"</span><span class="p">:</span> <span class="s">"application/vnd.libro-restricted-v2+json"</span><span class="p">,</span>
+    <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer ACCESS_TOKEN"</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+<span class="n">bookings</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.libroreserve.com/restricted/restaurant/bookings?date=2025-05-30</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Accept</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/vnd.libro-restricted-v2+json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">accessToken</span><span class="p">}</span><span class="s2">`</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div>
+<p>Retrieve a list of bookings based on various filters and pagination options.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.libroreserve.com/restricted/restaurant/bookings</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>restaurant-code</td>
+<td>string</td>
+<td>Yes</td>
+<td>The unique code of the restaurant</td>
+</tr>
+<tr>
+<td>date</td>
+<td>string (YYYY-MM-DD)</td>
+<td>No</td>
+<td>Filter bookings by date</td>
+</tr>
+<tr>
+<td>time</td>
+<td>string (HH:MM)</td>
+<td>No</td>
+<td>Filter bookings by specific time</td>
+</tr>
+<tr>
+<td>started-after</td>
+<td>string (ISO 8601)</td>
+<td>No</td>
+<td>Filter bookings after this timestamp</td>
+</tr>
+<tr>
+<td>started-before</td>
+<td>string (ISO 8601)</td>
+<td>No</td>
+<td>Filter bookings before this timestamp</td>
+</tr>
+<tr>
+<td>guest-email</td>
+<td>string</td>
+<td>No</td>
+<td>Filter bookings by guest email</td>
+</tr>
+<tr>
+<td>guest-phone</td>
+<td>string</td>
+<td>No</td>
+<td>Filter bookings by guest phone number</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>No</td>
+<td>Filter by booking status</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>No</td>
+<td>Page number for pagination (default: 1)</td>
+</tr>
+<tr>
+<td>page-size</td>
+<td>integer</td>
+<td>No</td>
+<td>Number of results per page (default: 25, max: 100)</td>
+</tr>
+</tbody></table>
+<h3 id='search-examples'>Search Examples</h3>
+<p>You can search for bookings using various parameters such as date, time, time range, or guest information:</p>
+
+<ul>
+<li>Search by date: <code>?date=2025-05-30</code></li>
+<li>Search by date and time: <code>?date=2025-05-30&amp;time=13:00</code></li>
+<li>Search by guest phone number: <code>?guest-phone=15141111111</code></li>
+</ul>
+<h2 id='create-a-booking'>Create a Booking</h2>
+<blockquote>
+<p>Example request to create a booking:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">POST https://api.libroreserve.com/restricted/restaurant/bookings
+Content-Type: application/json
+Accept: application/vnd.libro-restricted-v2+json
+Authorization: Bearer ACCESS_TOKEN
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"restaurant-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QC016214487921"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-07"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It will be my Birthday party"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"table-number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"people"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5141111111"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"preferred-communication-channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"device-infos"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Create a new reservation for a restaurant.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.libroreserve.com/restricted/restaurant/bookings</code></p>
+<h3 id='request-parameters'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>restaurant-code</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique identifier for the restaurant</td>
+</tr>
+<tr>
+<td>data.attributes.size</td>
+<td>integer</td>
+<td>Yes</td>
+<td>Number of guests for the booking</td>
+</tr>
+<tr>
+<td>data.attributes.date</td>
+<td>string (YYYY-MM-DD)</td>
+<td>Yes</td>
+<td>Date of the reservation</td>
+</tr>
+<tr>
+<td>data.attributes.time</td>
+<td>string (HH:MM)</td>
+<td>Yes</td>
+<td>Time of the reservation</td>
+</tr>
+<tr>
+<td>data.attributes.note</td>
+<td>string</td>
+<td>No</td>
+<td>Public note for the booking</td>
+</tr>
+<tr>
+<td>data.attributes.locale</td>
+<td>string</td>
+<td>No</td>
+<td>Guest&#39;s preferred language (BCP 47 code)</td>
+</tr>
+<tr>
+<td>data.attributes.table-number</td>
+<td>string</td>
+<td>No</td>
+<td>Specific table number if applicable</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.type</td>
+<td>string</td>
+<td>Yes</td>
+<td>Must be &quot;people&quot;</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.first_name</td>
+<td>string</td>
+<td>Yes</td>
+<td>Guest&#39;s first name</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.last_name</td>
+<td>string</td>
+<td>Yes</td>
+<td>Guest&#39;s last name</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.email</td>
+<td>string</td>
+<td>Conditional*</td>
+<td>Guest&#39;s email address</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.phone</td>
+<td>string</td>
+<td>Conditional*</td>
+<td>Guest&#39;s phone number</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.preferred-communication-channel</td>
+<td>string</td>
+<td>No</td>
+<td>Preferred contact method (&quot;email&quot; or &quot;phone&quot;)</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.locale</td>
+<td>string</td>
+<td>No</td>
+<td>Guest&#39;s language preference</td>
+</tr>
+<tr>
+<td>device-infos</td>
+<td>object</td>
+<td>No</td>
+<td>Information about the device making the request</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">* At least one of email or phone must be provided.</aside>
+<h2 id='update-a-booking'>Update a Booking</h2>
+<blockquote>
+<p>Example request to update a booking:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">PATCH https://api.libroreserve.com/restricted/restaurant/bookings/63873441
+Content-Type: application/json
+Accept: application/vnd.libro-restricted-v2+json
+Authorization: Bearer ACCESS_TOKEN
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"restaurant-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QC016214487921"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It will be my Birthday party"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"table-number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"people"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@doe.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5141111111"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"preferred-communication-channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"device-infos"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Update details of an existing booking. This endpoint allows you to modify booking details but not the date and time (use the Reschedule endpoint for that).</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PATCH https://api.libroreserve.com/restricted/restaurant/bookings/:id</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the booking to update</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameters-2'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>restaurant-code</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique identifier for the restaurant</td>
+</tr>
+<tr>
+<td>data.attributes.note</td>
+<td>string</td>
+<td>No</td>
+<td>Public note for the booking</td>
+</tr>
+<tr>
+<td>data.attributes.locale</td>
+<td>string</td>
+<td>No</td>
+<td>Guest&#39;s preferred language (BCP 47 code)</td>
+</tr>
+<tr>
+<td>data.attributes.table-number</td>
+<td>string</td>
+<td>No</td>
+<td>Specific table number if applicable</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.type</td>
+<td>string</td>
+<td>Yes</td>
+<td>Must be &quot;people&quot;</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.first_name</td>
+<td>string</td>
+<td>No</td>
+<td>Guest&#39;s first name</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.last_name</td>
+<td>string</td>
+<td>No</td>
+<td>Guest&#39;s last name</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.email</td>
+<td>string</td>
+<td>No</td>
+<td>Guest&#39;s email address</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.phone</td>
+<td>string</td>
+<td>No</td>
+<td>Guest&#39;s phone number</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes.preferred-communication-channel</td>
+<td>string</td>
+<td>No</td>
+<td>Preferred contact method (&quot;email&quot; or &quot;phone&quot;)</td>
+</tr>
+<tr>
+<td>device-infos</td>
+<td>object</td>
+<td>No</td>
+<td>Information about the device making the request</td>
+</tr>
+</tbody></table>
+<h2 id='reschedule-a-booking'>Reschedule a Booking</h2>
+<blockquote>
+<p>Example request to reschedule a booking:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">PUT https://api.libroreserve.com/restricted/restaurant/bookings/63873441/reschedule
+Content-Type: application/json
+Accept: application/vnd.libro-restricted-v2+json
+Authorization: Bearer ACCESS_TOKEN
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"restaurant-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QC016214487921"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-07"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"table-number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"experience"</span><span class="p">:</span><span class="w"> </span><span class="mi">4253</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"device-infos"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Reschedule an existing booking to a new date, time, or party size.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>PUT https://api.libroreserve.com/restricted/restaurant/bookings/:id/reschedule</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the booking to reschedule</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameters-3'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>restaurant-code</td>
+<td>string</td>
+<td>Yes</td>
+<td>Unique identifier for the restaurant</td>
+</tr>
+<tr>
+<td>data.attributes.size</td>
+<td>integer</td>
+<td>Yes</td>
+<td>New number of guests for the booking</td>
+</tr>
+<tr>
+<td>data.attributes.date</td>
+<td>string (YYYY-MM-DD)</td>
+<td>Yes</td>
+<td>New date for the reservation</td>
+</tr>
+<tr>
+<td>data.attributes.time</td>
+<td>string (HH:MM)</td>
+<td>Yes</td>
+<td>New time for the reservation</td>
+</tr>
+<tr>
+<td>data.attributes.table-number</td>
+<td>string</td>
+<td>No</td>
+<td>New table number if applicable</td>
+</tr>
+<tr>
+<td>data.attributes.experience</td>
+<td>integer</td>
+<td>No</td>
+<td>Experience ID if applicable</td>
+</tr>
+<tr>
+<td>device-infos</td>
+<td>object</td>
+<td>No</td>
+<td>Information about the device making the request</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-booking'>Retrieve a Booking</h2>
+<blockquote>
+<p>Example request to retrieve a booking:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">GET https://api.libroreserve.com/restricted/restaurant/bookings/63873441
+Content-Type: application/json
+Accept: application/vnd.libro-restricted-v2+json
+Authorization: Bearer ACCESS_TOKEN
+</span></code></pre></div>
+<p>Retrieve detailed information about a specific booking.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.libroreserve.com/restricted/restaurant/bookings/:id</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the booking to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='cancel-a-booking'>Cancel a Booking</h2>
+<blockquote>
+<p>Example request to cancel a booking:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">DELETE https://api.libroreserve.com/restricted/restaurant/bookings/63873441
+Content-Type: application/json
+Accept: application/vnd.libro-restricted-v2+json
+Authorization: Bearer ACCESS_TOKEN
+</span></code></pre></div>
+<p>Cancel an existing booking.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>DELETE https://api.libroreserve.com/restricted/restaurant/bookings/:id</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the booking to cancel</td>
+</tr>
+</tbody></table>
+<h3 id='response-3'>Response</h3>
+<p>A successful cancellation will return a 204 No Content response.</p>
+<h3 id='error-responses'>Error Responses</h3>
+<p>If a booking is not cancelable (either due to the current time being past the <code>cancelation-allowed-until</code> timestamp or because it&#39;s not permitted by the restaurant), a 409 Conflict error will be returned with the message: </p>
+
+<p>&quot;This booking could not be canceled.&quot;</p>
+
+<blockquote>
+<p>Example response for a booking list:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bookings"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-10"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19:30:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anniversaire"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fr"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"people"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"restaurant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restaurants"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"people"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jean"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jean.dupont@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33123456789"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restaurants"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le Bistrot Parisien"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bistrot-parisien"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint returns a paginated list of bookings that the authenticated user has access to.</p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>restaurant-code</td>
+<td>no</td>
+<td>Filter bookings by restaurant code</td>
+</tr>
+<tr>
+<td>start-date</td>
+<td>no</td>
+<td>Filter bookings from this date (format YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>end-date</td>
+<td>no</td>
+<td>Filter bookings until this date (format YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>status</td>
+<td>no</td>
+<td>Filter bookings by status (approved, canceled, confirmed, noshow, pending, seated, etc.)</td>
+</tr>
+<tr>
+<td>page</td>
+<td>no</td>
+<td>Page number for pagination (default: 1)</td>
+</tr>
+<tr>
+<td>per-page</td>
+<td>no</td>
+<td>Number of items per page (default: 25, max: 100)</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-booking-2'>Create a Booking</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/v2/restricted/bookings</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.local.libro.app</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer YOUR_ACCESS_TOKEN</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_ACCESS_TOKEN'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'restaurant-code'</span><span class="p">:</span> <span class="s1">'bistrot-parisien'</span><span class="p">,</span>
+  <span class="s1">'data'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'attributes'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'2025-07-15'</span><span class="p">,</span>
+      <span class="s1">'time'</span><span class="p">:</span> <span class="s1">'20:00:00'</span><span class="p">,</span>
+      <span class="s1">'size'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+      <span class="s1">'note'</span><span class="p">:</span> <span class="s1">'Anniversaire'</span><span class="p">,</span>
+      <span class="s1">'locale'</span><span class="p">:</span> <span class="s1">'fr'</span>
+    <span class="p">},</span>
+    <span class="s1">'relationships'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">'person'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'data'</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s1">'type'</span><span class="p">:</span> <span class="s1">'people'</span><span class="p">,</span>
+          <span class="s1">'attributes'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">'first_name'</span><span class="p">:</span> <span class="s1">'Jean'</span><span class="p">,</span>
+            <span class="s1">'last_name'</span><span class="p">:</span> <span class="s1">'Dupont'</span><span class="p">,</span>
+            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'jean.dupont@example.com'</span><span class="p">,</span>
+            <span class="s1">'phone'</span><span class="p">:</span> <span class="s1">'+33123456789'</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.local.libro.app/v2/restricted/bookings'</span><span class="p">,</span> <span class="n">payload</span><span class="p">.</span><span class="nf">to_json</span><span class="p">,</span> <span class="n">headers</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Bearer YOUR_ACCESS_TOKEN</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">restaurant-code</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bistrot-parisien</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">attributes</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">date</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2025-07-15</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">time</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">20:00:00</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">size</span><span class="dl">'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">note</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Anniversaire</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">locale</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">fr</span><span class="dl">'</span>
+    <span class="p">},</span>
+    <span class="dl">'</span><span class="s1">relationships</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">person</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+          <span class="dl">'</span><span class="s1">type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">people</span><span class="dl">'</span><span class="p">,</span>
+          <span class="dl">'</span><span class="s1">attributes</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">'</span><span class="s1">first_name</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Jean</span><span class="dl">'</span><span class="p">,</span>
+            <span class="dl">'</span><span class="s1">last_name</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Dupont</span><span class="dl">'</span><span class="p">,</span>
+            <span class="dl">'</span><span class="s1">email</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">jean.dupont@example.com</span><span class="dl">'</span><span class="p">,</span>
+            <span class="dl">'</span><span class="s1">phone</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">+33123456789</span><span class="dl">'</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.local.libro.app/v2/restricted/bookings</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div>
+<blockquote>
+<p>The response will return the created booking object:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bookings"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-15"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anniversaire"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fr"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"people"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"restaurant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restaurants"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"people"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jean"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jean.dupont@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33123456789"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restaurants"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le Bistrot Parisien"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bistrot-parisien"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='request-parameters-4'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>restaurant-code</td>
+<td>String</td>
+<td>yes</td>
+<td>Code of the restaurant to create the booking for</td>
+</tr>
+<tr>
+<td>data.attributes.date</td>
+<td>Date</td>
+<td>yes</td>
+<td>Booking date (format YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>data.attributes.time</td>
+<td>Time</td>
+<td>yes</td>
+<td>Booking time (format HH:MM:SS)</td>
+</tr>
+<tr>
+<td>data.attributes.size</td>
+<td>Integer</td>
+<td>yes</td>
+<td>Number of people (party size)</td>
+</tr>
+<tr>
+<td>data.attributes.note</td>
+<td>String</td>
+<td>no</td>
+<td>Note for the restaurant staff</td>
+</tr>
+<tr>
+<td>data.attributes.locale</td>
+<td>String</td>
+<td>no</td>
+<td>Locale for the booking</td>
+</tr>
+<tr>
+<td>data.attributes.booking-experience-id</td>
+<td>Integer</td>
+<td>no</td>
+<td>ID of the associated experience</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.type</td>
+<td>String</td>
+<td>yes</td>
+<td>Resource type (&quot;people&quot;)</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.id</td>
+<td>Integer</td>
+<td>no*</td>
+<td>ID of an existing person</td>
+</tr>
+<tr>
+<td>data.relationships.person.data.attributes</td>
+<td>Object</td>
+<td>no*</td>
+<td>Attributes to create a new person</td>
+</tr>
+</tbody></table>
+
+<p>*At least one of these two (id or attributes) must be provided</p>
+<h2 id='get-a-specific-booking'>Get a Specific Booking</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/v2/restricted/bookings/:bid</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.local.libro.app</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer YOUR_ACCESS_TOKEN</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_ACCESS_TOKEN'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://api.local.libro.app/v2/restricted/bookings/123'</span><span class="p">,</span> <span class="n">headers</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Bearer YOUR_ACCESS_TOKEN</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.local.libro.app/v2/restricted/bookings/123</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="nx">headers</span> <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div>
+<blockquote>
+<p>The response will return the booking details:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bookings"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-15"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anniversaire"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fr"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"people"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"restaurant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restaurants"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"experience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experiences"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"people"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jean"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dupont"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jean.dupont@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33123456789"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restaurants"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le Bistrot Parisien"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bistrot-parisien"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experiences"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Menu Dégustation"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='update-a-booking-2'>Update a Booking</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">PATCH</span> <span class="nn">/v2/restricted/bookings/:bid</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.local.libro.app</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer YOUR_ACCESS_TOKEN</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_ACCESS_TOKEN'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'restaurant-code'</span><span class="p">:</span> <span class="s1">'bistrot-parisien'</span><span class="p">,</span>
+  <span class="s1">'data'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'attributes'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">'status'</span><span class="p">:</span> <span class="s1">'confirmed'</span><span class="p">,</span>
+      <span class="s1">'note'</span><span class="p">:</span> <span class="s1">'Anniversaire avec gâteau surprise'</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">patch</span> <span class="s1">'https://api.local.libro.app/v2/restricted/bookings/123'</span><span class="p">,</span> <span class="n">payload</span><span class="p">.</span><span class="nf">to_json</span><span class="p">,</span> <span class="n">headers</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Bearer YOUR_ACCESS_TOKEN</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">restaurant-code</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bistrot-parisien</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">attributes</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">status</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">confirmed</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">note</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Anniversaire avec gâteau surprise</span><span class="dl">'</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.local.libro.app/v2/restricted/bookings/123</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">PATCH</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div><h3 id='request-parameters-5'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>restaurant-code</td>
+<td>String</td>
+<td>yes</td>
+<td>Restaurant code</td>
+</tr>
+<tr>
+<td>data.attributes.status</td>
+<td>String</td>
+<td>no</td>
+<td>Booking status (approved, canceled, confirmed, noshow, pending, seated, etc.)</td>
+</tr>
+<tr>
+<td>data.attributes.note</td>
+<td>String</td>
+<td>no</td>
+<td>Note for the restaurant staff</td>
+</tr>
+<tr>
+<td>data.attributes.locale</td>
+<td>String</td>
+<td>no</td>
+<td>Locale for the booking</td>
+</tr>
+</tbody></table>
+<h2 id='reschedule-a-booking-2'>Reschedule a Booking</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">PUT</span> <span class="nn">/v2/restricted/bookings/:bid/reschedule</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.local.libro.app</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer YOUR_ACCESS_TOKEN</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_ACCESS_TOKEN'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'restaurant-code'</span><span class="p">:</span> <span class="s1">'bistrot-parisien'</span><span class="p">,</span>
+  <span class="s1">'data'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'attributes'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">'date'</span><span class="p">:</span> <span class="s1">'2025-07-16'</span><span class="p">,</span>
+      <span class="s1">'time'</span><span class="p">:</span> <span class="s1">'19:30:00'</span><span class="p">,</span>
+      <span class="s1">'size'</span><span class="p">:</span> <span class="mi">4</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">put</span> <span class="s1">'https://api.local.libro.app/v2/restricted/bookings/123/reschedule'</span><span class="p">,</span> <span class="n">payload</span><span class="p">.</span><span class="nf">to_json</span><span class="p">,</span> <span class="n">headers</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Bearer YOUR_ACCESS_TOKEN</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">restaurant-code</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">bistrot-parisien</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">attributes</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">date</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">2025-07-16</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">time</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">19:30:00</span><span class="dl">'</span><span class="p">,</span>
+      <span class="dl">'</span><span class="s1">size</span><span class="dl">'</span><span class="p">:</span> <span class="mi">4</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.local.libro.app/v2/restricted/bookings/123/reschedule</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">PUT</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">headers</span><span class="p">,</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div><h3 id='request-parameters-6'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>restaurant-code</td>
+<td>String</td>
+<td>yes</td>
+<td>Restaurant code</td>
+</tr>
+<tr>
+<td>data.attributes.date</td>
+<td>Date</td>
+<td>yes</td>
+<td>New booking date (format YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>data.attributes.time</td>
+<td>Time</td>
+<td>yes</td>
+<td>New booking time (format HH:MM:SS)</td>
+</tr>
+<tr>
+<td>data.attributes.size</td>
+<td>Integer</td>
+<td>yes</td>
+<td>New party size</td>
+</tr>
+<tr>
+<td>data.attributes.booking-experience-id</td>
+<td>Integer</td>
+<td>no</td>
+<td>ID of the new associated experience</td>
+</tr>
+<tr>
+<td>data.attributes.table-number</td>
+<td>String</td>
+<td>no</td>
+<td>Assigned table number</td>
+</tr>
+</tbody></table>
+<h2 id='cancel-a-booking-2'>Cancel a Booking</h2><div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">DELETE</span> <span class="nn">/v2/restricted/bookings/:bid</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.local.libro.app</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer YOUR_ACCESS_TOKEN</span>
+</code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer YOUR_ACCESS_TOKEN'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'https://api.local.libro.app/v2/restricted/bookings/123'</span><span class="p">,</span> <span class="n">headers</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Bearer YOUR_ACCESS_TOKEN</span><span class="dl">'</span><span class="p">,</span>
+  <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.local.libro.app/v2/restricted/bookings/123</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">DELETE</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">headers</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div>
+<blockquote>
+<p>If the cancellation is successful, the response will return the booking with a &quot;canceled&quot; status:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bookings"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-15"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"canceled"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Anniversaire"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fr"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"people"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"restaurant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restaurants"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
