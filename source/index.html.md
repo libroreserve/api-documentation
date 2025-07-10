@@ -13,8 +13,6 @@ includes:
   - authentication
   - restaurants
   - bookings
-  
-  
 
 search: true
 

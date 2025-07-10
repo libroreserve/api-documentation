@@ -1,6 +1,4 @@
-// Dynamically generate attributes tables
 document.addEventListener('DOMContentLoaded', function() {
-  // Define your attributes
   const attributes = {
     restaurant: [
     { name: 'id', type: 'string', desc: 'Unique identifier for the restaurant', required: true },
@@ -29,10 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'table-number', type: 'string', desc: 'Assigned table number' },
     { name: 'private-note', type: 'string', desc: 'Internal/private note' },
     { name: 'note', type: 'string', desc: 'Public note' },
-    { name: 'locale', type: 'string', desc: 'Guest’s preferred language' },
-    { name: 'status', type: 'string', desc: 'Current status of the booking' },
-    { name: 'booking-type', type: 'string', desc: 'Type of booking' },
-    { name: 'source', type: 'string', desc: 'Booking source' },
+    { name: 'locale', type: 'string', desc: 'Guest\\\'s preferred language' },
+    { name: 'status', type: 'string', desc: 'Current status of the booking', values: ['approved', 'canceled', 'confirmed', 'noshow', 'pending', 'seated', 'partial', 'arrived', 'completed'] },
+    { name: 'booking-type', type: 'string', desc: 'Type of booking', values: ['reservation', 'walk-in'] },
+    { name: 'source', type: 'string', desc: 'Booking source', values: ['online', 'dashboard', 'google', '...'] },
     { name: 'created-at', type: 'string', desc: 'When the booking was created' },
     { name: 'arrived-at', type: 'string', desc: 'When the guest arrived' },
     { name: 'expected-leave-at', type: 'string', desc: 'Expected time of departure' },
@@ -107,16 +105,17 @@ attrTables.forEach(function(table) {
     const attrType = table.getAttribute('data-attr-type');
     const attrs = attributes[attrType];
     
-    if (attrs.length > 0) {     
+    if (attrs && attrs.length > 0) {     
       attrs.forEach(function(attr) {
-        table.innerHTML += `<div class="stripe-attribute">
-          <div class="attr-header">
-            <span class="attr-name"><code>${attr.name}</code></span>
-            <span class="attr-type">${attr.type}</span>
-            <span class="attr-req">${attr.required ? 'Required' : ''}</span>
-          </div>
-          <div class="attr-description">${attr.desc}</div>
-        </div>`;
+        table.innerHTML += '<div class="stripe-attribute">' +
+          '<div class="attr-header">' +
+            '<span class="attr-name"><code>' + attr.name + '</code></span>' +
+            '<span class="attr-type">' + attr.type + '</span>' +
+            '<span class="attr-req">' + (attr.required ? 'Required' : '') + '</span>' +
+          '</div>' +
+          '<div class="attr-description">' + attr.desc + '</div>' +
+          '<div class="attr-values">' + (attr.values ? 'Values: ' + attr.values.join(', ') : '') + '</div>' +
+        '</div>';
       });
     }
   });

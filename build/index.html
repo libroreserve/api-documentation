@@ -286,7 +286,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-9c19b03a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-a52a9488.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-024da600.js"></script>
 
@@ -305,7 +305,7 @@
     <div class="toc-wrapper">
       <img src="images/logo-fd159581.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="shell">cURL</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -628,9 +628,20 @@ Never share your client secret or access tokens. Store them securely and never e
 
 <p>By adding these details, the guide provides a comprehensive approach to handling token refresh, ensuring continuous and secure access to Libro’s API.</p>
 <h1 id='restaurants'>Restaurants</h1>
+<blockquote>
+<p>ENDPOINTS</p>
+
+<p><span class="method get">GET</span> /restricted/restaurants <br>
+<span class="method get">GET</span> /restricted/restaurants/:id <br>
+<span class="method get">GET</span> /restricted/restaurants/:id/seatings</p>
+</blockquote>
+
 <p>The Restaurants API allows you to access restaurant profiles, manage availability, and retrieve detailed information about dining establishments in the Libro network.</p>
-<h2 id='the-restaurant-object'>The Restaurant Object</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
-</span><span class="p">{</span><span class="w">
+<h2 id='the-restaurant-object'>The Restaurant Object</h2>
+<blockquote>
+<p>THE RESTAURANT OBJECT</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restaurant"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -657,73 +668,13 @@ Never share your client secret or access tokens. Store them securely and never e
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='restaurant-attributes'>Restaurant Attributes</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>string</td>
-<td>Unique identifier for the restaurant</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
-<td>Name of the restaurant</td>
-</tr>
-<tr>
-<td>active</td>
-<td>boolean</td>
-<td>Whether the restaurant is currently active in the system</td>
-</tr>
-<tr>
-<td>code</td>
-<td>string</td>
-<td>Unique restaurant code</td>
-</tr>
-<tr>
-<td>latitude</td>
-<td>number</td>
-<td>Geographic latitude coordinate</td>
-</tr>
-<tr>
-<td>longitude</td>
-<td>number</td>
-<td>Geographic longitude coordinate</td>
-</tr>
-<tr>
-<td>tz</td>
-<td>string</td>
-<td>Restaurant timezone (IANA format)</td>
-</tr>
-<tr>
-<td>created-at</td>
-<td>string</td>
-<td>ISO timestamp of when the restaurant was created</td>
-</tr>
-<tr>
-<td>online-booking-lead-months</td>
-<td>integer</td>
-<td>Number of months in advance online bookings are accepted</td>
-</tr>
-<tr>
-<td>cancelation-delay</td>
-<td>integer</td>
-<td>Cancellation window in seconds (e.g., 86400 = 24 hours)</td>
-</tr>
-<tr>
-<td>service-scopes</td>
-<td>array</td>
-<td>Array of service periods with name, startTime and endTime</td>
-</tr>
-</tbody></table>
+</span></code></pre></div><h3 id='attributes'>Attributes</h3>
+<p><span class="dynamic-attributes" data-attr-type="restaurant"></span></p>
 <h2 id='get'>Get</h2>
 <blockquote>
-<p>Request:</p>
+<p><span class="method get">GET</span> /restricted/restaurants?restaurant-code=QC01621448XXXX</p>
+
+<p>REQUEST:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurants?restaurant-code=QC016214487921"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -731,7 +682,7 @@ Never share your client secret or access tokens. Store them securely and never e
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
 </code></pre></div>
 <blockquote>
-<p>Response:</p>
+<p>RESPONSE:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -744,27 +695,13 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific restaurant by its code.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.libroreserve.com/restricted/restaurants?restaurant-code=QC01621448XXXX</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>restaurant-code</td>
-<td>string</td>
-<td>Restaurant code</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
+<h3 id='parameters'>Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="restaurantGet"></span></p>
 <h2 id='list'>List</h2>
 <blockquote>
-<p>Request:</p>
+<p><span class="method get">GET</span> /restricted/restaurants</p>
+
+<p>REQUEST:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurants"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -772,7 +709,7 @@ Never share your client secret or access tokens. Store them securely and never e
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
 </code></pre></div>
 <blockquote>
-<p>Response:</p>
+<p>RESPONSE:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -790,13 +727,22 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all restaurants available to your connected account.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.libroreserve.com/restricted/restaurants</code></p>
 <h2 id='get-availability'>Get Availability</h2>
 <blockquote>
-<p>Response with experiences:</p>
+<p><span class="method get">GET</span> /restricted/restaurants/seatings</p>
+
+<p>REQUEST:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurants/seatings?restaurant-code=QC01621448XXXX&amp;date=2026-07-09&amp;size=2"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.libro-restricted-v2+json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
+</code></pre></div>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">experiences:</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nl">"2026-07-09"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"2026-07-09T11:00:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
@@ -818,11 +764,8 @@ Never share your client secret or access tokens. Store them securely and never e
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<blockquote>
-<p>Response without experiences:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w"> </span><span class="err">without</span><span class="w"> </span><span class="err">experiences:</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nl">"2026-07-09"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"2026-07-09T11:00:00"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"2026-07-09T11:15:00"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -830,39 +773,26 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves restaurant availabilities.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.libroreserve.com/restricted/restaurants/seatings?restaurant-code=QC01621448XXXX&amp;date=2026-07-09&amp;size=2</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>restaurant-code</td>
-<td>string</td>
-<td>Restaurant code</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>date</td>
-<td>string</td>
-<td>Date in YYYY-MM-DD format</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>size</td>
-<td>integer</td>
-<td>Party size</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="restaurantGetAvailability"></span></p>
 <h1 id='bookings'>Bookings</h1>
+<blockquote>
+<p>ENDPOINTS</p>
+
+<p><span class="method get">GET</span> /restricted/restaurant/bookings/:id <br>
+<span class="method get">GET</span> /restricted/restaurant/bookings <br>
+<span class="method post">POST</span> /restricted/restaurant/bookings <br>
+<span class="method patch">PATCH</span> /restricted/restaurant/bookings/:id <br>
+<span class="method put">PUT</span> /restricted/restaurant/bookings/:id <br>
+<span class="method delete">DELETE</span> /restricted/restaurant/bookings/:id <br></p>
+</blockquote>
+
 <p>The Bookings API allows you to create, retrieve, and manage reservations.</p>
-<h2 id='the-booking-object'>The Booking Object</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h2 id='the-booking-object'>The Booking Object</h2>
+<blockquote>
+<p>THE BOOKING OBJECT</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booking"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -895,102 +825,12 @@ Never share your client secret or access tokens. Store them securely and never e
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='booking-attributes'>Booking Attributes</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>size</strong></td>
-<td>number</td>
-<td>Number of guests in the booking.</td>
-</tr>
-<tr>
-<td><strong>time</strong></td>
-<td>string, ISO 8601</td>
-<td>Scheduled arrival time.</td>
-</tr>
-<tr>
-<td><strong>table-number</strong></td>
-<td>string</td>
-<td>Assigned table number.</td>
-</tr>
-<tr>
-<td><strong>private-note</strong></td>
-<td>string, read only</td>
-<td>Internal/private note.</td>
-</tr>
-<tr>
-<td><strong>note</strong></td>
-<td>string</td>
-<td>Public note.</td>
-</tr>
-<tr>
-<td><strong>locale</strong></td>
-<td>string, BCP 47 code</td>
-<td>Guest’s preferred language (e.g., &quot;en&quot;, &quot;fr-CA&quot;).</td>
-</tr>
-<tr>
-<td><strong>status</strong></td>
-<td>string, readonly</td>
-<td>Current status of the booking (e.g., &quot;arrived&quot;).</td>
-</tr>
-<tr>
-<td><strong>booking-type</strong></td>
-<td>string, readonly</td>
-<td>Type of booking (e.g., &quot;walkin&quot;).</td>
-</tr>
-<tr>
-<td><strong>source</strong></td>
-<td>string, readonly</td>
-<td>Booking source (e.g., &quot;dashboard&quot;).</td>
-</tr>
-<tr>
-<td><strong>created-at</strong></td>
-<td>string, ISO 8601, readonly</td>
-<td>When the booking was created.</td>
-</tr>
-<tr>
-<td><strong>arrived-at</strong></td>
-<td>string, ISO 8601, readonly</td>
-<td>When the guest arrived.</td>
-</tr>
-<tr>
-<td><strong>expected-leave-at</strong></td>
-<td>string, ISO 8601, readonly</td>
-<td>Expected time of departure.</td>
-</tr>
-<tr>
-<td><strong>confirmed-at</strong></td>
-<td>string or null, readonly</td>
-<td>When the booking was confirmed.</td>
-</tr>
-<tr>
-<td><strong>seated-at</strong></td>
-<td>string or null, readonly</td>
-<td>When the guest was seated.</td>
-</tr>
-<tr>
-<td><strong>completed-at</strong></td>
-<td>string or null, readonly</td>
-<td>When the booking was completed.</td>
-</tr>
-<tr>
-<td><strong>canceled-at</strong></td>
-<td>string or null, readonly</td>
-<td>When the booking was canceled.</td>
-</tr>
-<tr>
-<td><strong>cancelation-allowed-until</strong></td>
-<td>timestamp or null</td>
-<td>The exact timestamp until which the reservation can be canceled. If a timestamp is provided, the reservation is cancelable until that specific time. If null, it means cancellation is not allowed.</td>
-</tr>
-</tbody></table>
+<p><span class="dynamic-attributes" data-attr-type="booking"></span></p>
 <h2 id='get'>Get</h2>
 <blockquote>
-<p>Request:</p>
+<p><span class="method get">GET</span> /restricted/restaurant/bookings/:id</p>
+
+<p>REQUEST:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/bookings/63873441"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -998,7 +838,7 @@ Never share your client secret or access tokens. Store them securely and never e
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
 </code></pre></div>
 <blockquote>
-<p>Response:</p>
+<p>RESPONSE:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1047,11 +887,13 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific booking by its ID.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.libroreserve.com/restricted/restaurant/bookings/63873441</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="bookingGet"></span></p>
 <h2 id='list'>List</h2>
 <blockquote>
-<p>Request:</p>
+<p><span class="method get">GET</span> /restricted/restaurant/bookings</p>
+
+<p>REQUEST:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/bookings"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -1059,7 +901,7 @@ Never share your client secret or access tokens. Store them securely and never e
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
 </code></pre></div>
 <blockquote>
-<p>Response:</p>
+<p>RESPONSE:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1079,96 +921,8 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a list of bookings for the restaurant.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.libroreserve.com/restricted/restaurant/bookings</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>limit</strong></td>
-<td>Integer</td>
-<td>Number of records per request</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>offset</strong></td>
-<td>Integer</td>
-<td>Record offset to start from for pagination</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>updated-after</strong></td>
-<td>DateTime</td>
-<td>Limit results to those updated after this date/time</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>created-after</strong></td>
-<td>DateTime</td>
-<td>Limit results to those created after this date/time</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>started-after</strong></td>
-<td>DateTime</td>
-<td>Limit results to those with a start time after the specified timestamp</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>started-before</strong></td>
-<td>DateTime</td>
-<td>Limit results to those with a start time before the specified timestamp</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>date</strong></td>
-<td>Date</td>
-<td>Retrieve bookings for a specific date in the format YYYY-MM-DD</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>time</strong></td>
-<td>String</td>
-<td>Retrieve bookings for a specific time in the format HH:mm. This parameter must be used in combination with the date</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>status</strong></td>
-<td>String</td>
-<td>Retrieve bookings with a specific status (approved, canceled, confirmed, noshow, pending, seated, partial, arrived, completed)</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>guest-id</strong></td>
-<td>Integer</td>
-<td>Guest ID to filter the bookings</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>guest-phone</strong></td>
-<td>String</td>
-<td>Guest’s phone number in international format</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>guest-email</strong></td>
-<td>String</td>
-<td>Guest’s email address</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>restaurant-code</strong></td>
-<td>String</td>
-<td></td>
-<td>No</td>
-</tr>
-</tbody></table>
+<h3 id='parameters-2'>Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="bookingList"></span></p>
 <h3 id='examples'>Examples:</h3>
 <ul>
 <li>Search by date:</li>
@@ -1189,7 +943,9 @@ Never share your client secret or access tokens. Store them securely and never e
 <p><code>GET https://api.libroreserve.com/restricted/restaurant/bookings?guest-phone=15141111111</code></p>
 <h2 id='create'>Create</h2>
 <blockquote>
-<p>Request:</p>
+<p><span class="method post">POST</span> /restricted/restaurant/bookings</p>
+
+<p>REQUEST:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code> curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/bookings"</span> <span class="se">\</span>
   <span class="nt">-X</span> POST <span class="se">\</span>
@@ -1198,7 +954,7 @@ Never share your client secret or access tokens. Store them securely and never e
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
 </code></pre></div>
 <blockquote>
-<p>Request Body:</p>
+<p>REQUEST BODY:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1235,7 +991,7 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>Response:</p>
+<p>RESPONSE:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1267,143 +1023,17 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to create a new booking.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.libroreserve.com/restricted/restaurant/bookings</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>restaurant-code</td>
-<td>string</td>
-<td>Code of the restaurant to create the booking for</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>date</td>
-<td>string</td>
-<td>Booking date (format YYYY-MM-DD)</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>time</td>
-<td>string</td>
-<td>Booking time (format HH:MM:SS)</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>size</td>
-<td>integer</td>
-<td>Number of guests</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>note</td>
-<td>string</td>
-<td>Note for the restaurant staff</td>
-<td>no</td>
-</tr>
-<tr>
-<td>locale</td>
-<td>string</td>
-<td>Guest&#39;s preferred language (BCP 47 code)</td>
-<td>no</td>
-</tr>
-<tr>
-<td>table-number</td>
-<td>string</td>
-<td>Table number for the booking</td>
-<td>no</td>
-</tr>
-<tr>
-<td>booking-experience-id</td>
-<td>integer</td>
-<td>ID of the booking experience</td>
-<td>no</td>
-</tr>
-</tbody></table>
+<h3 id='parameters-3'>Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="createBooking"></span></p>
 <h4 id='person'>Person</h4>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>integer</td>
-<td>Guest&#39;s ID</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>first-name</td>
-<td>string</td>
-<td>Guest&#39;s first name</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>last-name</td>
-<td>string</td>
-<td>Guest&#39;s last name</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>email</td>
-<td>string</td>
-<td>Guest&#39;s email address</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>phone</td>
-<td>string</td>
-<td>Guest&#39;s phone number</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>preferred-communication-channel</td>
-<td>string</td>
-<td>Preferred contact method (&quot;email&quot; or &quot;phone&quot;)</td>
-<td>no</td>
-</tr>
-<tr>
-<td>locale</td>
-<td>string</td>
-<td>Guest&#39;s language preference</td>
-<td>no</td>
-</tr>
-</tbody></table>
+<p><span class="dynamic-attributes" data-attr-type="bookingPerson"></span></p>
 <h4 id='device-infos'>Device Infos</h4>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>string</td>
-<td>Unique identifier for the device</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>ip</td>
-<td>string</td>
-<td>IP address of the device</td>
-<td>yes</td>
-</tr>
-</tbody></table>
+<p><span class="dynamic-attributes" data-attr-type="deviceInfos"></span></p>
 <h2 id='update'>Update</h2>
 <blockquote>
-<p>Request:</p>
+<p><span class="method patch">PATCH</span> /restricted/restaurant/bookings/:id</p>
+
+<p>REQUEST:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/bookings/63873441"</span> <span class="se">\</span>
   <span class="nt">-X</span> PATCH <span class="se">\</span>
@@ -1412,7 +1042,7 @@ Never share your client secret or access tokens. Store them securely and never e
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
 </code></pre></div>
 <blockquote>
-<p>Request Body:</p>
+<p>REQUEST BODY:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"restaurant-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
@@ -1425,7 +1055,7 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>Response:</p>
+<p>RESPONSE:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1438,39 +1068,13 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to update some attributes of a booking.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PATCH https://api.libroreserve.com/restricted/restaurant/bookings/63873441</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>restaurant-code</td>
-<td>string</td>
-<td>Code of the restaurant to update the booking for</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>note</td>
-<td>string</td>
-<td>Note for the restaurant staff</td>
-<td>no</td>
-</tr>
-<tr>
-<td>locale</td>
-<td>string</td>
-<td>Guest&#39;s preferred language (BCP 47 code)</td>
-<td>no</td>
-</tr>
-</tbody></table>
+<h3 id='parameters-4'>Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="updateBooking"></span></p>
 <h2 id='cancel'>Cancel</h2>
 <blockquote>
-<p>Request:</p>
+<p><span class="method delete">DELETE</span> /restricted/restaurant/bookings/:id</p>
+
+<p>REQUEST:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/bookings/63873441"</span> <span class="se">\</span>
   <span class="nt">-X</span> DELETE <span class="se">\</span>
@@ -1479,7 +1083,7 @@ Never share your client secret or access tokens. Store them securely and never e
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
 </code></pre></div>
 <blockquote>
-<p>Response:</p>
+<p>RESPONSE:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1493,45 +1097,17 @@ Never share your client secret or access tokens. Store them securely and never e
 </span></code></pre></div>
 <p>This endpoint allows you to cancel a booking.
 <aside class="notice">
-Cancellation is only possible if the booking has not passed the cancellation deadline.
+Cancellation is only possible if the booking has not passed the cancellation deadline, if the restaurant accept booking cancelation and if there is not deposit.
 </aside></p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE https://api.libroreserve.com/restricted/restaurant/bookings/63873441</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>restaurant-code</td>
-<td>string</td>
-<td>Code of the restaurant to cancel the booking for</td>
-<td>yes</td>
-</tr>
-</tbody></table>
+<h3 id='parameters-5'>Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="cancelBooking"></span></p>
 <h3 id='errors'>Errors</h3>
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>404</td>
-<td>Booking not found</td>
-</tr>
-<tr>
-<td>409</td>
-<td>Booking could not be canceled</td>
-</tr>
-</tbody></table>
+<p><span class="dynamic-attributes" data-attr-type="bookingErrors"></span></p>
 <h2 id='reschedule'>Reschedule</h2>
 <blockquote>
-<p>Request:</p>
+<p><span class="method put">PUT</span> /restricted/restaurant/bookings/:id/reschedule</p>
+
+<p>REQUEST:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/bookings/63873441/reschedule"</span> <span class="se">\</span>
   <span class="nt">-X</span> PUT <span class="se">\</span>
@@ -1540,7 +1116,7 @@ Cancellation is only possible if the booking has not passed the cancellation dea
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
 </code></pre></div>
 <blockquote>
-<p>Request Body:</p>
+<p>REQUEST BODY:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"restaurant-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
@@ -1555,7 +1131,7 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
-<p>Response:</p>
+<p>RESPONSE:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1568,55 +1144,28 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to reschedule a booking. It will be used to increase/descrease booking size, change date and time or change booking experience.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
-<p><code>PUT https://api.libroreserve.com/restricted/restaurant/bookings/63873441/reschedule</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>restaurant-code</td>
-<td>string</td>
-<td>Code of the restaurant to reschedule the booking for</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>date</td>
-<td>string</td>
-<td>Booking date (format YYYY-MM-DD)</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>time</td>
-<td>string</td>
-<td>Booking time (format HH:MM:SS)</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>size</td>
-<td>integer</td>
-<td>Number of guests</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>booking-experience-id</td>
-<td>integer</td>
-<td>ID of the booking experience</td>
-<td>no</td>
-</tr>
-</tbody></table>
+<h3 id='parameters-6'>Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="rescheduleBooking"></span></p>
+<h3 id='examples-2'>Examples:</h3>
+<ul>
+<li>Increase booking size:</li>
+</ul>
+
+<p><code>PUT https://api.libroreserve.com/restricted/restaurant/bookings/63873441/reschedule?restaurant-code=0000000000&amp;date=2025-05-07&amp;time=17:00&amp;size=4</code></p>
+
+<ul>
+<li>Change booking date and time:</li>
+</ul>
+
+<p><code>PUT https://api.libroreserve.com/restricted/restaurant/bookings/63873441/reschedule?restaurant-code=0000000000&amp;date=2025-05-07&amp;time=17:00</code></p>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="shell">cURL</a>
           </div>
       </div>
     </div>
+    <script src="javascripts/objectAttributes-3e4d8e30.js"></script>
   </body>
 </html>
