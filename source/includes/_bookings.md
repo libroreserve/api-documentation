@@ -1,8 +1,19 @@
 # Bookings
 
+> ENDPOINTS
+
+> <span class="method get">GET</span> /restricted/restaurant/bookings/:id <br>
+> <span class="method get">GET</span> /restricted/restaurant/bookings <br>
+> <span class="method post">POST</span> /restricted/restaurant/bookings <br>
+> <span class="method patch">PATCH</span> /restricted/restaurant/bookings/:id <br>
+> <span class="method put">PUT</span> /restricted/restaurant/bookings/:id <br>
+> <span class="method delete">DELETE</span> /restricted/restaurant/bookings/:id <br>
+
 The Bookings API allows you to create, retrieve, and manage reservations.
 
 ## The Booking Object
+
+> THE BOOKING OBJECT
 
 ```json
 {
@@ -41,29 +52,13 @@ The Bookings API allows you to create, retrieve, and manage reservations.
 
 ### Booking Attributes
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| **size** | number | Number of guests in the booking. |
-| **time** | string, ISO 8601 | Scheduled arrival time. |
-| **table-number** | string | Assigned table number. |
-| **private-note** | string, read only | Internal/private note. |
-| **note** | string | Public note. |
-| **locale** | string, BCP 47 code | Guest’s preferred language (e.g., "en", "fr-CA"). |
-| **status** | string, readonly | Current status of the booking (e.g., "arrived"). |
-| **booking-type** | string, readonly | Type of booking (e.g., "walkin"). |
-| **source** | string, readonly | Booking source (e.g., "dashboard"). |
-| **created-at** | string, ISO 8601, readonly | When the booking was created. |
-| **arrived-at** | string, ISO 8601, readonly | When the guest arrived. |
-| **expected-leave-at** | string, ISO 8601, readonly | Expected time of departure. |
-| **confirmed-at** | string or null, readonly | When the booking was confirmed. |
-| **seated-at** | string or null, readonly | When the guest was seated. |
-| **completed-at** | string or null, readonly | When the booking was completed. |
-| **canceled-at** | string or null, readonly | When the booking was canceled. |
-| **cancelation-allowed-until** | timestamp or null | The exact timestamp until which the reservation can be canceled. If a timestamp is provided, the reservation is cancelable until that specific time. If null, it means cancellation is not allowed. |
+<span class="dynamic-attributes" data-attr-type="booking"></span>
 
 ## Get
 
-> Request:
+> <span class="method get">GET</span> /restricted/restaurant/bookings/:id
+
+> REQUEST:
 
 ```shell
 curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441" \
@@ -73,7 +68,7 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441" \
 ```
 
 
-> Response:
+> RESPONSE:
 
 ```json
 {
@@ -125,14 +120,15 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441" \
 
 This endpoint retrieves a specific booking by its ID.
 
-### HTTP Request
+### Parameters
 
-`GET https://api.libroreserve.com/restricted/restaurant/bookings/63873441`
-
+<span class="dynamic-attributes" data-attr-type="bookingGet"></span>
 
 ## List
 
-> Request:
+> <span class="method get">GET</span> /restricted/restaurant/bookings
+
+> REQUEST:
 
 ```shell
 curl "https://api.libroreserve.com/restricted/restaurant/bookings" \
@@ -142,7 +138,7 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings" \
 ```
 
 
-> Response:
+> RESPONSE:
 
 ```json
 {
@@ -165,27 +161,9 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings" \
 
 This endpoint retrieves a list of bookings for the restaurant.
 
-### HTTP Request
+### Parameters
 
-`GET https://api.libroreserve.com/restricted/restaurant/bookings`
-
-### Query Parameters
-
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| **limit** | Integer | Number of records per request | Yes |
-| **offset** | Integer | Record offset to start from for pagination | No |
-| **updated-after** | DateTime | Limit results to those updated after this date/time | No |
-| **created-after** | DateTime | Limit results to those created after this date/time | No |
-| **started-after** | DateTime | Limit results to those with a start time after the specified timestamp | No |
-| **started-before** | DateTime | Limit results to those with a start time before the specified timestamp | No |
-| **date** | Date | Retrieve bookings for a specific date in the format YYYY-MM-DD | No |
-| **time** | String | Retrieve bookings for a specific time in the format HH:mm. This parameter must be used in combination with the date | No |
-| **status** | String | Retrieve bookings with a specific status (approved, canceled, confirmed, noshow, pending, seated, partial, arrived, completed) | No |
-| **guest-id** | Integer | Guest ID to filter the bookings | No |
-| **guest-phone** | String | Guest’s phone number in international format | No |
-| **guest-email** | String | Guest’s email address | No |
-| **restaurant-code** | String |  | No |
+<span class="dynamic-attributes" data-attr-type="bookingList"></span>
 
 ### Examples:
 
@@ -204,7 +182,9 @@ This endpoint retrieves a list of bookings for the restaurant.
 
 ## Create
 
-> Request:
+> <span class="method post">POST</span> /restricted/restaurant/bookings
+
+> REQUEST:
 
 ```shell
  curl "https://api.libroreserve.com/restricted/restaurant/bookings" \
@@ -214,7 +194,7 @@ This endpoint retrieves a list of bookings for the restaurant.
   -H "Authorization: Bearer ACCESS_TOKEN"
 ```
 
-> Request Body:
+> REQUEST BODY:
 
 ```json
 
@@ -252,7 +232,7 @@ This endpoint retrieves a list of bookings for the restaurant.
 }
 ```
 
-> Response:
+> RESPONSE:
 
 ```json
 {
@@ -287,46 +267,24 @@ This endpoint retrieves a list of bookings for the restaurant.
 
 This endpoint allows you to create a new booking.
 
-### HTTP Request
+### Parameters
 
-`POST https://api.libroreserve.com/restricted/restaurant/bookings`
-
-### Query Parameters
-
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| restaurant-code | string | Code of the restaurant to create the booking for | yes |
-| date | string | Booking date (format YYYY-MM-DD) | yes |
-| time | string | Booking time (format HH:MM:SS) | yes |
-| size | integer | Number of guests | yes |
-| note | string | Note for the restaurant staff | no |
-| locale | string | Guest's preferred language (BCP 47 code) | no |
-| table-number | string | Table number for the booking | no |
-| booking-experience-id | integer | ID of the booking experience | no |
+<span class="dynamic-attributes" data-attr-type="createBooking"></span>
 
 #### Person
 
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| id | integer | Guest's ID | yes |
-| first-name | string | Guest's first name | yes |
-| last-name | string | Guest's last name | yes |
-| email | string | Guest's email address | yes |
-| phone | string | Guest's phone number | yes |
-| preferred-communication-channel | string | Preferred contact method ("email" or "phone") | no |
-| locale | string | Guest's language preference | no |
+<span class="dynamic-attributes" data-attr-type="bookingPerson"></span>
+
 
 #### Device Infos
 
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| id | string | Unique identifier for the device | yes |
-| ip | string | IP address of the device | yes |
-
+<span class="dynamic-attributes" data-attr-type="deviceInfos"></span>
 
 ## Update
 
-> Request:
+> <span class="method patch">PATCH</span> /restricted/restaurant/bookings/:id
+
+> REQUEST:
 
 ```shell
 curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441" \
@@ -336,7 +294,7 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441" \
   -H "Authorization: Bearer ACCESS_TOKEN"
 ```
 
-> Request Body:
+> REQUEST BODY:
 
 ```json
 {
@@ -350,7 +308,7 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441" \
 }
 ```
 
-> Response:
+> RESPONSE:
 
 ```json
 {
@@ -366,21 +324,15 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441" \
 
 This endpoint allows you to update some attributes of a booking.
 
-### HTTP Request
+### Parameters
 
-`PATCH https://api.libroreserve.com/restricted/restaurant/bookings/63873441`
-
-### Query Parameters
-
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| restaurant-code | string | Code of the restaurant to update the booking for | yes |
-| note | string | Note for the restaurant staff | no |
-| locale | string | Guest's preferred language (BCP 47 code) | no |
+<span class="dynamic-attributes" data-attr-type="updateBooking"></span>
 
 ## Cancel
 
-> Request:
+> <span class="method delete">DELETE</span> /restricted/restaurant/bookings/:id
+
+> REQUEST:
 
 ```shell
 curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441" \
@@ -390,7 +342,7 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441" \
   -H "Authorization: Bearer ACCESS_TOKEN"
 ```
 
-> Response:
+> RESPONSE:
 
 ```json
 {
@@ -406,30 +358,23 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441" \
 
 This endpoint allows you to cancel a booking.
 <aside class="notice">
-Cancellation is only possible if the booking has not passed the cancellation deadline.
+Cancellation is only possible if the booking has not passed the cancellation deadline, if the restaurant accept booking cancelation and if there is not deposit.
 </aside>
 
-### HTTP Request
+### Parameters
 
-`DELETE https://api.libroreserve.com/restricted/restaurant/bookings/63873441`
-
-### Query Parameters
-
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| restaurant-code | string | Code of the restaurant to cancel the booking for | yes |
+<span class="dynamic-attributes" data-attr-type="cancelBooking"></span>
 
 ### Errors
 
-| Error Code | Description |
-|----------|-------------|
-| 404 | Booking not found |
-| 409 | Booking could not be canceled |
+<span class="dynamic-attributes" data-attr-type="bookingErrors"></span>
 
 
 ## Reschedule
 
-> Request:
+> <span class="method put">PUT</span> /restricted/restaurant/bookings/:id/reschedule
+
+> REQUEST:
 
 ```shell
 curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441/reschedule" \
@@ -439,7 +384,7 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441/resch
   -H "Authorization: Bearer ACCESS_TOKEN"
 ```
 
-> Request Body:
+> REQUEST BODY:
 
 ```json
 {
@@ -455,7 +400,7 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441/resch
 }
 ```
 
-> Response:
+> RESPONSE:
 
 ```json
 {
@@ -471,19 +416,19 @@ curl "https://api.libroreserve.com/restricted/restaurant/bookings/63873441/resch
 
 This endpoint allows you to reschedule a booking. It will be used to increase/descrease booking size, change date and time or change booking experience.
 
-### HTTP Request
+### Parameters
 
-`PUT https://api.libroreserve.com/restricted/restaurant/bookings/63873441/reschedule`
+<span class="dynamic-attributes" data-attr-type="rescheduleBooking"></span>
 
-### Query Parameters
+### Examples:
 
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| restaurant-code | string | Code of the restaurant to reschedule the booking for | yes |
-| date | string | Booking date (format YYYY-MM-DD) | yes |
-| time | string | Booking time (format HH:MM:SS) | yes |
-| size | integer | Number of guests | yes |
-| booking-experience-id | integer | ID of the booking experience | no |
+- Increase booking size:
+
+`PUT https://api.libroreserve.com/restricted/restaurant/bookings/63873441/reschedule?restaurant-code=0000000000&date=2025-05-07&time=17:00&size=4`
+
+- Change booking date and time:
+
+`PUT https://api.libroreserve.com/restricted/restaurant/bookings/63873441/reschedule?restaurant-code=0000000000&date=2025-05-07&time=17:00`
 
 
     

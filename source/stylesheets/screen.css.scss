@@ -317,6 +317,7 @@ html, body {
 .content {
   // fixes webkit rendering bug for some: see #538
   -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   // to place content above the dark box
   position: relative;
   z-index: 30;
@@ -634,4 +635,98 @@ html, body {
 
 .copy-clipboard:hover {
   opacity: 0.8;
+}
+
+
+
+.method {
+  &.get {
+    color: #2b9df6 !important;
+  }
+  &.post {
+    color: #3eae20 !important;
+  }
+  &.put {
+    color: #f6f625 !important;
+  }
+  &.patch {
+    color: #942bf6 !important;
+  }
+  &.delete {
+    color: #f27400 !important;
+  }
+}
+
+.path {
+  color: #FFFFFF; // White color
+}
+
+// Stripe-style attribute styling
+.dynamic-attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 20px 0;
+  border-radius: 8px;
+  background-color: #f6f8fa;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.stripe-attribute {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #edf0f2;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: #fafbfc;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  .attr-header {
+    display: flex;
+    margin-bottom: 8px;
+    
+    .attr-name {
+      font-weight: 600;
+      color: #3c4257;
+      margin-right: 12px;
+      font-size: 14px;
+      
+      code {
+        background: none;
+        padding: 0;
+        font-weight: 600;
+      }
+    }
+    
+    .attr-type {
+      font-size: 12px;
+      color: #697386;
+      background-color: #f0f4f8;
+      border-radius: 4px;
+      padding: 2px 6px;
+      text-transform: lowercase;
+      align-self: flex-start;
+    }
+    
+    .attr-req {
+      font-size: 14px;
+      color: #f27400;
+      align-self: flex-start;
+      margin-left: 12px;
+    }
+  }
+  
+  .attr-description {
+    color: #4f566b;
+    font-size: 14px;
+    line-height: 1.5;
+  }
 }

@@ -2,7 +2,7 @@
 title: Libro API Reference
 
 language_tabs:
-  - shell
+  - shell: cURL
 
 toc_footers:
   - "To get an API access, please contact:"

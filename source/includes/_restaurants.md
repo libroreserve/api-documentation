@@ -1,11 +1,18 @@
 # Restaurants
 
+> ENDPOINTS
+
+> <span class="method get">GET</span> /restricted/restaurants <br>
+> <span class="method get">GET</span> /restricted/restaurants/:id <br>
+> <span class="method get">GET</span> /restricted/restaurants/:id/seatings
+
 The Restaurants API allows you to access restaurant profiles, manage availability, and retrieve detailed information about dining establishments in the Libro network.
 
 ## The Restaurant Object
 
-```json
+> THE RESTAURANT OBJECT
 
+```json
 {
   "type": "restaurant",
   "id": "0000000000",
@@ -35,24 +42,15 @@ The Restaurants API allows you to access restaurant profiles, manage availabilit
 }
 ```
 
-### Restaurant Attributes
+### Attributes
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| id | string | Unique identifier for the restaurant |
-| name | string | Name of the restaurant |
-| active | boolean | Whether the restaurant is currently active in the system |
-| code | string | Unique restaurant code |
-| latitude | number | Geographic latitude coordinate |
-| longitude | number | Geographic longitude coordinate |
-| tz | string | Restaurant timezone (IANA format) |
-| created-at | string | ISO timestamp of when the restaurant was created |
-| online-booking-lead-months | integer | Number of months in advance online bookings are accepted |
-| cancelation-delay | integer | Cancellation window in seconds (e.g., 86400 = 24 hours) |
-| service-scopes | array | Array of service periods with name, startTime and endTime |
+<span class="dynamic-attributes" data-attr-type="restaurant"></span>
 
 ## Get
-> Request:
+
+> <span class="method get">GET</span> /restricted/restaurants?restaurant-code=QC01621448XXXX
+
+> REQUEST:
 
 ```shell
 curl "https://api.libroreserve.com/restricted/restaurants?restaurant-code=QC016214487921" \
@@ -62,7 +60,7 @@ curl "https://api.libroreserve.com/restricted/restaurants?restaurant-code=QC0162
 ```
 
 
-> Response:
+> RESPONSE:
 
 ```json
 {
@@ -78,19 +76,15 @@ curl "https://api.libroreserve.com/restricted/restaurants?restaurant-code=QC0162
 
 This endpoint retrieves a specific restaurant by its code.
 
-### HTTP Request
+### Parameters
 
-`GET https://api.libroreserve.com/restricted/restaurants?restaurant-code=QC01621448XXXX`
-
-### Query Parameters
-
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| restaurant-code | string | Restaurant code | Yes |
+<span class="dynamic-attributes" data-attr-type="restaurantGet"></span>
 
 ## List
 
-> Request:
+> <span class="method get">GET</span> /restricted/restaurants
+
+> REQUEST:
 
 ```shell
 curl "https://api.libroreserve.com/restricted/restaurants" \
@@ -101,7 +95,7 @@ curl "https://api.libroreserve.com/restricted/restaurants" \
 
 
 
-> Response:
+> RESPONSE:
 
 ```json
 {
@@ -122,15 +116,24 @@ curl "https://api.libroreserve.com/restricted/restaurants" \
 
 This endpoint retrieves all restaurants available to your connected account.
 
-### HTTP Request
-
-`GET https://api.libroreserve.com/restricted/restaurants`
-
 
 ## Get Availability
-> Response with experiences:
+
+> <span class="method get">GET</span> /restricted/restaurants/seatings
+
+> REQUEST:
+
+```shell
+curl "https://api.libroreserve.com/restricted/restaurants/seatings?restaurant-code=QC01621448XXXX&date=2026-07-09&size=2" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/vnd.libro-restricted-v2+json" \
+  -H "Authorization: Bearer ACCESS_TOKEN"
+```
+
+> RESPONSE:
 
 ```json
+# Response with experiences:
 {
   "2026-07-09": {
     "2026-07-09T11:00:00": [
@@ -155,9 +158,8 @@ This endpoint retrieves all restaurants available to your connected account.
 }
 ```
 
-> Response without experiences:
-
 ```json
+# Response without experiences:
 {
   "2026-07-09": {
     "2026-07-09T11:00:00": true,
@@ -168,14 +170,7 @@ This endpoint retrieves all restaurants available to your connected account.
 
 This endpoint retrieves restaurant availabilities.
 
-### HTTP Request
-
-`GET https://api.libroreserve.com/restricted/restaurants/seatings?restaurant-code=QC01621448XXXX&date=2026-07-09&size=2`
-
 ### Query Parameters
 
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| restaurant-code | string | Restaurant code | Yes |
-| date | string | Date in YYYY-MM-DD format | Yes |
-| size | integer | Party size | Yes |
+<span class="dynamic-attributes" data-attr-type="restaurantGetAvailability"></span>
+
