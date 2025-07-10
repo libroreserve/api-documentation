@@ -406,6 +406,20 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#person" class="toc-h1 toc-link" data-title="Person">Person</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-person-object" class="toc-h2 toc-link" data-title="The Person Object">The Person Object</a>
+                  </li>
+                  <li>
+                    <a href="#get-person" class="toc-h2 toc-link" data-title="Get Person">Get Person</a>
+                  </li>
+                  <li>
+                    <a href="#update-person" class="toc-h2 toc-link" data-title="Update Person">Update Person</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li>To get an API access, please contact:</li>
@@ -1074,11 +1088,15 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to create a new booking.</p>
+
+<aside class="notice">Note: You can choose rather to pass the ID of a Person or the full Person attributes.</aside>
 <h3 id='body-parameters'>Body Parameters</h3>
 <p><span class="dynamic-attributes" data-attr-type="restaurantCode"></span></p>
 <h4 id='body-attributes'>Body Attributes</h4>
 <p><span class="dynamic-attributes" data-attr-type="createBooking"></span></p>
 <h4 id='relationship-person'>Relationship Person</h4>
+<p><span class="dynamic-attributes" data-attr-type="personId"></span></p>
+<h4 id='person-attributes'>Person Attributes</h4>
 <p><span class="dynamic-attributes" data-attr-type="person"></span></p>
 <h4 id='device-infos'>Device Infos</h4>
 <p><span class="dynamic-attributes" data-attr-type="deviceInfos"></span></p>
@@ -1217,6 +1235,119 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 </ul>
 
 <p><code>PUT https://api.libroreserve.com/restricted/restaurant/bookings/63873441/reschedule?restaurant-code=0000000000&amp;date=2025-05-07&amp;time=17:00</code></p>
+<h1 id='person'>Person</h1>
+<blockquote>
+<p>ENDPOINTS</p>
+
+<p><span class="method get">GET</span> /restricted/people/:id <br>
+<span class="method patch">PATCH</span> /restricted/people/:id <br></p>
+</blockquote>
+
+<p>The People API allows you to retrieve and update people data.</p>
+<h2 id='the-person-object'>The Person Object</h2>
+<blockquote>
+<p>THE PERSON OBJECT</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18476003"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"225-951-4433"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"vvip"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vegan"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='person-2'>Person</h3>
+<p><span class="dynamic-attributes" data-attr-type="personId"></span></p>
+<h4 id='person-attributes'>Person Attributes</h4>
+<p><span class="dynamic-attributes" data-attr-type="person"></span></p>
+<h2 id='get-person'>Get Person</h2>
+<blockquote>
+<p><span class="method get">GET</span> /restricted/people/:id</p>
+
+<p>REQUEST:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/people/18476003"</span> <span class="se">\</span>
+  <span class="nt">-X</span> GET <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.libro-restricted-v2+json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
+</code></pre></div>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18476003"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"225-951-4433"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"vvip"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vegan"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint allows you to retrieve a person&#39;s details.</p>
+<h3 id='path-parameters'>Path Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="personId"></span></p>
+<h2 id='update-person'>Update Person</h2>
+<blockquote>
+<p><span class="method patch">PATCH</span> /restricted/people/:id</p>
+
+<p>REQUEST:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/people/18476003"</span> <span class="se">\</span>
+  <span class="nt">-X</span> PATCH <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.libro-restricted-v2+json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
+</code></pre></div>
+<blockquote>
+<p>REQUEST BODY:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"225-951-4433"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"vvip"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vegan"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18476003"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"last-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"225-951-4433"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"vvip"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vegan"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint allows you to update a person&#39;s details.</p>
+<h3 id='path-parameters'>Path Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="personId"></span></p>
+<h3 id='body-parameters'>Body Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="personUpdate"></span></p>
 
       </div>
       <div class="dark-box">
@@ -1225,6 +1356,6 @@ Cancellation is only possible if the booking has not passed the cancellation dea
           </div>
       </div>
     </div>
-    <script src="javascripts/objectAttributes-0022bea5.js"></script>
+    <script src="javascripts/objectAttributes-c13271f4.js"></script>
   </body>
 </html>

@@ -22,6 +22,9 @@ includes:
   - bookings/_update.md
   - bookings/_cancel.md
   - bookings/_reschedule.md
+  - people/_intro.md
+  - people/_get.md
+  - people/_update.md
 
 search: true
 

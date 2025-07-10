@@ -116,6 +116,8 @@
 
 This endpoint allows you to create a new booking.
 
+<aside class="notice">Note: You can choose rather to pass the ID of a Person or the full Person attributes.</aside>
+
 ### Body Parameters
 
 <span class="dynamic-attributes" data-attr-type="restaurantCode"></span>
@@ -125,6 +127,10 @@ This endpoint allows you to create a new booking.
 <span class="dynamic-attributes" data-attr-type="createBooking"></span>
 
 #### Relationship Person
+
+<span class="dynamic-attributes" data-attr-type="personId"></span>
+
+#### Person Attributes
 
 <span class="dynamic-attributes" data-attr-type="person"></span>
 

@@ -71,12 +71,22 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'note', type: 'string', desc: 'Note for the restaurant staff' },
     { name: 'locale', type: 'string', desc: 'Guest\'s preferred language (BCP 47 code)' },
   ],
+  personId: [
+    { name: 'id', type: 'integer', desc: 'Guest\'s ID', required: true },
+  ],
   person: [
-    { name: 'id', type: 'integer', desc: 'Guest\'s ID' },
     { name: 'first-name', type: 'string', desc: 'Guest\'s first name', required: true },
     { name: 'last-name', type: 'string', desc: 'Guest\'s last name', required: true },
     { name: 'email', type: 'string', desc: 'Guest\'s email address', required: true },
     { name: 'phone', type: 'string', desc: 'Guest\'s phone number', required: true },
+    { name: 'preferred-communication-channel', type: 'string', desc: 'Preferred contact method ("email" or "phone")' },
+    { name: 'locale', type: 'string', desc: 'Guest\'s language preference' }
+  ],
+  personUpdate: [
+    { name: 'first-name', type: 'string', desc: 'Guest\'s first name' },
+    { name: 'last-name', type: 'string', desc: 'Guest\'s last name' },
+    { name: 'email', type: 'string', desc: 'Guest\'s email address' },
+    { name: 'phone', type: 'string', desc: 'Guest\'s phone number' },
     { name: 'preferred-communication-channel', type: 'string', desc: 'Preferred contact method ("email" or "phone")' },
     { name: 'locale', type: 'string', desc: 'Guest\'s language preference' }
   ],
