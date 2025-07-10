@@ -27,6 +27,8 @@ includes:
   - people/_update.md
   - reviews/_intro.md
   - reviews/_list.md
+  - _pagination.md
+  - _errors.md
 
 search: true
 

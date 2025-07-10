@@ -434,6 +434,17 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#pagination" class="toc-h1 toc-link" data-title="Pagination">Pagination</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#common-errors" class="toc-h1 toc-link" data-title="Common Errors">Common Errors</a>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li>To get an API access, please contact:</li>
@@ -766,6 +777,8 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all restaurants available to your connected account.</p>
+
+<p>See <a href="#pagination">Pagination</a> for more details.</p>
 <h2 id='get-restaurant-availability'>Get Restaurant Availability</h2>
 <blockquote>
 <p><span class="method get">GET</span> /restricted/restaurants/seatings</p>
@@ -998,6 +1011,8 @@ Never share your client secret or access tokens. Store them securely and never e
 </ul>
 
 <p><code>GET https://api.libroreserve.com/restricted/restaurant/bookings?guest-phone=15141111111</code></p>
+
+<p>See <a href="#pagination">Pagination</a> for more details.</p>
 <h2 id='create-booking'>Create Booking</h2>
 <blockquote>
 <p><span class="method post">POST</span> /restricted/restaurant/bookings</p>
@@ -1453,6 +1468,82 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 <h3 id='query-parameters'>Query Parameters</h3>
 <p><span class="dynamic-attributes" data-attr-type="restaurantCode"></span></p>
 
+<p>See <a href="#pagination">Pagination</a> for more details.</p>
+<h1 id='pagination'>Pagination</h1>
+<p>Every resource LIST endpoint returns a paginated list of records, and can use the pagination mechanics.</p>
+
+<blockquote>
+<p>Retrieve the first 20 bookings:</p>
+
+<p><span class="method get">GET</span> restricted/restaurant/bookings?limit=20&amp;offset=0</p>
+
+<p>Retrieve the next 20 bookings:</p>
+
+<p><span class="method get">GET</span> restricted/restaurant/bookings?limit=20&amp;offset=20</p>
+
+<p>Retrieve 50 bookings per page:</p>
+
+<p><span class="method get">GET</span> restricted/restaurant/bookings?limit=50&amp;offset=0</p>
+</blockquote>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="pagination"></span></p>
+
+<p>To paginate through the payload, use the limit and offset parameters. The limit parameter controls the number of records returned in a single request, with a maximum value of 250. The offset parameter specifies the starting point for the query in terms of database records.</p>
+<h1 id='common-errors'>Common Errors</h1>
+<p>The Libro API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- The token is missing or invalid.</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Unauthorized -- Your subscription plan does not allow API access, please contact success@libroreserve.com to subscribe the Premium Plan</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The token has expired or is invalid.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified resource could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- The token does not allow access to this endpoint.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict -- The request could not be completed due to a conflict with the current state of the resource.</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Unprocessable Entity -- The request could not be completed due to a validation error.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many resources!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
@@ -1460,6 +1551,6 @@ Cancellation is only possible if the booking has not passed the cancellation dea
           </div>
       </div>
     </div>
-    <script src="javascripts/objectAttributes-ebb63509.js"></script>
+    <script src="javascripts/attributes-43f64247.js"></script>
   </body>
 </html>

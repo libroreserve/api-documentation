@@ -46,5 +46,7 @@ This endpoint allows you to retrieve a list of reviews for a specific restaurant
 
 <span class="dynamic-attributes" data-attr-type="restaurantCode"></span>
 
+See [Pagination](#pagination) for more details.
+
 
     

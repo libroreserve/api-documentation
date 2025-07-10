@@ -33,3 +33,5 @@ curl "https://api.libroreserve.com/restricted/restaurants" \
 ```
 
 This endpoint retrieves all restaurants available to your connected account.
+
+See [Pagination](#pagination) for more details.

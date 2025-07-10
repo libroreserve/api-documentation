@@ -52,3 +52,5 @@ This endpoint retrieves a list of bookings for the restaurant.
 - Search by guest phone number:
 
 `GET https://api.libroreserve.com/restricted/restaurant/bookings?guest-phone=15141111111`
+
+See [Pagination](#pagination) for more details.

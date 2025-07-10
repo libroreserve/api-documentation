@@ -118,6 +118,12 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'source', type: 'string', desc: 'Source of the review (e.g., libro, google)' },
     { name: 'created-at', type: 'string', desc: 'When the review was created' },
     { name: 'updated-at', type: 'string', desc: 'When the review was last updated' },
+  ],
+  pagination: [
+    { name: 'limit', type: 'integer', desc: 'Number of records per request' },
+    { name: 'offset', type: 'integer', desc: 'Record offset to start from for pagination' },
+    { name: 'page', type: 'integer', desc: 'Current page' },
+    { name: 'per-page', type: 'integer', desc: 'Number of records per page' }
   ]
 };
 
