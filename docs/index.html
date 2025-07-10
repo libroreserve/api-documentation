@@ -420,6 +420,20 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#reviews" class="toc-h1 toc-link" data-title="Reviews">Reviews</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-review-object" class="toc-h2 toc-link" data-title="The Review Object">The Review Object</a>
+                  </li>
+                  <li>
+                    <a href="#review-relationships" class="toc-h2 toc-link" data-title="Review Relationships">Review Relationships</a>
+                  </li>
+                  <li>
+                    <a href="#list-reviews" class="toc-h2 toc-link" data-title="List Reviews">List Reviews</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li>To get an API access, please contact:</li>
@@ -468,6 +482,14 @@
 <tr>
 <td><a href="#bookings">Bookings</a></td>
 <td>Reservation creation and management</td>
+</tr>
+<tr>
+<td><a href="#person">People</a></td>
+<td>Guest information</td>
+</tr>
+<tr>
+<td><a href="#reviews">Reviews</a></td>
+<td>Customer reviews and feedback</td>
 </tr>
 </tbody></table>
 <h1 id='introduction'>Introduction</h1>
@@ -1348,6 +1370,88 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 <p><span class="dynamic-attributes" data-attr-type="personId"></span></p>
 <h3 id='body-parameters'>Body Parameters</h3>
 <p><span class="dynamic-attributes" data-attr-type="personUpdate"></span></p>
+<h1 id='reviews'>Reviews</h1>
+<blockquote>
+<p>ENDPOINTS</p>
+
+<p><span class="method get">GET</span> /restricted/restaurant/reviews <br></p>
+</blockquote>
+
+<p>The Reviews API allows you to retrieve reviews.</p>
+<h2 id='the-review-object'>The Review Object</h2>
+<blockquote>
+<p>THE REVIEW OBJECT</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"review"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ambiance-rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"food-rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"service-rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"menu-rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"presentation-rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"custom-question-1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"custom-question-2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Perfect!"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reply"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Glad you enjoyed your meal!"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"libro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-07-08T10:40:31.660-04:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-07-12T11:50:21.615-04:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='review-attributes'>Review Attributes</h3>
+<p><span class="dynamic-attributes" data-attr-type="reviews"></span></p>
+<h2 id='review-relationships'>Review Relationships</h2>
+<p>Review object will be returned with the following relationships:</p>
+
+<ul>
+<li><a href="#restaurant">Restaurant</a></li>
+<li><a href="#person">Person</a></li>
+</ul>
+<h2 id='list-reviews'>List Reviews</h2>
+<blockquote>
+<p><span class="method get">GET</span> /restricted/restaurant/reviews</p>
+
+<p>REQUEST:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/reviews?restaurant-code=QCXXXXXXXXXX"</span> <span class="se">\</span>
+  <span class="nt">-X</span> GET <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.libro-restricted-v2+json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
+</code></pre></div>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"review"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">/*</span><span class="w"> </span><span class="err">review</span><span class="w"> </span><span class="err">attributes</span><span class="w"> </span><span class="err">*/</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">/*</span><span class="w"> </span><span class="err">review</span><span class="w"> </span><span class="err">relationships</span><span class="w"> </span><span class="err">*/</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567891"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"review"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">/*</span><span class="w"> </span><span class="err">review</span><span class="w"> </span><span class="err">attributes</span><span class="w"> </span><span class="err">*/</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">/*</span><span class="w"> </span><span class="err">review</span><span class="w"> </span><span class="err">relationships</span><span class="w"> </span><span class="err">*/</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567892"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"review"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">/*</span><span class="w"> </span><span class="err">review</span><span class="w"> </span><span class="err">attributes</span><span class="w"> </span><span class="err">*/</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">/*</span><span class="w"> </span><span class="err">review</span><span class="w"> </span><span class="err">relationships</span><span class="w"> </span><span class="err">*/</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint allows you to retrieve a list of reviews for a specific restaurant.</p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="restaurantCode"></span></p>
 
       </div>
       <div class="dark-box">
@@ -1356,6 +1460,6 @@ Cancellation is only possible if the booking has not passed the cancellation dea
           </div>
       </div>
     </div>
-    <script src="javascripts/objectAttributes-c13271f4.js"></script>
+    <script src="javascripts/objectAttributes-ebb63509.js"></script>
   </body>
 </html>

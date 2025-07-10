@@ -25,6 +25,8 @@ includes:
   - people/_intro.md
   - people/_get.md
   - people/_update.md
+  - reviews/_intro.md
+  - reviews/_list.md
 
 search: true
 
@@ -56,3 +58,5 @@ The Libro API follows REST principles and provides JSON:API-compliant responses.
 |----------|------------|
 | [Restaurants](#restaurants) | Restaurant profiles, availability, and settings |
 | [Bookings](#bookings) | Reservation creation and management |
+| [People](#person) | Guest information |
+| [Reviews](#reviews) | Customer reviews and feedback |

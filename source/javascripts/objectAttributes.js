@@ -103,6 +103,21 @@ document.addEventListener('DOMContentLoaded', function() {
   deviceInfos: [
     { name: 'id', type: 'string', desc: 'Unique identifier for the device' },
     { name: 'ip', type: 'string', desc: 'IP address of the device' }
+  ],
+  reviews: [
+    { name: 'rating', type: 'number', desc: 'Overall rating given by the user' },
+    { name: 'ambiance-rating', type: 'number', desc: 'Ambiance rating (if applicable)' },
+    { name: 'food-rating', type: 'number', desc: 'Food rating (if applicable)' },
+    { name: 'service-rating', type: 'number', desc: 'Service rating (if applicable)' },
+    { name: 'menu-rating', type: 'number', desc: 'Menu rating (if applicable)' },
+    { name: 'presentation-rating', type: 'number', desc: 'Presentation rating (if applicable)' },
+    { name: 'custom-question-1', type: 'string', desc: 'Custom question response (if configured)' },
+    { name: 'custom-question-2', type: 'string', desc: 'Custom question response (if configured)' },
+    { name: 'description', type: 'string', desc: 'Review text (if provided)' },
+    { name: 'reply', type: 'string', desc: 'Response to the review from the restaurant (if provided)' },
+    { name: 'source', type: 'string', desc: 'Source of the review (e.g., libro, google)' },
+    { name: 'created-at', type: 'string', desc: 'When the review was created' },
+    { name: 'updated-at', type: 'string', desc: 'When the review was last updated' },
   ]
 };
 
