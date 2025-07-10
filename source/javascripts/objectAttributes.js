@@ -55,39 +55,36 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'status', type: 'string', desc: 'Retrieve bookings with a specific status (approved, canceled, confirmed, noshow, pending, seated, partial, arrived, completed)' },
     { name: 'guest-id', type: 'integer', desc: 'Guest ID to filter the bookings' }
   ],
-  createBooking: [
+  restaurantCode: [
     { name: 'restaurant-code', type: 'string', desc: 'Restaurant code', required: true },
+  ],
+  createBooking: [
+    { name: 'size', type: 'integer', desc: 'Number of guests', required: true },
     { name: 'date', type: 'string', desc: 'Booking date (format YYYY-MM-DD)', required: true },
     { name: 'time', type: 'string', desc: 'Booking time (format HH:MM:SS)', required: true },
-    { name: 'size', type: 'integer', desc: 'Number of guests', required: true },
     { name: 'note', type: 'string', desc: 'Note for the restaurant staff' },
     { name: 'locale', type: 'string', desc: 'Guest\'s preferred language (BCP 47 code)' },
     { name: 'table-number', type: 'string', desc: 'Table number for the booking' },
     { name: 'booking-experience-id', type: 'integer', desc: 'ID of the booking experience' }
   ],
   updateBooking: [
-    { name: 'restaurant-code', type: 'string', desc: 'Restaurant code', required: true },
     { name: 'note', type: 'string', desc: 'Note for the restaurant staff' },
     { name: 'locale', type: 'string', desc: 'Guest\'s preferred language (BCP 47 code)' },
   ],
-  bookingPerson: [
-    { name: 'id', type: 'integer', desc: 'Guest\'s ID', required: true },
+  person: [
+    { name: 'id', type: 'integer', desc: 'Guest\'s ID' },
     { name: 'first-name', type: 'string', desc: 'Guest\'s first name', required: true },
-    { name: 'last-name', type: 'string', desc: 'Guest\'s last name' },
-    { name: 'email', type: 'string', desc: 'Guest\'s email address' },
-    { name: 'phone', type: 'string', desc: 'Guest\'s phone number' },
+    { name: 'last-name', type: 'string', desc: 'Guest\'s last name', required: true },
+    { name: 'email', type: 'string', desc: 'Guest\'s email address', required: true },
+    { name: 'phone', type: 'string', desc: 'Guest\'s phone number', required: true },
     { name: 'preferred-communication-channel', type: 'string', desc: 'Preferred contact method ("email" or "phone")' },
     { name: 'locale', type: 'string', desc: 'Guest\'s language preference' }
-  ],
-  cancelBooking: [
-    { name: 'restaurant-code', type: 'string', desc: 'Code of the restaurant to cancel the booking for', required: true }
   ],
   bookingErrors: [
     { name: '404', type: 'string', desc: 'Booking not found' },
     { name: '409', type: 'string', desc: 'Booking could not be canceled' }
   ],
   rescheduleBooking: [
-    { name: 'restaurant-code', type: 'string', desc: 'Code of the restaurant to reschedule the booking for', required: true },
     { name: 'date', type: 'string', desc: 'Booking date (format YYYY-MM-DD)', required: true },
     { name: 'time', type: 'string', desc: 'Booking time (format HH:MM:SS)', required: true },
     { name: 'size', type: 'integer', desc: 'Number of guests' },

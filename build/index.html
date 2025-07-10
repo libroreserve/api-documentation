@@ -367,13 +367,13 @@
                     <a href="#the-restaurant-object" class="toc-h2 toc-link" data-title="The Restaurant Object">The Restaurant Object</a>
                   </li>
                   <li>
-                    <a href="#get" class="toc-h2 toc-link" data-title="Get">Get</a>
+                    <a href="#get-restaurant" class="toc-h2 toc-link" data-title="Get Restaurant">Get Restaurant</a>
                   </li>
                   <li>
-                    <a href="#list" class="toc-h2 toc-link" data-title="List">List</a>
+                    <a href="#list-restaurants" class="toc-h2 toc-link" data-title="List Restaurants">List Restaurants</a>
                   </li>
                   <li>
-                    <a href="#get-availability" class="toc-h2 toc-link" data-title="Get Availability">Get Availability</a>
+                    <a href="#get-restaurant-availability" class="toc-h2 toc-link" data-title="Get Restaurant Availability">Get Restaurant Availability</a>
                   </li>
               </ul>
           </li>
@@ -384,22 +384,25 @@
                     <a href="#the-booking-object" class="toc-h2 toc-link" data-title="The Booking Object">The Booking Object</a>
                   </li>
                   <li>
-                    <a href="#get" class="toc-h2 toc-link" data-title="Get">Get</a>
+                    <a href="#booking-relationships" class="toc-h2 toc-link" data-title="Booking Relationships">Booking Relationships</a>
                   </li>
                   <li>
-                    <a href="#list" class="toc-h2 toc-link" data-title="List">List</a>
+                    <a href="#get-booking" class="toc-h2 toc-link" data-title="Get Booking">Get Booking</a>
                   </li>
                   <li>
-                    <a href="#create" class="toc-h2 toc-link" data-title="Create">Create</a>
+                    <a href="#list-bookings" class="toc-h2 toc-link" data-title="List Bookings">List Bookings</a>
                   </li>
                   <li>
-                    <a href="#update" class="toc-h2 toc-link" data-title="Update">Update</a>
+                    <a href="#create-booking" class="toc-h2 toc-link" data-title="Create Booking">Create Booking</a>
                   </li>
                   <li>
-                    <a href="#cancel" class="toc-h2 toc-link" data-title="Cancel">Cancel</a>
+                    <a href="#update-booking" class="toc-h2 toc-link" data-title="Update Booking">Update Booking</a>
                   </li>
                   <li>
-                    <a href="#reschedule" class="toc-h2 toc-link" data-title="Reschedule">Reschedule</a>
+                    <a href="#cancel-booking" class="toc-h2 toc-link" data-title="Cancel Booking">Cancel Booking</a>
+                  </li>
+                  <li>
+                    <a href="#reschedule-booking" class="toc-h2 toc-link" data-title="Reschedule Booking">Reschedule Booking</a>
                   </li>
               </ul>
           </li>
@@ -628,6 +631,8 @@ Never share your client secret or access tokens. Store them securely and never e
 
 <p>By adding these details, the guide provides a comprehensive approach to handling token refresh, ensuring continuous and secure access to Libro’s API.</p>
 <h1 id='restaurants'>Restaurants</h1>
+<p>The Restaurants API allows you to access restaurant profiles, manage availability, and retrieve detailed information about dining establishments in the Libro network.</p>
+
 <blockquote>
 <p>ENDPOINTS</p>
 
@@ -635,8 +640,6 @@ Never share your client secret or access tokens. Store them securely and never e
 <span class="method get">GET</span> /restricted/restaurants/:id <br>
 <span class="method get">GET</span> /restricted/restaurants/:id/seatings</p>
 </blockquote>
-
-<p>The Restaurants API allows you to access restaurant profiles, manage availability, and retrieve detailed information about dining establishments in the Libro network.</p>
 <h2 id='the-restaurant-object'>The Restaurant Object</h2>
 <blockquote>
 <p>THE RESTAURANT OBJECT</p>
@@ -670,7 +673,11 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='attributes'>Attributes</h3>
 <p><span class="dynamic-attributes" data-attr-type="restaurant"></span></p>
-<h2 id='get'>Get</h2>
+<h2 id='get-restaurant'>Get Restaurant</h2>
+<p>This endpoint retrieves a specific restaurant by its code.</p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="restaurantGet"></span></p>
+
 <blockquote>
 <p><span class="method get">GET</span> /restricted/restaurants?restaurant-code=QC01621448XXXX</p>
 
@@ -693,11 +700,7 @@ Never share your client secret or access tokens. Store them securely and never e
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific restaurant by its code.</p>
-<h3 id='parameters'>Parameters</h3>
-<p><span class="dynamic-attributes" data-attr-type="restaurantGet"></span></p>
-<h2 id='list'>List</h2>
+</span></code></pre></div><h2 id='list-restaurants'>List Restaurants</h2>
 <blockquote>
 <p><span class="method get">GET</span> /restricted/restaurants</p>
 
@@ -727,7 +730,7 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all restaurants available to your connected account.</p>
-<h2 id='get-availability'>Get Availability</h2>
+<h2 id='get-restaurant-availability'>Get Restaurant Availability</h2>
 <blockquote>
 <p><span class="method get">GET</span> /restricted/restaurants/seatings</p>
 
@@ -826,7 +829,16 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='booking-attributes'>Booking Attributes</h3>
 <p><span class="dynamic-attributes" data-attr-type="booking"></span></p>
-<h2 id='get'>Get</h2>
+<h2 id='booking-relationships'>Booking Relationships</h2>
+<p>Booking object will be returned with the following relationships:</p>
+
+<ul>
+<li><a href="#restaurant">Restaurant</a></li>
+<li><a href="#person">Person</a></li>
+<li><a href="#recommendation">Recommendation</a></li>
+<li><a href="#experience">Experience</a></li>
+</ul>
+<h2 id='get-booking'>Get Booking</h2>
 <blockquote>
 <p><span class="method get">GET</span> /restricted/restaurant/bookings/:id</p>
 
@@ -879,7 +891,16 @@ Never share your client secret or access tokens. Store them securely and never e
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"recommendation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXX"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recommendation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"experience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXX"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experience"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -887,9 +908,9 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific booking by its ID.</p>
-<h3 id='parameters'>Parameters</h3>
+<h3 id='path-parameters'>Path Parameters</h3>
 <p><span class="dynamic-attributes" data-attr-type="bookingGet"></span></p>
-<h2 id='list'>List</h2>
+<h2 id='list-bookings'>List Bookings</h2>
 <blockquote>
 <p><span class="method get">GET</span> /restricted/restaurant/bookings</p>
 
@@ -921,9 +942,9 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a list of bookings for the restaurant.</p>
-<h3 id='parameters-2'>Parameters</h3>
+<h3 id='query-parameters'>Query Parameters</h3>
 <p><span class="dynamic-attributes" data-attr-type="bookingList"></span></p>
-<h3 id='examples'>Examples:</h3>
+<h3 id='examples'>Examples</h3>
 <ul>
 <li>Search by date:</li>
 </ul>
@@ -941,7 +962,7 @@ Never share your client secret or access tokens. Store them securely and never e
 </ul>
 
 <p><code>GET https://api.libroreserve.com/restricted/restaurant/bookings?guest-phone=15141111111</code></p>
-<h2 id='create'>Create</h2>
+<h2 id='create-booking'>Create Booking</h2>
 <blockquote>
 <p><span class="method post">POST</span> /restricted/restaurant/bookings</p>
 
@@ -954,7 +975,7 @@ Never share your client secret or access tokens. Store them securely and never e
   <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
 </code></pre></div>
 <blockquote>
-<p>REQUEST BODY:</p>
+<p>REQUEST BODY WITH PERSON DATA:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -980,6 +1001,36 @@ Never share your client secret or access tokens. Store them securely and never e
             </span><span class="nl">"preferred-communication-channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
           </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"device-infos"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>REQUEST BODY WITH PERSON ID:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"restaurant-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-07"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Birthday party"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"table-number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"people"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1023,13 +1074,15 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to create a new booking.</p>
-<h3 id='parameters-3'>Parameters</h3>
+<h3 id='body-parameters'>Body Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="restaurantCode"></span></p>
+<h4 id='body-attributes'>Body Attributes</h4>
 <p><span class="dynamic-attributes" data-attr-type="createBooking"></span></p>
-<h4 id='person'>Person</h4>
-<p><span class="dynamic-attributes" data-attr-type="bookingPerson"></span></p>
+<h4 id='relationship-person'>Relationship Person</h4>
+<p><span class="dynamic-attributes" data-attr-type="person"></span></p>
 <h4 id='device-infos'>Device Infos</h4>
 <p><span class="dynamic-attributes" data-attr-type="deviceInfos"></span></p>
-<h2 id='update'>Update</h2>
+<h2 id='update-booking'>Update Booking</h2>
 <blockquote>
 <p><span class="method patch">PATCH</span> /restricted/restaurant/bookings/:id</p>
 
@@ -1068,9 +1121,11 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to update some attributes of a booking.</p>
-<h3 id='parameters-4'>Parameters</h3>
+<h3 id='parameters'>Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="restaurantCode"></span></p>
+<h4 id='body-attributes'>Body Attributes</h4>
 <p><span class="dynamic-attributes" data-attr-type="updateBooking"></span></p>
-<h2 id='cancel'>Cancel</h2>
+<h2 id='cancel-booking'>Cancel Booking</h2>
 <blockquote>
 <p><span class="method delete">DELETE</span> /restricted/restaurant/bookings/:id</p>
 
@@ -1099,11 +1154,13 @@ Never share your client secret or access tokens. Store them securely and never e
 <aside class="notice">
 Cancellation is only possible if the booking has not passed the cancellation deadline, if the restaurant accept booking cancelation and if there is not deposit.
 </aside></p>
-<h3 id='parameters-5'>Parameters</h3>
-<p><span class="dynamic-attributes" data-attr-type="cancelBooking"></span></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="restaurantCode"></span></p>
+<h3 id='example'>Example</h3>
+<p><code>DELETE /restricted/restaurant/bookings/63873441?restaurant-code=0000000000</code></p>
 <h3 id='errors'>Errors</h3>
 <p><span class="dynamic-attributes" data-attr-type="bookingErrors"></span></p>
-<h2 id='reschedule'>Reschedule</h2>
+<h2 id='reschedule-booking'>Reschedule Booking</h2>
 <blockquote>
 <p><span class="method put">PUT</span> /restricted/restaurant/bookings/:id/reschedule</p>
 
@@ -1144,9 +1201,11 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to reschedule a booking. It will be used to increase/descrease booking size, change date and time or change booking experience.</p>
-<h3 id='parameters-6'>Parameters</h3>
+<h3 id='body-parameters'>Body Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="restaurantCode"></span></p>
+<h4 id='body-attributes'>Body Attributes</h4>
 <p><span class="dynamic-attributes" data-attr-type="rescheduleBooking"></span></p>
-<h3 id='examples-2'>Examples:</h3>
+<h3 id='examples'>Examples</h3>
 <ul>
 <li>Increase booking size:</li>
 </ul>
@@ -1166,6 +1225,6 @@ Cancellation is only possible if the booking has not passed the cancellation dea
           </div>
       </div>
     </div>
-    <script src="javascripts/objectAttributes-3e4d8e30.js"></script>
+    <script src="javascripts/objectAttributes-0022bea5.js"></script>
   </body>
 </html>

@@ -11,8 +11,17 @@ toc_footers:
 includes:
   - introduction
   - authentication
-  - restaurants
-  - bookings
+  - restaurants/_intro.md
+  - restaurants/_get.md
+  - restaurants/_list.md
+  - restaurants/_availabilities.md
+  - bookings/_intro.md
+  - bookings/_get.md
+  - bookings/_list.md
+  - bookings/_create.md
+  - bookings/_update.md
+  - bookings/_cancel.md
+  - bookings/_reschedule.md
 
 search: true
 
