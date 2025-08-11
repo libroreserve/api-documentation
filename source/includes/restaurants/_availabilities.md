@@ -1,11 +1,11 @@
 ## Get Restaurant Availability
 
-> <span class="method get">GET</span> /restricted/restaurants/seatings
+> <span class="method get">GET</span> /restricted/restaurant/seatings
 
 > REQUEST:
 
 ```shell
-curl "https://api.libroreserve.com/restricted/restaurants/seatings?restaurant-code=QC01621448XXXX&date=2026-07-09&size=2" \
+curl "https://api.libroreserve.com/restricted/restaurant/seatings?restaurant-code=QC01621448XXXX&date=2026-07-09&size=2" \
   -H "Content-Type: application/json" \
   -H "Accept: application/vnd.libro-restricted-v2+json" \
   -H "Authorization: Bearer ACCESS_TOKEN"
