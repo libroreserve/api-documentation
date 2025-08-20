@@ -90,6 +90,15 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'preferred-communication-channel', type: 'string', desc: 'Preferred contact method ("email" or "phone")' },
     { name: 'locale', type: 'string', desc: 'Guest\'s language preference' }
   ],
+  personList: [
+    { name: 'restaurant-code', type: 'string', desc: 'Restaurant code', required: true },
+    { name: 'guest-phone', type: 'string', desc: 'Guest’s phone number (international format)' },
+    { name: 'guest-email', type: 'string', desc: 'Guest’s email address' },
+    { name: 'limit', type: 'integer', desc: 'Number of records per request' },
+    { name: 'offset', type: 'integer', desc: 'Record offset to start from for pagination' },
+    { name: 'updated-after', type: 'datetime', desc: 'Limit results to those updated after this date/time' },
+    { name: 'created-after', type: 'datetime', desc: 'Limit results to those created after this date/time' },
+  ],
   bookingErrors: [
     { name: '404', type: 'string', desc: 'Booking not found' },
     { name: '409', type: 'string', desc: 'Booking could not be canceled' }
