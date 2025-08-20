@@ -413,6 +413,9 @@
                     <a href="#the-person-object" class="toc-h2 toc-link" data-title="The Person Object">The Person Object</a>
                   </li>
                   <li>
+                    <a href="#list-people" class="toc-h2 toc-link" data-title="List People">List People</a>
+                  </li>
+                  <li>
                     <a href="#get-person" class="toc-h2 toc-link" data-title="Get Person">Get Person</a>
                   </li>
                   <li>
@@ -866,6 +869,7 @@ Never share your client secret or access tokens. Store them securely and never e
     </span><span class="nl">"seated-at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"completed-at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"canceled-at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"vegan"</span><span class="p">,</span><span class="w"> </span><span class="s2">"children"</span><span class="p">],</span><span class="w">
     </span><span class="nl">"flags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"children"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nl">"reduced-mobility"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -878,6 +882,8 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='booking-attributes'>Booking Attributes</h3>
 <p><span class="dynamic-attributes" data-attr-type="booking"></span></p>
+<h3 id='booking-tags'>Booking Tags</h3>
+<p><span class="dynamic-attributes" data-attr-type="bookingTags"></span></p>
 <h2 id='booking-relationships'>Booking Relationships</h2>
 <p>Booking object will be returned with the following relationships:</p>
 
@@ -1301,6 +1307,75 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 <p><span class="dynamic-attributes" data-attr-type="personId"></span></p>
 <h4 id='person-attributes'>Person Attributes</h4>
 <p><span class="dynamic-attributes" data-attr-type="person"></span></p>
+<h4 id='person-tags'>Person Tags</h4>
+<p><span class="dynamic-attributes" data-attr-type="personTags"></span></p>
+<h2 id='list-people'>List People</h2>
+<blockquote>
+<p><span class="method get">GET</span> /restricted/people</p>
+
+<p>REQUEST:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/people?restaurant-code=QC0000000001"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.libro-restricted-v2+json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
+</code></pre></div>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18476003"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johnny"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"225-951-4433"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem Ipsum"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"vvip"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vegan"</span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18476004"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"first-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last-name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jane@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"225-955-7788"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prefers window seating"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"regular"</span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves a list of people associated with a restaurant.</p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="personList"></span></p>
+<h3 id='examples'>Examples</h3>
+<ul>
+<li>Search by phone number:</li>
+</ul>
+
+<p><code>GET https://api.libroreserve.com/restricted/people?restaurant-code=QC0000000001&amp;guest-phone=%2B15141111111</code></p>
+
+<ul>
+<li>Paginate results:</li>
+</ul>
+
+<p><code>GET https://api.libroreserve.com/restricted/people?restaurant-code=QC0000000001&amp;limit=10&amp;offset=20</code></p>
+
+<p>See <a href="#pagination">Pagination</a> for more details.</p>
 <h2 id='get-person'>Get Person</h2>
 <blockquote>
 <p><span class="method get">GET</span> /restricted/people/:id</p>
@@ -1551,6 +1626,6 @@ Cancellation is only possible if the booking has not passed the cancellation dea
           </div>
       </div>
     </div>
-    <script src="javascripts/attributes-43f64247.js"></script>
+    <script src="javascripts/attributes-58430d69.js"></script>
   </body>
 </html>
