@@ -40,6 +40,20 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'canceled-at', type: 'string', desc: 'When the booking was canceled' },
     { name: 'cancelation-allowed-until', type: 'string', desc: 'The exact timestamp until which the reservation can be canceled' }
   ],
+  bookingTags: [
+    { name: 'birthday', type: 'string', desc: 'Guest is celebrating a birthday' },
+    { name: 'vegan', type: 'string', desc: 'Guest has vegan dietary preferences' },
+    { name: 'allergy', type: 'string', desc: 'Guest has food allergies' },
+    { name: 'handicaped', type: 'string', desc: 'Guest has mobility issues' },
+    { name: 'high_chair', type: 'string', desc: 'High chair needed' },
+    { name: 'danger', type: 'string', desc: 'Important warning flag' },
+    { name: 'terrace', type: 'string', desc: 'Preference for terrace seating' },
+    { name: 'bench', type: 'string', desc: 'Preference for bench/booth seating' },
+    { name: 'show', type: 'string', desc: 'Booking related to a show/event' },
+    { name: 'valet', type: 'string', desc: 'Valet parking requested' },
+    { name: 'sport', type: 'string', desc: 'Booking related to a sports event' },
+    { name: 'children', type: 'string', desc: 'Children will be present' }
+  ],
   bookingGet: [
     { name: 'id', type: 'string', desc: 'Unique identifier for the booking' }
   ],

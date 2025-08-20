@@ -38,6 +38,7 @@ The Bookings API allows you to create, retrieve, and manage reservations.
     "seated-at": null,
     "completed-at": null,
     "canceled-at": null,
+    "tags": ["vegan", "children"],
     "flags": {
         "children": false,
         "reduced-mobility": false,
@@ -53,6 +54,10 @@ The Bookings API allows you to create, retrieve, and manage reservations.
 ### Booking Attributes
 
 <span class="dynamic-attributes" data-attr-type="booking"></span>
+
+### Booking Tags
+
+<span class="dynamic-attributes" data-attr-type="bookingTags"></span>
 
 ## Booking Relationships
 
