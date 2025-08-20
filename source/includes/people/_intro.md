@@ -31,3 +31,6 @@ The People API allows you to retrieve and update people data.
 
 #### Person Attributes
 <span class="dynamic-attributes" data-attr-type="person"></span>
+
+#### Person Tags
+<span class="dynamic-attributes" data-attr-type="personTags"></span>

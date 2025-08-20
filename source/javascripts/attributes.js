@@ -96,6 +96,18 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'preferred-communication-channel', type: 'string', desc: 'Preferred contact method ("email" or "phone")' },
     { name: 'locale', type: 'string', desc: 'Guest\'s language preference' }
   ],
+  personTags: [
+    { name: 'vvip', type: 'string', desc: 'Very important person (VIP+)' },
+    { name: 'vip', type: 'string', desc: 'Important person' },
+    { name: 'premium', type: 'string', desc: 'Premium guest' },
+    { name: 'difficult', type: 'string', desc: 'Guest that may require special attention' },
+    { name: 'birthday', type: 'string', desc: 'Guest is celebrating a birthday' },
+    { name: 'vegan', type: 'string', desc: 'Guest has vegan dietary preferences' },
+    { name: 'allergy', type: 'string', desc: 'Guest has food allergies' },
+    { name: 'handicaped', type: 'string', desc: 'Guest has mobility issues' },
+    { name: 'high_chair', type: 'string', desc: 'High chair needed' },
+    { name: 'danger', type: 'string', desc: 'Important warning flag' },
+  ],
   personUpdate: [
     { name: 'first-name', type: 'string', desc: 'Guest\'s first name' },
     { name: 'last-name', type: 'string', desc: 'Guest\'s last name' },
