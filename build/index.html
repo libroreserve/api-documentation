@@ -796,24 +796,59 @@ Never share your client secret or access tokens. Store them securely and never e
 <blockquote>
 <p>RESPONSE:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">experiences:</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">experiences</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">no-show</span><span class="w"> </span><span class="err">authorization</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">required.</span><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"2026-07-09"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"2026-07-09T11:00:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nl">"2025-09-11"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"2025-09-11T16:00:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5211</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4253</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dinning Room"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à manger"</span><span class="w">
+            </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dining Room"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à Diner"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"2025-09-11T16:15:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4253</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dining Room"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à Diner"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">experiences</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">no-show</span><span class="w"> </span><span class="err">authorization</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">required.</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"2025-09-11"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"2025-09-11T21:00:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4253</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dining Room"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à Diner"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"payment-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_SHOW"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount-cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">25000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"payment-delay"</span><span class="p">:</span><span class="w"> </span><span class="mi">7200</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"2026-07-09T11:15:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"2025-09-11T21:15:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5211</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4253</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dinning Room"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à manger"</span><span class="w">
+            </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dining Room"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à Diner"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"payment-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_SHOW"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount-cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">25000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"payment-delay"</span><span class="p">:</span><span class="w"> </span><span class="mi">7200</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -821,15 +856,60 @@ Never share your client secret or access tokens. Store them securely and never e
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w"> </span><span class="err">without</span><span class="w"> </span><span class="err">experiences:</span><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"2026-07-09"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"2026-07-09T11:00:00"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"2026-07-09T11:15:00"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"2025-09-11"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"2025-09-11T11:00:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"2025-09-11T11:15:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"2025-09-11T11:30:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">      
 </span></code></pre></div>
 <p>This endpoint retrieves restaurant availabilities.</p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <p><span class="dynamic-attributes" data-attr-type="restaurantGetAvailability"></span></p>
+<h3 id='no-show-policies'>No-Show Policies</h3>
+<p>The following attributes are available if the restaurant has configured a no-show policy for the
+selected time slot.</p>
+
+<p>Once a booking is submitted, the guest will receive an email or SMS to confirm the reservation with a credit card.</p>
+
+<p>The deposit grace period defines the amount of time the guest has to enter their credit card information to finalize the reservation. 
+If the card details are not provided within this time frame, the pending reservation will be automatically canceled and the table will be released.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>payment-type</strong></td>
+<td style="text-align: left">string</td>
+<td>Defaults to &quot;NO_SHOW&quot;</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>amount-cents</strong></td>
+<td style="text-align: left">integer</td>
+<td>Payment amount in cents that will be charged for a no-show</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>payment-delay</strong></td>
+<td style="text-align: left">integer</td>
+<td>Deposit Request Grace Period in seconds</td>
+</tr>
+</tbody></table>
 <h1 id='bookings'>Bookings</h1>
 <blockquote>
 <p>ENDPOINTS</p>
@@ -1626,6 +1706,6 @@ Cancellation is only possible if the booking has not passed the cancellation dea
           </div>
       </div>
     </div>
-    <script src="javascripts/attributes-58430d69.js"></script>
+    <script src="javascripts/attributes-2fe62cc6.js"></script>
   </body>
 </html>
