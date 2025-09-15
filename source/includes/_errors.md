@@ -16,3 +16,5 @@ Error Code | Meaning
 422 | Unprocessable Entity -- The request could not be completed due to a validation error.
 429 | Too Many Requests -- You're requesting too many resources!
 500 | Internal Server Error -- We had a problem with our server. Try again later.
+
+`validation.offer.empty` indicates that the selected time slot requires payment through the ticketing system before a reservation can be completed.
