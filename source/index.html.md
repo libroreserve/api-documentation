@@ -26,6 +26,8 @@ includes:
   - people/_list.md
   - people/_get.md
   - people/_update.md
+  - payment_intents/_intro.md
+  - payment_intents/_initialize.md
   - reviews/_intro.md
   - reviews/_list.md
   - _pagination.md
@@ -62,4 +64,5 @@ The Libro API follows REST principles and provides JSON:API-compliant responses.
 | [Restaurants](#restaurants) | Restaurant profiles, availability, and settings |
 | [Bookings](#bookings) | Reservation creation and management |
 | [People](#person) | Guest information |
+| [Payment Intents](#payment-intents) | Payment intent initialization for no-show and ticketing |
 | [Reviews](#reviews) | Customer reviews and feedback |
