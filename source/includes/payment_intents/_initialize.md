@@ -103,3 +103,42 @@ This endpoint allows you to initialize a payment intent for no-show policies or 
 | 401 | Unauthorized: Missing or invalid token |
 | 403 | Forbidden: Missing required scopes |
 | 422 | Unprocessable entity: Validation errors |
+
+### Using the Payment URL
+
+The `payment-url` returned in the response is the URL you should send your users to so they can complete the payment authorization. You have two integration options:
+
+#### Option 1: Iframe Integration
+
+You can embed the payment URL in an iframe on your site:
+
+```html
+<iframe src="PAYMENT_URL" width="100%" height="600px"></iframe>
+```
+
+When the user completes the payment authorization, we will send a `postMessage` to the parent window that you can listen for:
+
+```javascript
+window.addEventListener('message', (event) => {
+  if (event.data.status === 'payment_success') {
+    const paymentIntentId = event.data.paymentIntentId;
+    // Close the iframe and continue with booking creation
+  }
+});
+```
+
+The message structure is:
+```
+{
+  status: 'payment_success',
+  paymentIntentId: 'INTENT_ID'
+}
+```
+
+#### Option 2: Redirect Integration
+
+You can redirect the user directly to the payment URL. To specify where the user should be redirected after completing the payment authorization, include a `redirect-url` query parameter:
+
+`https://payment-url.example.com?redirect-url=https://yoursite.com/booking/complete`
+
+After the user completes payment authorization, he will be redirected to the URL you provided.

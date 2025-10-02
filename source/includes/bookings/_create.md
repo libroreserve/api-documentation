@@ -46,7 +46,8 @@
   "device-infos": {
     "id": "XXXXXXXXXXX",
     "ip": "192.168.1.1"
-  }
+  },
+  "payment-intent-id": 10
 }
 ```
 
@@ -77,7 +78,8 @@
   "device-infos": {
     "id": "XXXXXXXXXXX",
     "ip": "192.168.1.1"
-  }
+  },
+  "payment-intent-id": 10
 }
 ```
 
@@ -138,3 +140,8 @@ This endpoint allows you to create a new booking.
 #### Device Infos
 
 <span class="dynamic-attributes" data-attr-type="deviceInfos"></span>
+
+#### Payment Intent ID
+
+<span class="dynamic-attributes" data-attr-type="paymentIntentId"></span>
+
