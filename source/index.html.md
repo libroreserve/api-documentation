@@ -32,6 +32,7 @@ includes:
   - reviews/_list.md
   - _pagination.md
   - _errors.md
+  - _changelog.md
 
 search: true
 
