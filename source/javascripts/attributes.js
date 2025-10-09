@@ -416,6 +416,13 @@ document.addEventListener("DOMContentLoaded", function () {
       { name: "id", type: "string", desc: "Unique identifier for the device" },
       { name: "ip", type: "string", desc: "IP address of the device" },
     ],
+    paymentIntentId: [
+      {
+        name: "payment-intent-id",
+        type: "integer",
+        desc: "The ID of the payment intent to associate with this booking",
+      },
+    ],
     reviews: [
       {
         name: "rating",
