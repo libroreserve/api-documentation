@@ -78,8 +78,8 @@ This endpoint allows you to initialize a payment intent for no-show policies or 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `amount-cents` | integer | Yes | The amount in cents (must be greater than 0) |
-| `currency` | string | Yes | The currency code (ISO 4217 format, e.g., "USD", "EUR") |
+| `amount-cents` | integer | Required if `payment-type` is `no_show` | The amount in cents (must be greater than 0) |
+| `currency` | string | Required if `payment-type` is `no_show` | The currency code (ISO 4217 format, e.g., "USD", "EUR") |
 | `payment-type` | string | No | Type of payment: `no_show` or `ticketing` (default: `no_show`) |
 | `guest-info` | object | Yes | Guest information object (see below) |
 
