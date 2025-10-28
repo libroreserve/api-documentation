@@ -2,7 +2,7 @@
 
 > ENDPOINTS
 
-> <span class="method post">POST</span> /restricted/restaurant/payment-intents/initialize <br>
+> <span class="method post">POST</span> /restricted/payment-intents/initialize <br>
 
 The Payment Intents API allows you to initialize payment intents for no-show policies and ticketing.
 

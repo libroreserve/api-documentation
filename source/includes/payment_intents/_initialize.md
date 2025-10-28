@@ -1,11 +1,11 @@
 ## Initialize Payment Intent
 
-> <span class="method post">POST</span> /restricted/restaurant/payment-intents/initialize
+> <span class="method post">POST</span> /restricted/payment-intents/initialize
 
 > REQUEST:
 
 ```shell
-curl "https://api.libroreserve.com/restricted/restaurant/payment-intents/initialize" \
+curl "https://api.libroreserve.com/restricted/payment-intents/initialize" \
   -X POST \
   -H "Content-Type: application/json" \
   -H "Accept: application/vnd.libro-restricted-v2+json" \

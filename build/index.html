@@ -1571,7 +1571,7 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 <blockquote>
 <p>ENDPOINTS</p>
 
-<p><span class="method post">POST</span> /restricted/restaurant/payment-intents/initialize <br></p>
+<p><span class="method post">POST</span> /restricted/payment-intents/initialize <br></p>
 </blockquote>
 
 <p>The Payment Intents API allows you to initialize payment intents for no-show policies and ticketing.</p>
@@ -1640,11 +1640,11 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 </tbody></table>
 <h2 id='initialize-payment-intent'>Initialize Payment Intent</h2>
 <blockquote>
-<p><span class="method post">POST</span> /restricted/restaurant/payment-intents/initialize</p>
+<p><span class="method post">POST</span> /restricted/payment-intents/initialize</p>
 
 <p>REQUEST:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/payment-intents/initialize"</span> <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/payment-intents/initialize"</span> <span class="se">\</span>
   <span class="nt">-X</span> POST <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.libro-restricted-v2+json"</span> <span class="se">\</span>
