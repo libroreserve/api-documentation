@@ -15,20 +15,20 @@ The Payment Intents API allows you to initialize payment intents for no-show pol
   "type": "payment-intent",
   "id": "0000000000",
   "attributes": {
-    "amount-cents": 2500,
+    "amount_cents": 2500,
     "currency": "USD",
-    "payment-type": "no_show",
+    "payment_type": "no_show",
     "status": "pending",
-    "guest-info": {
-      "first-name": "John",
-      "last-name": "Doe",
+    "guest_info": {
+      "first_name": "John",
+      "last_name": "Doe",
       "email": "john.doe@example.com",
       "phone": "+1234567890",
-      "party-size": 4,
+      "party_size": 4,
       "time": "2025-01-15T19:30:00Z",
       "locale": "en"
     },
-    "created-at": "2025-01-10T12:00:00.000Z"
+    "created_at": "2025-01-10T12:00:00.000Z"
   }
 }
 ```
@@ -37,9 +37,9 @@ The Payment Intents API allows you to initialize payment intents for no-show pol
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
-| `amount-cents` | integer | The amount in cents |
+| `amount_cents` | integer | The amount in cents |
 | `currency` | string | The currency code (ISO 4217) |
-| `payment-type` | string | Type of payment: `no_show` or `ticketing` |
+| `payment_type` | string | Type of payment: `no_show` or `ticketing` |
 | `status` | string | Status of the payment intent |
-| `guest-info` | object | Guest information associated with the payment |
-| `created-at` | datetime | Timestamp when the payment intent was created |
+| `guest_info` | object | Guest information associated with the payment |
+| `created_at` | datetime | Timestamp when the payment intent was created |
