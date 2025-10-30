@@ -44,11 +44,11 @@ curl "https://api.libroreserve.com/restricted/payment-intents/initialize" \
     "id": "0000000000",
         "type": "payment-intent",
         "attributes": {
-            "amount_cents": 2500,
+            "amount-cents": 2500,
             "currency": "CAD",
             "status": "requires_payment_method",
-            "payment_type": "no_show",
-            "guest_info": {
+            "payment-type": "no_show",
+            "guest-info": {
                 "first_name": "John",
                 "last_name": "Doe",
                 "email": "john.doe@example.com",
@@ -57,9 +57,9 @@ curl "https://api.libroreserve.com/restricted/payment-intents/initialize" \
                 "time": "2025-01-15T19:30:00Z",
                 "locale": "en"
             },
-            "created_at": "2025-09-30T11:00:36-04:00",
-            "updated_at": "2025-09-30T11:00:36-04:00",
-            "payment_url": { /* payment url */ }
+            "created-at": "2025-09-30T11:00:36-04:00",
+            "updated-at": "2025-09-30T11:00:36-04:00",
+            "payment-url": { /* payment url */ }
         },
         "relationships": {{ /* payment intents relationships */ }}
     }
