@@ -26,6 +26,7 @@ includes:
   - people/_list.md
   - people/_get.md
   - people/_update.md
+  - payment_intents/_flows.md
   - payment_intents/_intro.md
   - payment_intents/_initialize.md
   - reviews/_intro.md
