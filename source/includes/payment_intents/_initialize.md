@@ -46,7 +46,7 @@ curl "https://api.libroreserve.com/restricted/payment-intents/initialize" \
         "attributes": {
             "amount-cents": 2500,
             "currency": "CAD",
-            "status": "requires_payment_method",
+            "status": "pending",
             "payment-type": "no_show",
             "guest-info": {
                 "first_name": "John",

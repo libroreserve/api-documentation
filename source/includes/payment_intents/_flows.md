@@ -107,7 +107,7 @@ The API returns a PaymentIntent with a `payment-url`:
     "attributes": {
       "amount-cents": 2500,
       "currency": "CAD",
-      "status": "requires_payment_method",
+      "status": "pending",
       "payment-type": "no_show",
       "payment-url": "https://pay.libro.app/..."
     }
