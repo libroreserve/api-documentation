@@ -419,7 +419,7 @@ document.addEventListener("DOMContentLoaded", function () {
     paymentIntentId: [
       {
         name: "payment-intent-id",
-        type: "integer",
+        type: "string",
         desc: "The ID of the payment intent to associate with this booking",
       },
     ],
