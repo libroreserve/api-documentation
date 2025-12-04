@@ -46,7 +46,7 @@ curl "https://api.libroreserve.com/restricted/payment-intents/initialize" \
         "attributes": {
             "amount-cents": 2500,
             "currency": "CAD",
-            "status": "requires_payment_method",
+            "status": "pending",
             "payment-type": "no_show",
             "guest-info": {
                 "first_name": "John",
@@ -78,8 +78,8 @@ This endpoint allows you to initialize a payment intent for no-show policies or 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `amount_cents` | integer | Yes | The amount in cents (must be greater than 0) |
-| `currency` | string | Yes | The currency code (ISO 4217 format, e.g., "USD", "EUR") |
+| `amount_cents` | integer | Required for `no_show` | The amount in cents (must be greater than 0). Not required for `ticketing` |
+| `currency` | string | Required for `no_show` | The currency code (ISO 4217 format, e.g., "USD", "EUR"). Not required for `ticketing` |
 | `payment_type` | string | No | Type of payment: `no_show` or `ticketing` (default: `no_show`) |
 | `guest_info` | object | Yes | Guest information object (see below) |
 
