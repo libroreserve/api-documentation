@@ -37,6 +37,22 @@ The Restaurants API allows you to access restaurant profiles, manage availabilit
           "startTime": "15:00",
           "endTime": "03:00"
       }
+    ],
+    "classifications": [
+      {
+          "id": "1",
+          "names": {
+              "en": "Adult",
+              "fr": "Adulte"
+          }
+      },
+      {
+          "id": "2",
+          "names": {
+              "en": "Child",
+              "fr": "Enfant"
+          }
+      }
     ]
   }
 }

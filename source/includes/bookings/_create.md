@@ -25,7 +25,8 @@
       "time": "12:00",
       "note": "Birthday party",
       "locale": "en",
-      "table-number": "12"
+      "table-number": "12",
+      "classifications": [{"1": 1}, {"2": 1}]
     },
     "relationships": {
       "person": {
@@ -64,7 +65,8 @@
       "time": "12:00",
       "note": "Birthday party",
       "locale": "en",
-      "table-number": "12"
+      "table-number": "12",
+      "classifications": [{"1": 1}, {"2": 1}]
     },
     "relationships": {
       "person": {

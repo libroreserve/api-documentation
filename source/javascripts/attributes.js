@@ -50,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
         type: "array",
         desc: "Array of service periods with name, startTime and endTime",
       },
+      {
+        name: "classifications",
+        type: "array",
+        desc: "Array of guest classifications with id and localized names (e.g., Adult, Child)",
+      },
     ],
     restaurantGet: [
       {
@@ -274,6 +279,11 @@ document.addEventListener("DOMContentLoaded", function () {
         name: "booking-experience-id",
         type: "integer",
         desc: "ID of the booking experience",
+      },
+      {
+        name: "classifications",
+        type: "array",
+        desc: "Guest classifications as array of hashes with classification_id as key and quantity as value, e.g. [{\"1\": 2}, {\"3\": 1}]. The sum of all quantities must equal the party size",
       },
     ],
     updateBooking: [
