@@ -83,6 +83,10 @@ Call `POST /restricted/payment-intents/initialize` with reservation and guest de
       "amount_cents": 2500,
       "currency": "CAD",
       "payment_type": "no_show",
+      "classifications": [
+        {"1": 2},
+        {"3": 2}
+      ],
       "guest_info": {
         "first_name": "John",
         "last_name": "Doe",
@@ -176,7 +180,6 @@ The height update message structure is:
 ```
 
 Height updates are sent:
-
 - Initially after the page loads (with a 500ms delay)
 - Whenever the content height changes by more than 10px
 - Updates are debounced by 150ms to avoid excessive messages

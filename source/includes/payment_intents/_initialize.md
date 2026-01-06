@@ -22,6 +22,10 @@ curl "https://api.libroreserve.com/restricted/payment-intents/initialize" \
       "amount_cents": 2500,
       "currency": "CAD",
       "payment_type": "no_show",
+      "classifications": [
+        {"1": 2},
+        {"3": 2}
+      ],
       "guest_info": {
         "first_name": "John",
         "last_name": "Doe",
@@ -57,6 +61,10 @@ curl "https://api.libroreserve.com/restricted/payment-intents/initialize" \
                 "time": "2025-01-15T19:30:00Z",
                 "locale": "en"
             },
+            "classifications": [
+                {"1": 2},
+                {"3": 2}
+            ],
             "created-at": "2025-09-30T11:00:36-04:00",
             "updated-at": "2025-09-30T11:00:36-04:00",
             "payment-url": { /* payment url */ }
@@ -81,6 +89,7 @@ This endpoint allows you to initialize a payment intent for no-show policies or 
 | `amount_cents` | integer | Required for `no_show` | The amount in cents (must be greater than 0). Not required for `ticketing` |
 | `currency` | string | Required for `no_show` | The currency code (ISO 4217 format, e.g., "USD", "EUR"). Not required for `ticketing` |
 | `payment_type` | string | No | Type of payment: `no_show` or `ticketing` (default: `no_show`) |
+| `classifications` | array | Conditional | Array of guest classifications as hashes with classification_id as key and quantity as value (e.g., `[{"1": 2}, {"3": 2}]`). Required if restaurant has classifications enabled. Sum of quantities must equal `party_size` |
 | `guest_info` | object | Yes | Guest information object (see below) |
 
 #### Guest Info Attributes
@@ -100,9 +109,40 @@ This endpoint allows you to initialize a payment intent for no-show policies or 
 | Code | Description |
 |------|-------------|
 | 201 | Payment intent created successfully |
+| 400 | Bad request: Classifications validation failed |
 | 401 | Unauthorized: Missing or invalid token |
 | 403 | Forbidden: Missing required scopes |
 | 422 | Unprocessable entity: Validation errors |
+
+### Classifications Validation
+
+When a restaurant has classifications enabled (e.g., for ticketing with different guest types like adults, children, seniors), the following validation rules apply:
+
+1. **Classifications are required**: If the restaurant has classifications enabled and configured, the `classifications` parameter must be provided in the request. Otherwise, you will receive a `400` error with the message: `"Classifications are required for this restaurant"`
+
+2. **Sum must equal party size**: The sum of all classification quantities must exactly match the `party_size` in the guest info. For example:
+   - If `party_size` is 4
+   - And you send `[{"1": 2}, {"3": 2}]` (classification ID 1 with quantity 2, classification ID 3 with quantity 2)
+   - The sum is 2 + 2 = 4, which matches the party size ✓
+
+   If the sum does not match, you will receive a `400` error with the message: `"Total classification count (X) must equal party size (Y)"`
+
+**Example of valid classifications:**
+```json
+{
+  "classifications": [
+    {"1": 2},
+    {"3": 1},
+    {"5": 1}
+  ],
+  "guest_info": {
+    "party_size": 4,
+    ...
+  }
+}
+```
+
+In this example, classification IDs 1, 3, and 5 have quantities of 2, 1, and 1 respectively, totaling 4, which matches the party size.
 
 ### Using the Payment URL
 
@@ -160,7 +200,6 @@ The height update message structure is:
 ```
 
 Height updates are sent:
-
 - Initially after the page loads (with a 500ms delay)
 
 - Whenever the content height changes by more than 10px
