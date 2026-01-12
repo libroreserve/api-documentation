@@ -143,13 +143,43 @@ window.addEventListener('message', (event) => {
 });
 ```
 
-The message structure is:
+The payment success message structure is:
 ```
 {
   status: 'payment_success',
   paymentIntentId: 'INTENT_ID'
 }
 ```
+
+#### Height Updates: ####
+
+The payment page also sends automatic height updates to help you dynamically resize the iframe based on the content. You can listen for these updates to provide a better user experience:
+
+```javascript
+window.addEventListener('message', (event) => {
+  if (event.data.event === 'payment-page-height-update') {
+    const height = event.data.data.height;
+    // Update iframe height dynamically
+    document.getElementById('payment-iframe').style.height = `${height}px`;
+  }
+});
+```
+
+The height update message structure is:
+```
+{
+  event: 'payment-page-height-update',
+  data: {
+    height: NUMBER_IN_PIXELS
+  }
+}
+```
+
+Height updates are sent:
+
+- Initially after the page loads (with a 500ms delay)
+- Whenever the content height changes by more than 10px
+- Updates are debounced by 150ms to avoid excessive messages
 
 **Option 2: Redirect Integration**
 
