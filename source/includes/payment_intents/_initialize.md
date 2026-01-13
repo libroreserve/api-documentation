@@ -46,7 +46,7 @@ curl "https://api.libroreserve.com/restricted/payment-intents/initialize" \
         "attributes": {
             "amount-cents": 2500,
             "currency": "CAD",
-            "status": "requires_payment_method",
+            "status": "pending",
             "payment-type": "no_show",
             "guest-info": {
                 "first_name": "John",
@@ -78,8 +78,8 @@ This endpoint allows you to initialize a payment intent for no-show policies or 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `amount_cents` | integer | Yes | The amount in cents (must be greater than 0) |
-| `currency` | string | Yes | The currency code (ISO 4217 format, e.g., "USD", "EUR") |
+| `amount_cents` | integer | Required for `no_show` | The amount in cents (must be greater than 0). Not required for `ticketing` |
+| `currency` | string | Required for `no_show` | The currency code (ISO 4217 format, e.g., "USD", "EUR"). Not required for `ticketing` |
 | `payment_type` | string | No | Type of payment: `no_show` or `ticketing` (default: `no_show`) |
 | `guest_info` | object | Yes | Guest information object (see below) |
 
@@ -127,13 +127,46 @@ window.addEventListener('message', (event) => {
 });
 ```
 
-The message structure is:
+The payment success message structure is:
 ```
 {
   status: 'payment_success',
   paymentIntentId: 'INTENT_ID'
 }
 ```
+
+#### Height Updates: ####
+
+The payment page also sends automatic height updates to help you dynamically resize the iframe based on the content. You can listen for these updates to provide a better user experience:
+
+```javascript
+window.addEventListener('message', (event) => {
+  if (event.data.event === 'payment-page-height-update') {
+    const height = event.data.data.height;
+    // Update iframe height dynamically
+    document.getElementById('payment-iframe').style.height = `${height}px`;
+  }
+});
+```
+
+The height update message structure is:
+```
+{
+  event: 'payment-page-height-update',
+  data: {
+    height: NUMBER_IN_PIXELS
+  }
+}
+```
+
+Height updates are sent:
+
+- Initially after the page loads (with a 500ms delay)
+
+- Whenever the content height changes by more than 10px
+
+- Updates are debounced by 150ms to avoid excessive messages
+
 
 #### Option 2: Redirect Integration
 
