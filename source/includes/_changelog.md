@@ -1,5 +1,15 @@
 # Changelog
 
+## January 2026
+
+### Booking Modification Restricted Attribute
+
+**New Feature** - The Booking object now includes a `modification-restricted` attribute that indicates whether a booking can be modified via partner APIs.
+
+When `restricted` is `true`, the booking requires manual intervention by restaurant staff through the Libro dashboard. The `reason` field provides a specific error code explaining why the booking cannot be modified programmatically.
+
+See the [Modification Restricted](#modification-restricted) section in the Booking documentation for details.
+
 ## October 2025
 
 ### Payment Intents API

@@ -46,7 +46,11 @@ The Bookings API allows you to create, retrieve, and manage reservations.
     },
     "invoice": null,
     "affiliate": null,
-    "cancelation-allowed-until": null
+    "cancelation-allowed-until": null,
+    "modification-restricted": {
+      "restricted": false,
+      "reason": null
+    }
   }
 }
 ```
@@ -67,6 +71,25 @@ The following flags are available:
 - `children`: indicates whether guests have signaled that their reservation includes children
 - `reduced-mobility`: indicates if the reservation requires accessibility accommodations
 - `do-not-move`: indicates that a Libro user has marked this reservation as immovable from its assigned table
+
+### Modification Restricted
+
+The `modification-restricted` attribute indicates whether a booking can be modified via partner APIs or if it requires manual intervention by restaurant staff through the Libro dashboard.
+
+```json
+{
+  "modification-restricted": {
+    "restricted": true,
+    "reason": "validation.service.party-size-exceeds-maximum"
+  }
+}
+```
+
+- `restricted` (boolean): When `true`, the booking cannot be modified via the API and requires restaurant staff to make changes manually.
+- `reason` (string|null): When restricted, contains an error code explaining why modification is not allowed. Common reasons include:
+  - `validation.service.party-size-exceeds-maximum`: The party size exceeds the maximum allowed for online bookings
+  - `validation.service.party-size-below-minimum`: The party size is below the minimum required
+  - `validation.service.date-out-of-range`: The booking date is beyond the allowed booking window
 
 ## Booking Relationships
 
