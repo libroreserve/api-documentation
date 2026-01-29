@@ -472,6 +472,20 @@
               </ul>
           </li>
           <li>
+            <a href="#webhooks" class="toc-h1 toc-link" data-title="Webhooks">Webhooks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#responding-to-webhooks" class="toc-h2 toc-link" data-title="Responding to Webhooks">Responding to Webhooks</a>
+                  </li>
+                  <li>
+                    <a href="#signature-verification" class="toc-h2 toc-link" data-title="Signature Verification">Signature Verification</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#pagination" class="toc-h1 toc-link" data-title="Pagination">Pagination</a>
               <ul class="toc-list-h2">
                   <li>
@@ -561,6 +575,10 @@
 <tr>
 <td><a href="#reviews">Reviews</a></td>
 <td>Customer reviews and feedback</td>
+</tr>
+<tr>
+<td><a href="#webhooks">Webhooks</a></td>
+<td>Real-time event notifications</td>
 </tr>
 </tbody></table>
 <h1 id='introduction'>Introduction</h1>
@@ -2481,6 +2499,76 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 <p><span class="dynamic-attributes" data-attr-type="restaurantCode"></span></p>
 
 <p>See <a href="#pagination">Pagination</a> for more details.</p>
+<h1 id='webhooks'>Webhooks</h1>
+<p>Webhooks allow your application to receive real-time notifications when events occur in Libro. Instead of polling the API for changes, Libro will send HTTP POST requests to your configured endpoint whenever relevant events happen.</p>
+<h2 id='overview'>Overview</h2>
+<p>When you configure a webhook for a restaurant, Libro will send HTTP POST requests to your specified URL whenever resources are updated. Each webhook request includes:</p>
+
+<ul>
+<li>A JSON payload following the same JSON:API format as the equivalent API resources</li>
+<li>An <code>X-Libro-Signature</code> header for verifying the request authenticity (when a signing secret is configured)</li>
+<li>Standard HTTP headers including <code>Content-Type: application/json</code></li>
+</ul>
+<h2 id='responding-to-webhooks'>Responding to Webhooks</h2>
+<p>Your endpoint should return a <code>2xx</code> status code to acknowledge receipt of the webhook. If Libro receives a non-2xx response or the request times out, it may retry the webhook delivery.</p>
+
+<aside class="notice">
+Ensure your webhook endpoint responds quickly to avoid timeouts.
+</aside>
+<h2 id='signature-verification'>Signature Verification</h2>
+<p>When your webhook has a signing secret configured, Libro signs every webhook request using HMAC-SHA256. This allows you to verify that the request came from Libro and hasn&#39;t been tampered with.</p>
+<h3 id='the-signature-header'>The Signature Header</h3>
+<blockquote>
+<p>Example Signature Header</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>X-Libro-Signature: t=1705123456,v1=5257a869e7ecebeda32affa62cdca3fa51cad7e77a0e56ff536d0ce8e108d8bd
+</code></pre></div>
+<p>Each signed webhook request includes an <code>X-Libro-Signature</code> header with two components:</p>
+
+<table><thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>t</code></td>
+<td>Unix timestamp (seconds since epoch) when the signature was generated</td>
+</tr>
+<tr>
+<td><code>v1</code></td>
+<td>The HMAC-SHA256 signature</td>
+</tr>
+</tbody></table>
+<h3 id='how-the-signature-is-computed'>How the Signature is Computed</h3>
+<p>The signature is computed by:</p>
+
+<ol>
+<li>Concatenating the timestamp and the raw request body with a period: <code>{timestamp}.{payload}</code></li>
+<li>Computing an HMAC-SHA256 hash using your signing secret as the key</li>
+<li>Encoding the result as a lowercase hexadecimal string</li>
+</ol>
+<h3 id='verifying-signatures'>Verifying Signatures</h3>
+<p>To verify a webhook signature:</p>
+
+<ol>
+<li>Extract the timestamp (<code>t</code>) and signature (<code>v1</code>) from the <code>X-Libro-Signature</code> header</li>
+<li>Check that the timestamp is within your tolerance window (we recommend 5 minutes / 300 seconds)</li>
+<li>Recreate the signed payload by concatenating the timestamp and the raw request body: <code>{timestamp}.{payload}</code></li>
+<li>Compute the expected signature using HMAC-SHA256 with your signing secret</li>
+<li>Compare your computed signature with the signature in the header</li>
+</ol>
+<h3 id='timestamp-tolerance'>Timestamp Tolerance</h3>
+<p>The timestamp in the signature header allows you to reject old webhook deliveries, protecting against replay attacks. We recommend a tolerance of <strong>5 minutes (300 seconds)</strong>.</p>
+
+<p>If a webhook arrives with a timestamp outside your tolerance window, reject it and return a <code>4xx</code> status code.</p>
+<h3 id='security-best-practices'>Security Best Practices</h3>
+<ol>
+<li><strong>Always verify signatures</strong> - Never process webhook payloads without verifying the signature first</li>
+<li><strong>Validate the timestamp</strong> - Reject webhooks with timestamps that are too old or in the future</li>
+<li><strong>Keep your signing secret secure</strong> - Store it securely and never expose it in client-side code</li>
+<li><strong>Use HTTPS</strong> - Always use HTTPS endpoints for your webhooks</li>
+</ol>
 <h1 id='pagination'>Pagination</h1>
 <p>Every resource LIST endpoint returns a paginated list of records, and can use the pagination mechanics.</p>
 

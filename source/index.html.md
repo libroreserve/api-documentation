@@ -31,6 +31,8 @@ includes:
   - payment_intents/_initialize.md
   - reviews/_intro.md
   - reviews/_list.md
+  - webhooks/_intro.md
+  - webhooks/_signature_verification.md
   - _pagination.md
   - _errors.md
   - _changelog.md
@@ -68,3 +70,4 @@ The Libro API follows REST principles and provides JSON:API-compliant responses.
 | [People](#person) | Guest information |
 | [Payment Intents](#payment-intents) | Payment intent initialization for no-show and ticketing |
 | [Reviews](#reviews) | Customer reviews and feedback |
+| [Webhooks](#webhooks) | Real-time event notifications |
