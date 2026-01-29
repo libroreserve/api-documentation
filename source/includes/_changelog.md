@@ -2,6 +2,25 @@
 
 ## January 2026
 
+### Structured Error Codes
+
+**New Feature** - API error responses now include structured error codes to help you programmatically handle errors.
+
+Error responses include three fields:
+
+- `code`: A unique error code (e.g., "2005")
+- `message`: A human-readable description
+- `error`: The legacy error key for backwards compatibility
+
+Error codes are grouped into ranges:
+
+- **1xxx**: Restaurant-level errors (authentication, configuration)
+- **2xxx**: Service/availability errors (slots, capacity)
+- **3xxx**: Booking data errors (validation)
+- **4xxx**: Operation errors (cancel, payment)
+
+See the [Error Codes](#error-codes) section for the complete list.
+
 ### Booking Modification Restricted Attribute
 
 **New Feature** - The Booking object now includes a `modification-restricted` attribute that indicates whether a booking can be modified via partner APIs.
