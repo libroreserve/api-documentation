@@ -48,6 +48,8 @@ Code | Error Key | Description
 1002 | validation.restaurant.recaptcha-required | Recaptcha verification is required
 1003 | validation.restaurant.recaptcha-invalid | Invalid recaptcha response format
 1004 | validation.restaurant.recaptcha-failed | Recaptcha verification failed
+1005 | You must select a restaurant | Restaurant selection is required
+1006 | You must select a date & time | Date and time selection is required
 
 ### Service/Availability Errors (2xxx)
 
@@ -60,12 +62,14 @@ Code | Error Key | Description
 2005 | validation.service.slots-unavailable-not-specific | Party size is outside the allowed range for online booking
 2006 | exception.no-table | No suitable table is available for this reservation
 2007 | validation.service.date-out-of-range | The requested date is outside the booking window
+2008 | service-not-found | The requested date and time is not available
 
 ### Booking Data Errors (3xxx)
 
 Code | Error Key | Description
 ---- | --------- | -----------
 3001 | validation.experience.unavailable | The selected experience is not available at this restaurant
+3001 | experience-not-found | The selected experience is not available at this restaurant
 3002 | validation.classifications.invalid-restaurant | One or more classifications are not valid for this restaurant
 3003 | validation.booking.invalid | Booking validation failed
 3004 | validation.offer.empty | A prepaid offer selection is required for this reservation
@@ -75,7 +79,6 @@ Code | Error Key | Description
 Code | Error Key | Description
 ---- | --------- | -----------
 4001 | validation.booking.not-cancelable | This booking cannot be canceled via the API
-4002 | validation.payment.failed | Payment processing failed
 
 <aside class="notice">
 The <code>error</code> field is provided for backwards compatibility. We recommend using the <code>code</code> field for programmatic error handling as it provides more specific information.
