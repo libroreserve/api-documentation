@@ -424,6 +424,29 @@
               </ul>
           </li>
           <li>
+            <a href="#payment-collection-flows" class="toc-h1 toc-link" data-title="Payment Collection Flows">Payment Collection Flows</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#payment-types" class="toc-h2 toc-link" data-title="Payment Types">Payment Types</a>
+                  </li>
+                  <li>
+                    <a href="#synchronous-flow" class="toc-h2 toc-link" data-title="Synchronous Flow">Synchronous Flow</a>
+                  </li>
+                  <li>
+                    <a href="#asynchronous-flow" class="toc-h2 toc-link" data-title="Asynchronous Flow">Asynchronous Flow</a>
+                  </li>
+                  <li>
+                    <a href="#flow-comparison" class="toc-h2 toc-link" data-title="Flow Comparison">Flow Comparison</a>
+                  </li>
+                  <li>
+                    <a href="#next-steps" class="toc-h2 toc-link" data-title="Next Steps">Next Steps</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#payment-intents" class="toc-h1 toc-link" data-title="Payment Intents">Payment Intents</a>
               <ul class="toc-list-h2">
                   <li>
@@ -458,10 +481,21 @@
           </li>
           <li>
             <a href="#common-errors" class="toc-h1 toc-link" data-title="Common Errors">Common Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#error-response-format" class="toc-h2 toc-link" data-title="Error Response Format">Error Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#error-codes" class="toc-h2 toc-link" data-title="Error Codes">Error Codes</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#january-2026" class="toc-h2 toc-link" data-title="January 2026">January 2026</a>
+                  </li>
                   <li>
                     <a href="#october-2025" class="toc-h2 toc-link" data-title="October 2025">October 2025</a>
                   </li>
@@ -741,6 +775,22 @@ Never share your client secret or access tokens. Store them securely and never e
           </span><span class="nl">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15:00"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03:00"</span><span class="w">
       </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"classifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adulte"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Child"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enfant"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -819,7 +869,7 @@ Never share your client secret or access tokens. Store them securely and never e
 <blockquote>
 <p>RESPONSE:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">experiences</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">no-show</span><span class="w"> </span><span class="err">authorization</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">required.</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">experiences</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">no-show</span><span class="w"> </span><span class="err">authorization</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">offer</span><span class="w"> </span><span class="err">selection</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">required.</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nl">"2025-09-11"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"2025-09-11T16:00:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -877,6 +927,49 @@ Never share your client secret or access tokens. Store them securely and never e
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">experiences</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">eligible</span><span class="w"> </span><span class="err">offer</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">available.</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"2025-09-11"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"2025-09-11T20:00:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4253</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dining Room"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à Diner"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"payment-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TICKETING"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount-cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sunday Night Football"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PR123ABC"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Come watch the game!"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"2025-09-11T20:15:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4253</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dining Room"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à Diner"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"payment-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TICKETING"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"amount-cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sunday Night Football"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PR123ABC"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Come watch the game!"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w"> </span><span class="err">without</span><span class="w"> </span><span class="err">experiences:</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nl">"2025-09-11"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -901,13 +994,26 @@ Never share your client secret or access tokens. Store them securely and never e
 <p>This endpoint retrieves restaurant availabilities.</p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <p><span class="dynamic-attributes" data-attr-type="restaurantGetAvailability"></span></p>
+<h3 id='payment-requirements'>Payment Requirements</h3>
+<p>The <code>payment-required</code> attribute indicates whether payment is required for a time slot. When payment is required,
+it includes additional details based on the type of payment.</p>
+<h4 id='priority-logic'>Priority Logic</h4>
+<p>When both offers and no-show policies exist for a time slot, the following priority order applies:</p>
+
+<ol>
+<li><strong>Non-optional offers</strong> (with available tables) → Returns <code>TICKETING</code> payment type (overrides no-show policies)</li>
+<li><strong>Optional offers + no-show policy</strong> → Returns <code>NO_SHOW</code> payment type (policy takes precedence)</li>
+<li><strong>Optional offers + no policy</strong> → Returns <code>TICKETING</code> payment type</li>
+<li><strong>No offer + no-show policy</strong> → Returns <code>NO_SHOW</code> payment type</li>
+<li><strong>No offer + no policy</strong> → Returns <code>false</code></li>
+</ol>
 <h3 id='no-show-policies'>No-Show Policies</h3>
 <p>The following attributes are available if the restaurant has configured a no-show policy for the
 selected time slot.</p>
 
 <p>Once a booking is submitted, the guest will receive an email or SMS to confirm the reservation with a credit card.</p>
 
-<p>The deposit grace period defines the amount of time the guest has to enter their credit card information to finalize the reservation. 
+<p>The deposit grace period defines the amount of time the guest has to enter their credit card information to finalize the reservation.
 If the card details are not provided within this time frame, the pending reservation will be automatically canceled and the table will be released.</p>
 
 <table><thead>
@@ -931,6 +1037,63 @@ If the card details are not provided within this time frame, the pending reserva
 <td style="text-align: left"><strong>payment-delay</strong></td>
 <td style="text-align: left">integer</td>
 <td>Deposit Request Grace Period in seconds</td>
+</tr>
+</tbody></table>
+<h3 id='offers'>Offers</h3>
+<p>The following attributes are available if the restaurant has an eligible published offer for the selected time slot.</p>
+
+<p>An offer is only included if it matches the service time, day of week, experience, and the required tables are available.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>payment-type</strong></td>
+<td style="text-align: left">string</td>
+<td>Defaults to &quot;TICKETING&quot; when an offer is available</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>amount-cents</strong></td>
+<td style="text-align: left">integer</td>
+<td>Ticket price in cents for the offer</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>offer</strong></td>
+<td style="text-align: left">object</td>
+<td>Offer details (see below)</td>
+</tr>
+</tbody></table>
+<h4 id='offer-object-attributes'>Offer Object Attributes</h4>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>id</strong></td>
+<td style="text-align: left">integer</td>
+<td>Unique identifier for the offer</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>name</strong></td>
+<td style="text-align: left">string</td>
+<td>Display name of the offer</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>number</strong></td>
+<td style="text-align: left">string</td>
+<td>Offer reference number</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>description</strong></td>
+<td style="text-align: left">string</td>
+<td>Description of the offer</td>
 </tr>
 </tbody></table>
 <h1 id='bookings'>Bookings</h1>
@@ -980,13 +1143,43 @@ If the card details are not provided within this time frame, the pending reserva
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"invoice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"affiliate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cancelation-allowed-until"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nl">"cancelation-allowed-until"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"modification-restricted"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"restricted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='booking-attributes'>Booking Attributes</h3>
 <p><span class="dynamic-attributes" data-attr-type="booking"></span></p>
 <h3 id='booking-tags'>Booking Tags</h3>
 <p><span class="dynamic-attributes" data-attr-type="bookingTags"></span></p>
+<h3 id='booking-flags'>Booking Flags</h3>
+<p>Flags are boolean properties that are distinct from tags.</p>
+
+<p>The following flags are available:
+- <code>children</code>: indicates whether guests have signaled that their reservation includes children
+- <code>reduced-mobility</code>: indicates if the reservation requires accessibility accommodations
+- <code>do-not-move</code>: indicates that a Libro user has marked this reservation as immovable from its assigned table</p>
+<h3 id='modification-restricted'>Modification Restricted</h3>
+<p>The <code>modification-restricted</code> attribute indicates whether a booking can be modified via partner APIs or if it requires manual intervention by restaurant staff through the Libro dashboard.</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"modification-restricted"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"restricted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"validation.service.party-size-exceeds-maximum"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<ul>
+<li><code>restricted</code> (boolean): When <code>true</code>, the booking cannot be modified via the API and requires restaurant staff to make changes manually.</li>
+<li><code>reason</code> (string|null): When restricted, contains an error code explaining why modification is not allowed. Common reasons include:
+
+<ul>
+<li><code>validation.service.party-size-exceeds-maximum</code>: The party size exceeds the maximum allowed for online bookings</li>
+<li><code>validation.service.party-size-below-minimum</code>: The party size is below the minimum required</li>
+<li><code>validation.service.date-out-of-range</code>: The booking date is beyond the allowed booking window</li>
+</ul></li>
+</ul>
 <h2 id='booking-relationships'>Booking Relationships</h2>
 <p>Booking object will be returned with the following relationships:</p>
 
@@ -996,7 +1189,18 @@ If the card details are not provided within this time frame, the pending reserva
 <li><a href="#recommendation">Recommendation</a></li>
 <li><a href="#experience">Experience</a></li>
 </ul>
-<h2 id='get-booking'>Get Booking</h2>
+<h3 id='experience'>Experience</h3>
+<p>The <code>experience</code> relationship refers to a dining section or area within the
+restaurant (e.g., Dining Room, Bar, Patio). Experiences are side-loaded in
+API responses as follows:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"experience"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dining Room"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='get-booking'>Get Booking</h2>
 <blockquote>
 <p><span class="method get">GET</span> /restricted/restaurant/bookings/:id</p>
 
@@ -1147,7 +1351,8 @@ If the card details are not provided within this time frame, the pending reserva
       </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Birthday party"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"table-number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="w">
+      </span><span class="nl">"table-number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"classifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nl">"2"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1185,7 +1390,8 @@ If the card details are not provided within this time frame, the pending reserva
       </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Birthday party"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"table-number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="w">
+      </span><span class="nl">"table-number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"classifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nl">"2"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"person"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1567,6 +1773,276 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 <p><span class="dynamic-attributes" data-attr-type="personId"></span></p>
 <h3 id='body-parameters'>Body Parameters</h3>
 <p><span class="dynamic-attributes" data-attr-type="personUpdate"></span></p>
+<h1 id='payment-collection-flows'>Payment Collection Flows</h1>
+<p>The payment collection integration supports both synchronous and asynchronous flows to accommodate different integration scenarios. This section explains the differences between these flows, when to use each, and how they work.</p>
+<h2 id='overview'>Overview</h2>
+<p>Libro&#39;s payment system uses a hybrid model that supports two types of payment collection:</p>
+
+<ul>
+<li><strong>Synchronous Flow:</strong> Payment is initiated and completed during the reservation process (disruptive to the user flow)</li>
+<li><strong>Asynchronous Flow:</strong> Reservation is created and payment is completed later via a link sent to the guest (non-blocking)</li>
+</ul>
+
+<p>The choice between synchronous and asynchronous flows depends on your integration context and user experience requirements.</p>
+<h2 id='payment-types'>Payment Types</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">Payment Type</th>
+<th style="text-align: left">Purpose</th>
+<th style="text-align: left">Sync Flow</th>
+<th style="text-align: left">Async Flow</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>NO_SHOW</strong></td>
+<td style="text-align: left">Authorize credit card to protect against no-shows</td>
+<td style="text-align: left">✓ Implemented</td>
+<td style="text-align: left">✓ Implemented</td>
+</tr>
+<tr>
+<td style="text-align: left"><strong>TICKETING</strong></td>
+<td style="text-align: left">Capture payment for events/experience tickets</td>
+<td style="text-align: left">✓ Implemented</td>
+<td style="text-align: left">🚧 Work in Progress</td>
+</tr>
+</tbody></table>
+<h2 id='synchronous-flow'>Synchronous Flow</h2>
+<p>In the synchronous flow, payment authorization or capture happens <strong>during</strong> the reservation process. The user must complete the payment step before the booking can be finalized.</p>
+<h3 id='when-to-use-synchronous-flow'>When to Use Synchronous Flow</h3>
+<ul>
+<li>Immediate payment confirmation required before finalizing reservation</li>
+<li>Provides immediate feedback and confirmation to user </li>
+<li>When you need instant confirmation and payment processing</li>
+</ul>
+<h3 id='paymentintent-usage-in-sync-flow'>PaymentIntent Usage in Sync Flow</h3>
+<p>The synchronous flow uses a <strong>PaymentIntent</strong> for both NO_SHOW and TICKETING payment types:</p>
+
+<ul>
+<li><strong>Sync NO_SHOW:</strong> Uses PaymentIntent ✓</li>
+<li><strong>Sync TICKETING:</strong> Uses PaymentIntent ✓</li>
+</ul>
+<h3 id='how-synchronous-flow-works'>How Synchronous Flow Works</h3><h4 id='step-1-check-availability'>Step 1: Check Availability</h4>
+<p>Call <code>GET /restricted/restaurant/seatings</code> to check availability for the desired date and time:</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/seatings?restaurant-code=QC01621448XXXX&amp;date=2026-07-09&amp;size=2"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
+</code></pre></div>
+<p>The response indicates if payment is required:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"2025-09-11"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"2025-09-11T20:00:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4253</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dining Room"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à Diner"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"payment-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NO_SHOW"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"amount-cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"payment-delay"</span><span class="p">:</span><span class="w"> </span><span class="mi">7200</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>If <code>payment-required</code> is <code>false</code>, proceed directly to booking creation without payment. If <code>payment-required</code> contains <code>NO_SHOW</code> or <code>TICKETING</code>, continue to Step 2.</p>
+<h4 id='step-2-initialize-payment-intent'>Step 2: Initialize Payment Intent</h4>
+<p>Call <code>POST /restricted/payment-intents/initialize</code> with reservation and guest details:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"restaurant-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QC01621448XXXX"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"amount_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"payment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_show"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"classifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="nl">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="nl">"3"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"guest_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1234567890"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"party_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-15T19:30:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The API returns a PaymentIntent with a <code>payment-url</code>:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"payment-intent"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"amount-cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAD"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"payment-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_show"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"payment-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://pay.libro.app/..."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id='step-3-display-payment-portal-in-iframe-or-with-redirection'>Step 3: Display Payment Portal in iFrame or with Redirection</h4>
+<p>The portal displays:</p>
+
+<ul>
+<li><p><strong>For NO_SHOW:</strong> Credit card authorization form</p></li>
+<li><p><strong>For TICKETING:</strong> Offer selection and payment capture form</p></li>
+</ul>
+
+<p><strong>Option 1: Iframe Integration</strong></p>
+
+<p>You can embed the payment URL in an iframe on your site:</p>
+<div class="highlight"><pre class="highlight html tab-html"><code><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"PAYMENT_URL"</span> <span class="na">width=</span><span class="s">"100%"</span> <span class="na">height=</span><span class="s">"600px"</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+</code></pre></div>
+<p>When the user completes the payment authorization, we will send a <code>postMessage</code> to the parent window that you can listen for:</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">payment_success</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">paymentIntentId</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">paymentIntentId</span><span class="p">;</span>
+    <span class="c1">// Close the iframe and continue with booking creation</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>The payment success message structure is:
+<code>
+{
+  status: &#39;payment_success&#39;,
+  paymentIntentId: &#39;INTENT_ID&#39;
+}
+</code></p>
+<h4 id='height-updates'>Height Updates:</h4>
+<p>The payment page also sends automatic height updates to help you dynamically resize the iframe based on the content. You can listen for these updates to provide a better user experience:</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">event</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">payment-page-height-update</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+    <span class="c1">// Update iframe height dynamically</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">payment-iframe</span><span class="dl">'</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">height</span><span class="p">}</span><span class="s2">px`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>The height update message structure is:
+<code>
+{
+  event: &#39;payment-page-height-update&#39;,
+  data: {
+    height: NUMBER_IN_PIXELS
+  }
+}
+</code></p>
+
+<p>Height updates are sent:
+- Initially after the page loads (with a 500ms delay)
+- Whenever the content height changes by more than 10px
+- Updates are debounced by 150ms to avoid excessive messages</p>
+
+<p><strong>Option 2: Redirect Integration</strong></p>
+
+<p>You can redirect the user directly to the payment URL. To specify where the user should be redirected after completing the payment authorization, include a <code>redirect_url</code> query parameter:</p>
+
+<p><code>https://payment-url.example.com?redirect_url=https://yoursite.com/booking/complete</code></p>
+
+<p>After the user completes payment authorization, he will be redirected to the URL you provided.</p>
+<h4 id='step-4-create-booking-with-paymentintent'>Step 4: Create Booking with PaymentIntent</h4>
+<p>Once the user completes payment (via either iframe or redirect), create the booking using the PaymentIntent ID.</p>
+
+<p>Call the booking creation endpoint with the PaymentIntent ID:</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"restaurant-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QC01621448XXXX"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-15T19:30:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"party-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"payment-intent-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="err">other</span><span class="w"> </span><span class="err">booking</span><span class="w"> </span><span class="err">attributes</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id='step-5-booking-approved'>Step 5: Booking Approved</h4>
+<ul>
+<li><strong>For NO_SHOW:</strong> Booking is approved with no show authorization confirmed</li>
+<li><strong>For TICKETING:</strong> Payment is captured, ticket is emitted, and booking is approved</li>
+</ul>
+<h2 id='asynchronous-flow'>Asynchronous Flow</h2>
+<p>In the asynchronous flow, the reservation is <strong>created</strong>, and payment is completed later as a follow-up action. The guest receives a link via SMS or email to complete the payment. If is not completed in time, the link expires and the reservation is automatically canceled.</p>
+<h3 id='when-to-use-asynchronous-flow'>When to Use Asynchronous Flow</h3>
+<ul>
+<li>Create reservations without disrupting guest experience</li>
+<li>Guest completes payment at their convenience via link</li>
+</ul>
+<h3 id='how-asynchronous-flow-works'>How Asynchronous Flow Works</h3><h4 id='step-1-create-booking'>Step 1: Create Booking</h4>
+<p>Call the booking creation endpoint with the reservation details.</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"restaurant-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QC01621448XXXX"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-15T19:30:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"party-size"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="err">other</span><span class="w"> </span><span class="err">booking</span><span class="w"> </span><span class="err">attributes</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h4 id='step-2-guest-receives-payment-link'>Step 2: Guest Receives Payment Link</h4>
+<p>The guest automatically receives a link via SMS or email:</p>
+
+<ul>
+<li><strong>For NO_SHOW:</strong> Link to complete no show authorization</li>
+<li><strong>For TICKETING:</strong> Link to select an offer and complete payment (Work In Progress)</li>
+</ul>
+<h4 id='step-3-guest-completes-payment'>Step 3: Guest Completes Payment</h4>
+<p>The guest clicks the link and completes the payment action:</p>
+
+<ul>
+<li><strong>For NO_SHOW:</strong> Enters credit card information for authorization</li>
+<li><strong>For TICKETING:</strong> Selects an offer and completes payment capture</li>
+</ul>
+<h4 id='step-4-booking-approved'>Step 4: Booking Approved</h4>
+<p>Once the payment is complete:</p>
+
+<ul>
+<li><strong>For NO_SHOW:</strong> No-show protection is activated, booking is approved</li>
+<li><strong>For TICKETING:</strong> Payment is captured, ticket is emitted, booking is approved</li>
+</ul>
+<h4 id='step-5-link-expiration'>Step 5: Link Expiration</h4>
+<p>The payment link expires after the grace period specified in <code>payment-delay</code> (from the availabilities endpoint):</p>
+
+<ul>
+<li>If the guest completes payment within the grace period → Booking is approved</li>
+<li>If the link expires without payment → Booking is automatically cancelled</li>
+</ul>
+<h2 id='flow-comparison'>Flow Comparison</h2><h3 id='synchronous-flow-2'>Synchronous Flow</h3><div class="highlight"><pre class="highlight plaintext"><code>Partner → Check Availability → Initialize PaymentIntent → Display Portal → Guest Pays → Create Booking → Approved
+         (seatings endpoint)   (with reservation info)   (iframe/redirect)              (with intent ID)
+</code></pre></div>
+<p><strong>Key Characteristics:</strong></p>
+
+<ul>
+<li><p>Payment authorization happens <strong>before</strong> booking creation</p></li>
+<li><p>Requires PaymentIntent object (for both NO_SHOW and TICKETING)</p></li>
+<li><p>User must complete payment to proceed (via iframe or redirect)</p></li>
+<li><p>Immediate confirmation</p></li>
+</ul>
+<h3 id='asynchronous-flow-2'>Asynchronous Flow</h3><div class="highlight"><pre class="highlight plaintext"><code>Partner → Create Booking → Booking Pending → Send Link → Guest Pays → Booking Approved
+         (payment pending)                   (SMS/Email)
+</code></pre></div>
+<p><strong>Key Characteristics:</strong></p>
+
+<ul>
+<li><p>Booking created <strong>first</strong></p></li>
+<li><p>Guest completes payment at their convenience</p></li>
+<li><p>Link has expiration time</p></li>
+<li><p>Booking can be automatically cancelled if payment is not completed in time</p></li>
+</ul>
+<h2 id='next-steps'>Next Steps</h2>
+<ul>
+<li>Review the <a href="#the-payment-intent-object">PaymentIntent Object</a> structure</li>
+<li>Learn how to <a href="#initialize-payment-intent">Initialize a PaymentIntent</a> for synchronous flows</li>
+<li>Explore the <a href="#bookings">Bookings API</a> for creating reservations</li>
+<li>Check the <a href="#get-restaurant-availability">Restaurant Availabilities</a> endpoint for payment requirements</li>
+</ul>
 <h1 id='payment-intents'>Payment Intents</h1>
 <blockquote>
 <p>ENDPOINTS</p>
@@ -1660,6 +2136,10 @@ Cancellation is only possible if the booking has not passed the cancellation dea
       </span><span class="nl">"amount_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
       </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAD"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"payment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_show"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"classifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="nl">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="nl">"3"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
       </span><span class="nl">"guest_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
@@ -1683,7 +2163,7 @@ Cancellation is only possible if the booking has not passed the cancellation dea
         </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"amount-cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
             </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAD"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requires_payment_method"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"payment-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_show"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"guest-info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
@@ -1694,6 +2174,10 @@ Cancellation is only possible if the booking has not passed the cancellation dea
                 </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-15T19:30:00Z"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"classifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="nl">"1"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="nl">"3"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
             </span><span class="nl">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-09-30T11:00:36-04:00"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-09-30T11:00:36-04:00"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"payment-url"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">/*</span><span class="w"> </span><span class="err">payment</span><span class="w"> </span><span class="err">url</span><span class="w"> </span><span class="err">*/</span><span class="w"> </span><span class="p">}</span><span class="w">
@@ -1719,20 +2203,26 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 <tr>
 <td><code>amount_cents</code></td>
 <td>integer</td>
-<td>Yes</td>
-<td>The amount in cents (must be greater than 0)</td>
+<td>Required for <code>no_show</code></td>
+<td>The amount in cents (must be greater than 0). Not required for <code>ticketing</code></td>
 </tr>
 <tr>
 <td><code>currency</code></td>
 <td>string</td>
-<td>Yes</td>
-<td>The currency code (ISO 4217 format, e.g., &quot;USD&quot;, &quot;EUR&quot;)</td>
+<td>Required for <code>no_show</code></td>
+<td>The currency code (ISO 4217 format, e.g., &quot;USD&quot;, &quot;EUR&quot;). Not required for <code>ticketing</code></td>
 </tr>
 <tr>
 <td><code>payment_type</code></td>
 <td>string</td>
 <td>No</td>
 <td>Type of payment: <code>no_show</code> or <code>ticketing</code> (default: <code>no_show</code>)</td>
+</tr>
+<tr>
+<td><code>classifications</code></td>
+<td>array</td>
+<td>Conditional</td>
+<td>Array of guest classifications as hashes with classification_id as key and quantity as value (e.g., <code>[{&quot;1&quot;: 2}, {&quot;3&quot;: 2}]</code>). Required if restaurant has classifications enabled. Sum of quantities must equal <code>party_size</code></td>
 </tr>
 <tr>
 <td><code>guest_info</code></td>
@@ -1805,6 +2295,10 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 <td>Payment intent created successfully</td>
 </tr>
 <tr>
+<td>400</td>
+<td>Bad request: Classifications validation failed</td>
+</tr>
+<tr>
 <td>401</td>
 <td>Unauthorized: Missing or invalid token</td>
 </tr>
@@ -1817,6 +2311,38 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 <td>Unprocessable entity: Validation errors</td>
 </tr>
 </tbody></table>
+<h3 id='classifications-validation'>Classifications Validation</h3>
+<p>When a restaurant has classifications enabled (e.g., for ticketing with different guest types like adults, children, seniors), the following validation rules apply:</p>
+
+<ol>
+<li><p><strong>Classifications are required</strong>: If the restaurant has classifications enabled and configured, the <code>classifications</code> parameter must be provided in the request. Otherwise, you will receive a <code>400</code> error with the message: <code>&quot;Classifications are required for this restaurant&quot;</code></p></li>
+<li><p><strong>Sum must equal party size</strong>: The sum of all classification quantities must exactly match the <code>party_size</code> in the guest info. For example:</p>
+
+<ul>
+<li>If <code>party_size</code> is 4</li>
+<li>And you send <code>[{&quot;1&quot;: 2}, {&quot;3&quot;: 2}]</code> (classification ID 1 with quantity 2, classification ID 3 with quantity 2)</li>
+<li>The sum is 2 + 2 = 4, which matches the party size ✓</li>
+</ul></li>
+</ol>
+
+<p>If the sum does not match, you will receive a <code>400</code> error with the message: <code>&quot;Total classification count (X) must equal party size (Y)&quot;</code></p>
+
+<p><strong>Example of valid classifications:</strong>
+<code>json
+{
+  &quot;classifications&quot;: [
+    {&quot;1&quot;: 2},
+    {&quot;3&quot;: 1},
+    {&quot;5&quot;: 1}
+  ],
+  &quot;guest_info&quot;: {
+    &quot;party_size&quot;: 4,
+    ...
+  }
+}
+</code></p>
+
+<p>In this example, classification IDs 1, 3, and 5 have quantities of 2, 1, and 1 respectively, totaling 4, which matches the party size.</p>
 <h3 id='using-the-payment-url'>Using the Payment URL</h3>
 <p>The <code>payment_url</code> returned in the response is the URL you should send your users to so they can complete the payment authorization. You have two integration options:</p>
 <h4 id='option-1-iframe-integration'>Option 1: Iframe Integration</h4>
@@ -1831,13 +2357,40 @@ Cancellation is only possible if the booking has not passed the cancellation dea
   <span class="p">}</span>
 <span class="p">});</span>
 </code></pre></div>
-<p>The message structure is:
+<p>The payment success message structure is:
 <code>
 {
   status: &#39;payment_success&#39;,
   paymentIntentId: &#39;INTENT_ID&#39;
 }
 </code></p>
+<h4 id='height-updates'>Height Updates:</h4>
+<p>The payment page also sends automatic height updates to help you dynamically resize the iframe based on the content. You can listen for these updates to provide a better user experience:</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">event</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">payment-page-height-update</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+    <span class="c1">// Update iframe height dynamically</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">payment-iframe</span><span class="dl">'</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">height</span><span class="p">}</span><span class="s2">px`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>The height update message structure is:
+<code>
+{
+  event: &#39;payment-page-height-update&#39;,
+  data: {
+    height: NUMBER_IN_PIXELS
+  }
+}
+</code></p>
+
+<p>Height updates are sent:
+- Initially after the page loads (with a 500ms delay)</p>
+
+<ul>
+<li><p>Whenever the content height changes by more than 10px</p></li>
+<li><p>Updates are debounced by 150ms to avoid excessive messages</p></li>
+</ul>
 <h4 id='option-2-redirect-integration'>Option 2: Redirect Integration</h4>
 <p>You can redirect the user directly to the payment URL. To specify where the user should be redirected after completing the payment authorization, include a <code>redirect_url</code> query parameter:</p>
 
@@ -1949,11 +2502,11 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 
 <p>To paginate through the payload, use the limit and offset parameters. The limit parameter controls the number of records returned in a single request, with a maximum value of 250. The offset parameter specifies the starting point for the query in terms of database records.</p>
 <h1 id='common-errors'>Common Errors</h1>
-<p>The Libro API uses the following error codes:</p>
+<p>The Libro API uses the following HTTP status codes:</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>HTTP Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
@@ -2002,9 +2555,207 @@ Cancellation is only possible if the booking has not passed the cancellation dea
 <td>Internal Server Error -- We had a problem with our server. Try again later.</td>
 </tr>
 </tbody></table>
+<h2 id='error-response-format'>Error Response Format</h2>
+<blockquote>
+<p>Example error response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"validation.service.slots-unavailable-not-specific"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2005"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party size is outside the allowed range for online booking. Please contact the restaurant directly."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Error responses include the following fields:</p>
 
-<p><code>validation.offer.empty</code> indicates that the selected time slot requires payment through the ticketing system before a reservation can be completed.</p>
-<h1 id='changelog'>Changelog</h1><h2 id='october-2025'>October 2025</h2><h3 id='payment-intents-api'>Payment Intents API</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>error</td>
+<td>A machine-readable error key for backwards compatibility</td>
+</tr>
+<tr>
+<td>code</td>
+<td>A unique error code for programmatic error handling</td>
+</tr>
+<tr>
+<td>message</td>
+<td>A human-readable description of the error</td>
+</tr>
+</tbody></table>
+<h2 id='error-codes'>Error Codes</h2>
+<p>The API uses structured error codes to help you programmatically handle errors. Error codes are grouped into ranges by category:</p>
+<h3 id='restaurant-level-errors-1xxx'>Restaurant-level Errors (1xxx)</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Error Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1001</td>
+<td>validation.restaurant.login-required</td>
+<td>Customer login is required for this restaurant</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>validation.restaurant.recaptcha-required</td>
+<td>Recaptcha verification is required</td>
+</tr>
+<tr>
+<td>1003</td>
+<td>validation.restaurant.recaptcha-invalid</td>
+<td>Invalid recaptcha response format</td>
+</tr>
+<tr>
+<td>1004</td>
+<td>validation.restaurant.recaptcha-failed</td>
+<td>Recaptcha verification failed</td>
+</tr>
+<tr>
+<td>1005</td>
+<td>You must select a restaurant</td>
+<td>Restaurant selection is required</td>
+</tr>
+<tr>
+<td>1006</td>
+<td>You must select a date &amp; time</td>
+<td>Date and time selection is required</td>
+</tr>
+</tbody></table>
+<h3 id='service-availability-errors-2xxx'>Service/Availability Errors (2xxx)</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Error Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>2001</td>
+<td>validation.service.slots-unavailable-not-specific</td>
+<td>The requested time slot is not available</td>
+</tr>
+<tr>
+<td>2002</td>
+<td>validation.service.slots-unavailable-not-specific</td>
+<td>The booking window for this time has closed</td>
+</tr>
+<tr>
+<td>2003</td>
+<td>validation.service.slots-unavailable-not-specific</td>
+<td>Not enough availability for the requested party size</td>
+</tr>
+<tr>
+<td>2004</td>
+<td>validation.service.slots-unavailable-not-specific</td>
+<td>Not enough availability at the requested time</td>
+</tr>
+<tr>
+<td>2005</td>
+<td>validation.service.slots-unavailable-not-specific</td>
+<td>Party size is outside the allowed range for online booking</td>
+</tr>
+<tr>
+<td>2006</td>
+<td>exception.no-table</td>
+<td>No suitable table is available for this reservation</td>
+</tr>
+<tr>
+<td>2007</td>
+<td>validation.service.date-out-of-range</td>
+<td>The requested date is outside the booking window</td>
+</tr>
+<tr>
+<td>2008</td>
+<td>service-not-found</td>
+<td>The requested date and time is not available</td>
+</tr>
+</tbody></table>
+<h3 id='booking-data-errors-3xxx'>Booking Data Errors (3xxx)</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Error Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>3001</td>
+<td>validation.experience.unavailable</td>
+<td>The selected experience is not available at this restaurant</td>
+</tr>
+<tr>
+<td>3001</td>
+<td>experience-not-found</td>
+<td>The selected experience is not available at this restaurant</td>
+</tr>
+<tr>
+<td>3002</td>
+<td>validation.classifications.invalid-restaurant</td>
+<td>One or more classifications are not valid for this restaurant</td>
+</tr>
+<tr>
+<td>3003</td>
+<td>validation.booking.invalid</td>
+<td>Booking validation failed</td>
+</tr>
+<tr>
+<td>3004</td>
+<td>validation.offer.empty</td>
+<td>A prepaid offer selection is required for this reservation</td>
+</tr>
+</tbody></table>
+<h3 id='operation-errors-4xxx'>Operation Errors (4xxx)</h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Error Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>4001</td>
+<td>validation.booking.not-cancelable</td>
+<td>This booking cannot be canceled via the API</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+The <code>error</code> field is provided for backwards compatibility. We recommend using the <code>code</code> field for programmatic error handling as it provides more specific information.
+</aside>
+<h1 id='changelog'>Changelog</h1><h2 id='january-2026'>January 2026</h2><h3 id='structured-error-codes'>Structured Error Codes</h3>
+<p><strong>New Feature</strong> - API error responses now include structured error codes to help you programmatically handle errors.</p>
+
+<p>Error responses include three fields:</p>
+
+<ul>
+<li><code>code</code>: A unique error code (e.g., &quot;2005&quot;)</li>
+<li><code>message</code>: A human-readable description</li>
+<li><code>error</code>: The legacy error key for backwards compatibility</li>
+</ul>
+
+<p>Error codes are grouped into ranges:</p>
+
+<ul>
+<li><strong>1xxx</strong>: Restaurant-level errors (authentication, configuration)</li>
+<li><strong>2xxx</strong>: Service/availability errors (slots, capacity)</li>
+<li><strong>3xxx</strong>: Booking data errors (validation)</li>
+<li><strong>4xxx</strong>: Operation errors (cancel, payment)</li>
+</ul>
+
+<p>See the <a href="#error-codes">Error Codes</a> section for the complete list.</p>
+<h3 id='booking-modification-restricted-attribute'>Booking Modification Restricted Attribute</h3>
+<p><strong>New Feature</strong> - The Booking object now includes a <code>modification-restricted</code> attribute that indicates whether a booking can be modified via partner APIs.</p>
+
+<p>When <code>restricted</code> is <code>true</code>, the booking requires manual intervention by restaurant staff through the Libro dashboard. The <code>reason</code> field provides a specific error code explaining why the booking cannot be modified programmatically.</p>
+
+<p>See the <a href="#modification-restricted">Modification Restricted</a> section in the Booking documentation for details.</p>
+<h2 id='october-2025'>October 2025</h2><h3 id='payment-intents-api'>Payment Intents API</h3>
 <p><strong>New Feature</strong> - We&#39;ve added a new Payment Intents flow to the API, allowing you to initialize payment intents for no-show protection and ticketing scenarios.</p>
 
 <p>Key features:</p>
@@ -2024,6 +2775,6 @@ Cancellation is only possible if the booking has not passed the cancellation dea
           </div>
       </div>
     </div>
-    <script src="javascripts/attributes-b6ef92dd.js"></script>
+    <script src="javascripts/attributes-c9a984c9.js"></script>
   </body>
 </html>
