@@ -17,18 +17,6 @@ curl "https://api.libroreserve.com/restricted/people?restaurant-code=QC000000000
 {
   "data": [
     {
-      "id": "18476003",
-      "type": "person",
-      "attributes": {
-        "first-name": "Johnny",
-        "last-name": "Doe",
-        "email": "john@gmail.com",
-        "phone": "225-951-4433",
-        "note": "Lorem Ipsum",
-        "tags": ["vvip", "vegan"]
-      }
-    },
-    {
       "id": "18476004",
       "type": "person",
       "attributes": {
@@ -38,6 +26,18 @@ curl "https://api.libroreserve.com/restricted/people?restaurant-code=QC000000000
         "phone": "225-955-7788",
         "note": "Prefers window seating",
         "tags": ["regular"]
+      }
+    },
+    {
+      "id": "18476003",
+      "type": "person",
+      "attributes": {
+        "first-name": "Johnny",
+        "last-name": "Doe",
+        "email": "john@gmail.com",
+        "phone": "225-951-4433",
+        "note": "Lorem Ipsum",
+        "tags": ["vvip", "vegan"]
       }
     }
   ],
@@ -51,7 +51,7 @@ curl "https://api.libroreserve.com/restricted/people?restaurant-code=QC000000000
 }
 ```
 
-This endpoint retrieves a list of people associated with a restaurant.
+This endpoint retrieves a list of people associated with a restaurant. Results are sorted by ID in descending order (newest first).
 
 ### Query Parameters
 
