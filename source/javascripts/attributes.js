@@ -56,6 +56,52 @@ document.addEventListener("DOMContentLoaded", function () {
         desc: "Array of guest classifications with id and localized names (e.g., Adult, Child)",
       },
     ],
+    restaurantList: [
+      {
+        name: "query",
+        type: "string",
+        desc: "Search restaurants by name",
+      },
+      {
+        name: "latitude",
+        type: "float",
+        desc: "Search latitude (used with longitude for geo search). When provided with longitude, results are sorted by distance.",
+      },
+      {
+        name: "longitude",
+        type: "float",
+        desc: "Search longitude (used with latitude for geo search). When provided with latitude, results are sorted by distance.",
+      },
+      {
+        name: "radius",
+        type: "integer",
+        desc: "Search radius (used with latitude/longitude). Default: 5000",
+      },
+      {
+        name: "unit",
+        type: "string",
+        desc: "Search radius unit. Default: km",
+        values: ["km", "mi", "nm"],
+      },
+      {
+        name: "features",
+        type: "string",
+        desc: "Comma-separated feature filter to limit results to restaurants with specific capabilities",
+        values: ["bookings", "orders", "pick-ups", "deliveries"],
+      },
+      {
+        name: "sort",
+        type: "string",
+        desc: "Sort field and direction (field:direction). Ignored when latitude/longitude are provided.",
+        values: ["id:asc", "id:desc", "name:asc", "name:desc", "created_at:asc", "created_at:desc", "updated_at:asc", "updated_at:desc"],
+      },
+      { name: "limit", type: "integer", desc: "Number of records per request. Default: 20, max: 250" },
+      {
+        name: "offset",
+        type: "integer",
+        desc: "Record offset to start from for pagination. Default: 0",
+      },
+    ],
     restaurantGet: [
       {
         name: "restaurant-code",

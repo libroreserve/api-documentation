@@ -870,7 +870,33 @@ Never share your client secret or access tokens. Store them securely and never e
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all restaurants available to your connected account.</p>
+<p>This endpoint retrieves all restaurants available to your connected account. You can filter results by name, geographic location, or features.</p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p><span class="dynamic-attributes" data-attr-type="restaurantList"></span></p>
+<h3 id='examples'>Examples</h3>
+<ul>
+<li>Search by name:</li>
+</ul>
+
+<p><code>GET https://api.libroreserve.com/restricted/restaurants?query=Chez Marcel</code></p>
+
+<ul>
+<li>Search by location (nearby restaurants sorted by distance):</li>
+</ul>
+
+<p><code>GET https://api.libroreserve.com/restricted/restaurants?latitude=45.5017&amp;longitude=-73.5673&amp;radius=10&amp;unit=km</code></p>
+
+<ul>
+<li>Filter by features:</li>
+</ul>
+
+<p><code>GET https://api.libroreserve.com/restricted/restaurants?features=bookings,orders</code></p>
+
+<ul>
+<li>Sort by name:</li>
+</ul>
+
+<p><code>GET https://api.libroreserve.com/restricted/restaurants?sort=name:asc</code></p>
 
 <p>See <a href="#pagination">Pagination</a> for more details.</p>
 <h2 id='get-restaurant-availability'>Get Restaurant Availability</h2>
@@ -2863,6 +2889,6 @@ The <code>error</code> field is provided for backwards compatibility. We recomme
           </div>
       </div>
     </div>
-    <script src="javascripts/attributes-c9a984c9.js"></script>
+    <script src="javascripts/attributes-105f8e5e.js"></script>
   </body>
 </html>

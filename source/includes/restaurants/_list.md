@@ -32,6 +32,28 @@ curl "https://api.libroreserve.com/restricted/restaurants" \
 }
 ```
 
-This endpoint retrieves all restaurants available to your connected account.
+This endpoint retrieves all restaurants available to your connected account. You can filter results by name, geographic location, or features.
+
+### Query Parameters
+
+<span class="dynamic-attributes" data-attr-type="restaurantList"></span>
+
+### Examples
+
+- Search by name:
+
+`GET https://api.libroreserve.com/restricted/restaurants?query=Chez Marcel`
+
+- Search by location (nearby restaurants sorted by distance):
+
+`GET https://api.libroreserve.com/restricted/restaurants?latitude=45.5017&longitude=-73.5673&radius=10&unit=km`
+
+- Filter by features:
+
+`GET https://api.libroreserve.com/restricted/restaurants?features=bookings,orders`
+
+- Sort by name:
+
+`GET https://api.libroreserve.com/restricted/restaurants?sort=name:asc`
 
 See [Pagination](#pagination) for more details.
