@@ -16,7 +16,7 @@ The choice between synchronous and asynchronous flows depends on your integratio
 | Payment Type | Purpose | Sync Flow | Async Flow |
 |:-------------|:--------|:----------|:-----------|
 | **NO_SHOW** | Authorize credit card to protect against no-shows | ✓ Implemented | ✓ Implemented |
-| **TICKETING** | Capture payment for events/experience tickets | ✓ Implemented | 🚧 Work in Progress |
+| **TICKETING** | Capture payment for events/experience tickets | ✓ Implemented | ✓ Implemented |
 
 ## Synchronous Flow
 
@@ -250,7 +250,7 @@ Call the booking creation endpoint with the reservation details.
 The guest automatically receives a link via SMS or email:
 
 - **For NO_SHOW:** Link to complete no show authorization
-- **For TICKETING:** Link to select an offer and complete payment (Work In Progress)
+- **For TICKETING:** Link to select an offer and complete payment
 
 #### Step 3: Guest Completes Payment
 
