@@ -161,7 +161,7 @@ it includes additional details based on the type of payment.
 When both offers and no-show policies exist for a time slot, the following priority order applies:
 
 1. **Non-optional offers** (with available tables) → Returns `TICKETING` payment type (overrides no-show policies)
-2. **Optional offers + no-show policy** → Returns `NO_SHOW` payment type (policy takes precedence)
+2. **Optional offers + no-show policy** → Returns `TICKETING` payment type (overrides no-show policies)
 3. **Optional offers + no policy** → Returns `TICKETING` payment type
 4. **No offer + no-show policy** → Returns `NO_SHOW` payment type
 5. **No offer + no policy** → Returns `false`
