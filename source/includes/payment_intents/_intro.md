@@ -25,7 +25,7 @@ The Payment Intents API allows you to initialize payment intents for no-show pol
       "email": "john.doe@example.com",
       "phone": "+1234567890",
       "party_size": 4,
-      "time": "2025-01-15T19:30:00Z",
+      "time": "2025-01-15T19:30:00",
       "locale": "en"
     },
     "created-at": "2025-01-10T12:00:00.000Z"

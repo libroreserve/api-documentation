@@ -93,7 +93,7 @@ Call `POST /restricted/payment-intents/initialize` with reservation and guest de
         "email": "john.doe@example.com",
         "phone": "+1234567890",
         "party_size": 4,
-        "time": "2025-01-15T19:30:00Z",
+        "time": "2025-01-15T19:30:00",
         "locale": "en"
       }
     }
@@ -203,7 +203,7 @@ Call the booking creation endpoint with the PaymentIntent ID:
   "restaurant-code": "QC01621448XXXX",
   "data": {
     "attributes": {
-      "time": "2025-01-15T19:30:00Z",
+      "time": "2025-01-15T19:30:00",
       "party-size": 4,
       "payment-intent-id": "0000000000"
       // ... other booking attributes
@@ -237,7 +237,7 @@ Call the booking creation endpoint with the reservation details.
   "restaurant-code": "QC01621448XXXX",
   "data": {
     "attributes": {
-      "time": "2025-01-15T19:30:00Z",
+      "time": "2025-01-15T19:30:00",
       "party-size": 4
       // ... other booking attributes
     }
