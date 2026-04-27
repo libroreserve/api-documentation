@@ -32,7 +32,7 @@ curl "https://api.libroreserve.com/restricted/payment-intents/initialize" \
         "email": "john.doe@example.com",
         "phone": "+1234567890",
         "party_size": 4,
-        "time": "2025-01-15T19:30:00Z",
+        "time": "2025-01-15T19:30:00",
         "locale": "en"
       }
     }
@@ -58,7 +58,7 @@ curl "https://api.libroreserve.com/restricted/payment-intents/initialize" \
                 "email": "john.doe@example.com",
                 "phone": "+1234567890",
                 "party_size": 4,
-                "time": "2025-01-15T19:30:00Z",
+                "time": "2025-01-15T19:30:00",
                 "locale": "en"
             },
             "classifications": [
@@ -101,7 +101,7 @@ This endpoint allows you to initialize a payment intent for no-show policies or 
 | `email` | string | Yes | Guest's email address |
 | `phone` | string | Yes | Guest's phone number |
 | `party_size` | integer | Yes | Number of guests (must be greater than 0) |
-| `time` | string | Yes | Booking datetime in ISO8601 format |
+| `time` | string | Yes | Booking datetime in ISO8601 format, in restaurant-local time and **without** a timezone marker (no `Z`, no offset). Same format we send back to you in the seatings response. |
 | `locale` | string | Yes | Guest's locale (e.g., "en", "fr") |
 
 ### HTTP Status Codes
