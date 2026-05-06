@@ -508,6 +508,12 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#april-2026" class="toc-h2 toc-link" data-title="April 2026">April 2026</a>
+                  </li>
+                  <li>
+                    <a href="#february-2026" class="toc-h2 toc-link" data-title="February 2026">February 2026</a>
+                  </li>
+                  <li>
                     <a href="#january-2026" class="toc-h2 toc-link" data-title="January 2026">January 2026</a>
                   </li>
                   <li>
@@ -2842,7 +2848,50 @@ Ensure your webhook endpoint responds quickly to avoid timeouts.
 <aside class="notice">
 The <code>error</code> field is provided for backwards compatibility. We recommend using the <code>code</code> field for programmatic error handling as it provides more specific information.
 </aside>
-<h1 id='changelog'>Changelog</h1><h2 id='january-2026'>January 2026</h2><h3 id='structured-error-codes'>Structured Error Codes</h3>
+<h1 id='changelog'>Changelog</h1><h2 id='april-2026'>April 2026</h2><h3 id='async-ticketing-flow-now-available'>Async TICKETING Flow Now Available</h3>
+<p><strong>Update</strong> - The asynchronous TICKETING payment flow is now fully implemented. Previously marked as &quot;Work in Progress&quot;, this flow allows guests to select an offer and complete ticket payment via a link sent by SMS or email after the booking is created.</p>
+
+<p>See the <a href="#payment-collection-flows">Payment Collection Flows</a> section for complete details on both sync and async flows.</p>
+<h3 id='payment-intent-datetime-format'>Payment Intent Datetime Format</h3>
+<p><strong>Breaking Change</strong> - The <code>time</code> parameter in the Payment Intents API now expects a datetime <strong>without</strong> a timezone marker. Use the restaurant&#39;s local time in ISO 8601 format with no <code>Z</code> suffix and no UTC offset (e.g., <code>2025-01-15T19:30:00</code>). This matches the format returned by the seatings endpoint.</p>
+<h2 id='february-2026'>February 2026</h2><h3 id='restaurant-list-filtering-and-sorting'>Restaurant List Filtering and Sorting</h3>
+<p><strong>New Feature</strong> - The List Restaurants endpoint now supports filtering and sorting options:</p>
+
+<ul>
+<li><strong>Search by name</strong> using the <code>query</code> parameter</li>
+<li><strong>Search by location</strong> using <code>latitude</code>, <code>longitude</code>, <code>radius</code>, and <code>unit</code> parameters — results are sorted by distance</li>
+<li><strong>Filter by features</strong> using the <code>features</code> parameter</li>
+<li><strong>Sort results</strong> using the <code>sort</code> parameter (e.g., <code>sort=name:asc</code>)</li>
+</ul>
+
+<p>See the <a href="#list-restaurants">List Restaurants</a> section for the full list of query parameters.</p>
+<h3 id='people-endpoint-sorting'>People Endpoint Sorting</h3>
+<p><strong>Update</strong> - The List People endpoint now returns results sorted by ID in descending order (most recently created first).</p>
+<h3 id='webhook-signature-verification'>Webhook Signature Verification</h3>
+<p><strong>New Feature</strong> - Libro now signs webhook requests using HMAC-SHA256 when a signing secret is configured. Each request includes an <code>X-Libro-Signature</code> header with:</p>
+
+<ul>
+<li><code>t</code>: Unix timestamp when the signature was generated</li>
+<li><code>v1</code>: The HMAC-SHA256 signature</li>
+</ul>
+
+<p>To verify a signature, concatenate the timestamp and the raw request body with a period (<code>{timestamp}.{payload}</code>), compute the HMAC-SHA256 hash using your signing secret, and compare with the <code>v1</code> value. We recommend rejecting webhooks with a timestamp older than <strong>5 minutes</strong>.</p>
+
+<p>See the <a href="#webhooks">Webhooks</a> section for full verification details and security best practices.</p>
+<h3 id='updated-error-codes'>Updated Error Codes</h3>
+<p><strong>Update</strong> - The following error codes have been added and removed:</p>
+
+<p>Added:
+- <code>1005</code> — <code>restaurant_required</code>
+- <code>1006</code> — <code>date_time_required</code>
+- <code>2008</code> — <code>service_not_found</code>
+- <code>3001</code> — variant for <code>experience_not_found</code></p>
+
+<p>Removed:
+- <code>4002</code> — <code>payment_failed</code> (no longer in use)</p>
+
+<p>See the <a href="#error-codes">Error Codes</a> section for the complete list.</p>
+<h2 id='january-2026'>January 2026</h2><h3 id='structured-error-codes'>Structured Error Codes</h3>
 <p><strong>New Feature</strong> - API error responses now include structured error codes to help you programmatically handle errors.</p>
 
 <p>Error responses include three fields:</p>
