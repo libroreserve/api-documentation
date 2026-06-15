@@ -202,3 +202,62 @@ An offer is only included if it matches the service time, day of week, experienc
 | **name**          | string  | Display name of the offer                                         |
 | **number**        | string  | Offer reference number                                            |
 | **description**   | string  | Description of the offer                                          |
+
+### Internal Schedule Availability
+
+> REQUEST (v3, with internal availability):
+
+```shell
+curl "https://api.libroreserve.com/restricted/restaurant/seatings?restaurant-code=QC01621448XXXX&date=2026-07-09&size=2" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/vnd.libro-restricted-v3+json" \
+  -H "Authorization: Bearer ACCESS_TOKEN"
+```
+
+> RESPONSE:
+
+```json
+# Each availability is flagged with whether it comes from an internal schedule.
+{
+  "2026-07-09": {
+    "2026-07-09T18:00:00": [
+      {
+        "id": 4253,
+        "name": {
+            "en": "Dining Room",
+            "fr": "Salle à Diner"
+        },
+        "payment-required": false,
+        "internal": false
+      }
+    ],
+    "2026-07-09T18:15:00": [
+      {
+        "id": 4253,
+        "name": {
+            "en": "Dining Room",
+            "fr": "Salle à Diner"
+        },
+        "payment-required": false,
+        "internal": true
+      }
+    ]
+  }
+}
+```
+
+Internal schedules are configured by the restaurant for operational use and are normally **hidden from public/online availability**. Each availability entry includes an `internal` boolean that indicates whether the slot comes from an internal schedule.
+
+| Name         | Type    | Description |
+|:-------------|:--------|------------------------------------------------------------------------------|
+| **internal** | boolean | `true` when the slot comes from an internal schedule (hidden from public/online availability), `false` for regular public availability. |
+
+To receive internal schedule availability, the request must satisfy all of the following:
+
+- Use API **v3** by sending the `Accept: application/vnd.libro-restricted-v3+json` header.
+- Use an access token granted the `availability:all` scope. Requests without this scope receive a `403 Forbidden`.
+- The restaurant must have internal availability sharing enabled for your application (enabled by default; a restaurant manager can disable it per application).
+
+<aside class="notice">
+The <code>internal</code> attribute is only returned by the v3 seatings endpoint. The v2 endpoint never returns internal schedule availability.
+</aside>

@@ -1,5 +1,15 @@
 # Changelog
 
+## June 2026
+
+### Internal Schedule Availability
+
+**New Feature** - The seatings endpoint can now expose availability from internal schedules (slots normally hidden from public/online availability). Each availability entry now includes an `internal` boolean indicating whether the slot comes from an internal schedule.
+
+Internal availability is only returned when the request uses API v3 (`Accept: application/vnd.libro-restricted-v3+json`), the access token has the `availability:all` scope, and the restaurant has enabled internal availability sharing for your application.
+
+See the [Internal Schedule Availability](#internal-schedule-availability) section for details.
+
 ## April 2026
 
 ### Async TICKETING Flow Now Available
