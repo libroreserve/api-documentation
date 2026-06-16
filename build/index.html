@@ -508,6 +508,9 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#june-2026" class="toc-h2 toc-link" data-title="June 2026">June 2026</a>
+                  </li>
+                  <li>
                     <a href="#april-2026" class="toc-h2 toc-link" data-title="April 2026">April 2026</a>
                   </li>
                   <li>
@@ -1146,6 +1149,73 @@ If the card details are not provided within this time frame, the pending reserva
 <td>Description of the offer</td>
 </tr>
 </tbody></table>
+<h3 id='internal-schedule-availability'>Internal Schedule Availability</h3>
+<blockquote>
+<p>REQUEST (v3, with internal availability):</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.libroreserve.com/restricted/restaurant/seatings?restaurant-code=QC01621448XXXX&amp;date=2026-07-09&amp;size=2"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/vnd.libro-restricted-v3+json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer ACCESS_TOKEN"</span>
+</code></pre></div>
+<blockquote>
+<p>RESPONSE:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Each</span><span class="w"> </span><span class="err">availability</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">flagged</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">whether</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">comes</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">internal</span><span class="w"> </span><span class="err">schedule.</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"2026-07-09"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"2026-07-09T18:00:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4253</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dining Room"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à Diner"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"2026-07-09T18:15:00"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4253</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dining Room"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salle à Diner"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment-required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Internal schedules are configured by the restaurant for operational use and are normally <strong>hidden from public/online availability</strong>. Each availability entry includes an <code>internal</code> boolean that indicates whether the slot comes from an internal schedule.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><strong>internal</strong></td>
+<td style="text-align: left">boolean</td>
+<td><code>true</code> when the slot comes from an internal schedule (hidden from public/online availability), <code>false</code> for regular public availability.</td>
+</tr>
+</tbody></table>
+
+<p>To receive internal schedule availability, the request must satisfy all of the following:</p>
+
+<ul>
+<li>Use API <strong>v3</strong> by sending the <code>Accept: application/vnd.libro-restricted-v3+json</code> header.</li>
+<li>Use an access token granted the <code>availability:all</code> scope. Requests without this scope receive a <code>403 Forbidden</code>.</li>
+<li>The restaurant must have internal availability sharing enabled for your application (enabled by default; a restaurant manager can disable it per application).</li>
+</ul>
+
+<aside class="notice">
+The <code>internal</code> attribute is only returned by the v3 seatings endpoint. The v2 endpoint never returns internal schedule availability.
+</aside>
 <h1 id='bookings'>Bookings</h1>
 <blockquote>
 <p>ENDPOINTS</p>
@@ -2848,7 +2918,13 @@ Ensure your webhook endpoint responds quickly to avoid timeouts.
 <aside class="notice">
 The <code>error</code> field is provided for backwards compatibility. We recommend using the <code>code</code> field for programmatic error handling as it provides more specific information.
 </aside>
-<h1 id='changelog'>Changelog</h1><h2 id='april-2026'>April 2026</h2><h3 id='async-ticketing-flow-now-available'>Async TICKETING Flow Now Available</h3>
+<h1 id='changelog'>Changelog</h1><h2 id='june-2026'>June 2026</h2><h3 id='internal-schedule-availability'>Internal Schedule Availability</h3>
+<p><strong>New Feature</strong> - The seatings endpoint can now expose availability from internal schedules (slots normally hidden from public/online availability). Each availability entry now includes an <code>internal</code> boolean indicating whether the slot comes from an internal schedule.</p>
+
+<p>Internal availability is only returned when the request uses API v3 (<code>Accept: application/vnd.libro-restricted-v3+json</code>), the access token has the <code>availability:all</code> scope, and the restaurant has enabled internal availability sharing for your application.</p>
+
+<p>See the <a href="#internal-schedule-availability">Internal Schedule Availability</a> section for details.</p>
+<h2 id='april-2026'>April 2026</h2><h3 id='async-ticketing-flow-now-available'>Async TICKETING Flow Now Available</h3>
 <p><strong>Update</strong> - The asynchronous TICKETING payment flow is now fully implemented. Previously marked as &quot;Work in Progress&quot;, this flow allows guests to select an offer and complete ticket payment via a link sent by SMS or email after the booking is created.</p>
 
 <p>See the <a href="#payment-collection-flows">Payment Collection Flows</a> section for complete details on both sync and async flows.</p>
