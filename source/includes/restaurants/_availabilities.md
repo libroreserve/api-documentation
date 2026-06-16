@@ -255,7 +255,7 @@ Internal schedules are configured by the restaurant for operational use and are 
 To receive internal schedule availability, the request must satisfy all of the following:
 
 - Use API **v3** by sending the `Accept: application/vnd.libro-restricted-v3+json` header.
-- Use an access token granted the `availability:all` scope. Requests without this scope receive a `403 Forbidden`.
+- Use an access token granted the `availability:all` scope.
 - The restaurant must have internal availability sharing enabled for your application (enabled by default; a restaurant manager can disable it per application).
 
 <aside class="notice">
